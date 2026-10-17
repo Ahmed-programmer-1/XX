@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<script>window.__hakimBIP=null;window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();window.__hakimBIP=e;window.dispatchEvent(new Event('hakim-bip'));});</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ملفي الشخصي — منصة حكيم التعليمية</title>
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="icon-32.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#e5202c">
+<script>(function(){try{if(localStorage.getItem('hakim_theme')==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
+<style>
+/* ============================================================
+   منصة حكيم التعليمية — نظام التصميم (نسخة موسّعة)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #0c0c0d;
+  --surface: #161616;
+  --surface-2: #1c1c1e;
+  --line: #2a2a2c;
+  --text: #f2f2f2;
+  --text-muted: #9a9a9d;
+
+  --red: #e5202c;
+  --red-dim: #a3141c;
+  --red-glow: rgba(229,32,44,0.35);
+
+  --green: #2fb85f;
+  --amber: #e8a33d;
+
+  --font-display: 'Tajawal', sans-serif;
+  --font-body: 'IBM Plex Sans Arabic', sans-serif;
+
+  --radius-card: 10px;
+  --radius-sm: 8px;
+
+  --shadow-lift: 0 16px 32px rgba(0,0,0,0.55);
+}
+
+/* ---------- الوضع الفاتح: أزرق مشرق وملوّن ---------- */
+html[data-theme="light"] {
+  --bg: #e9f3ff;
+  --surface: #ffffff;
+  --surface-2: #e2eeff;
+  --line: #c7dbf6;
+  --text: #0c2748;
+  --text-muted: #546f90;
+  --red: #2563eb;
+  --red-dim: rgba(37,99,235,0.45);
+  --red-glow: rgba(37,99,235,0.28);
+  --green: #12a150;
+  --amber: #f59e0b;
+  --shadow-lift: 0 14px 30px rgba(37,99,235,0.18);
+}
+html[data-theme="light"] body { background: radial-gradient(900px 520px at 88% -8%, rgba(56,189,248,0.38), transparent 62%), radial-gradient(800px 520px at 2% 8%, rgba(167,139,250,0.30), transparent 62%), radial-gradient(760px 520px at 55% 105%, rgba(251,191,36,0.22), transparent 60%), linear-gradient(180deg, #e6f1ff 0%, #f4faff 100%); background-attachment: fixed; }
+html[data-theme="light"] .site-header { background: rgba(255,255,255,0.82); backdrop-filter: blur(12px); border-bottom: 3px solid transparent; border-image: linear-gradient(90deg, #2563eb, #06b6d4, #8b5cf6, #ec4899) 1; box-shadow: 0 4px 18px rgba(37,99,235,0.12); }
+html[data-theme="light"] .icon-btn, html[data-theme="light"] .nav-pill { background: #fff; border-color: var(--line); color: var(--text); box-shadow: 0 1px 4px rgba(37,99,235,0.12); }
+html[data-theme="light"] .icon-btn:hover, html[data-theme="light"] .nav-pill:hover { background: #eef5ff; border-color: var(--red); }
+html[data-theme="light"] .nav-pill.active-mylists { background: rgba(37,99,235,0.12); border-color: var(--red); color: var(--red); }
+html[data-theme="light"] .install-btn { background: linear-gradient(135deg, #2563eb, #7c3aed); border-color: transparent; color: #fff; }
+html[data-theme="light"] input, html[data-theme="light"] textarea, html[data-theme="light"] select { background: #fff; border-color: var(--line); color: var(--text); }
+html[data-theme="light"] .header-search input { box-shadow: 0 2px 8px rgba(37,99,235,0.10); }
+html[data-theme="light"] .mylists-dropdown { background: #fff; border-color: var(--line); box-shadow: var(--shadow-lift); }
+html[data-theme="light"] .mylists-row:hover { background: rgba(37,99,235,0.10); }
+html[data-theme="light"] .mylists-row.is-all { color: var(--red); background: rgba(37,99,235,0.07); }
+html[data-theme="light"] .mylists-row.current { background: rgba(37,99,235,0.14); color: var(--red); }
+html[data-theme="light"] .site-footer, html[data-theme="light"] footer { background: rgba(255,255,255,0.72); }
+html[data-theme="light"] .home-alert-banner { background: #fff3cd; border-color: #f5b301; color: #4a3200; }
+html[data-theme="light"] .card-media { border-color: var(--line); box-shadow: 0 6px 16px rgba(37,99,235,0.12); }
+html[data-theme="light"] .card-badge { background: linear-gradient(135deg, #2563eb, #7c3aed); }
+html[data-theme="light"] .course-card:hover .card-media { border-color: var(--red); box-shadow: 0 12px 28px rgba(37,99,235,0.28); }
+html[data-theme="light"] .discovery-tab, html[data-theme="light"] .tab-btn { background: #fff; }
+html[data-theme="light"] .tab-btn.active { background: linear-gradient(135deg, #2563eb, #7c3aed); border-color: transparent; }
+html[data-theme="light"] .continue-card { background: #fff; border-color: var(--line); box-shadow: 0 4px 14px rgba(37,99,235,0.10); }
+html[data-theme="light"] .reco-banner { background: linear-gradient(90deg, rgba(37,99,235,0.09), rgba(139,92,246,0.09)); border-color: var(--line); }
+html[data-theme="light"] .related-card.current { background: rgba(37,99,235,0.08); }
+html[data-theme="light"] .admin-card, html[data-theme="light"] .course-row, html[data-theme="light"] .work-card { box-shadow: 0 4px 16px rgba(37,99,235,0.08); }
+html[data-theme="light"] .discovery-tab.active { background: var(--tab-color, var(--red)); color: #fff; border-color: transparent; }
+html[data-theme="light"] .banner-img { background: var(--surface-2); color: var(--text-muted); }
+
+* { box-sizing: border-box; }
+html { color-scheme: dark; }
+html[data-theme="light"] { color-scheme: light; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  background-image: radial-gradient(circle at 15% 0%, rgba(229,32,44,0.09), transparent 45%);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--red); color: #fff; }
+:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; border-radius: 4px; }
+
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 22px; }
+
+/* ---------- الرأس ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(12,12,13,0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid var(--red-dim);
+}
+
+.site-header-inner { display: flex; align-items: center; gap: 14px; padding: 14px 22px; }
+.brand { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0; }
+
+.brand-mark { width: 44px; height: 44px; flex-shrink: 0; filter: drop-shadow(0 0 6px rgba(229,32,44,0.55)); animation: logo-pulse 3.2s ease-in-out infinite; }
+@keyframes logo-pulse {
+  0%, 100% { filter: drop-shadow(0 0 5px rgba(229,32,44,0.45)); }
+  50% { filter: drop-shadow(0 0 14px rgba(229,32,44,0.85)); }
+}
+
+.brand-text h1 { font-family: var(--font-display); font-weight: 900; font-size: 1.4rem; margin: 0; letter-spacing: 0.3px; }
+.brand-text h1 span { color: var(--red); }
+.brand-text p { margin: 0; font-size: 0.74rem; color: var(--text-muted); }
+
+.header-actions { display: flex; align-items: center; gap: 8px; }
+.mylists-wrap { position: relative; display: flex; align-items: center; }
+.nav-pill { display: inline-flex; align-items: center; gap: 6px; height: 38px; padding: 0 12px 0 10px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--text); font: inherit; font-size: 0.82rem; font-weight: 600; cursor: pointer; white-space: nowrap; max-width: 210px; transition: background .18s ease, border-color .18s ease, color .18s ease; }
+.nav-pill-label { overflow: hidden; text-overflow: ellipsis; }
+.nav-pill svg { width: 16px; height: 16px; fill: currentColor; flex-shrink: 0; transition: transform .22s ease; }
+.nav-pill:hover { border-color: var(--red-dim); background: var(--surface-2); }
+.nav-pill:focus-visible, .mylists-row:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+.nav-pill.active-mylists { background: rgba(229,32,44,0.12); border-color: var(--red); color: var(--red); }
+.nav-pill.active-mylists svg { transform: rotate(180deg); }
+.install-btn { display: inline-flex; align-items: center; gap: 7px; height: 38px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--red); background: var(--red); color: #fff; font: inherit; font-size: 0.82rem; font-weight: 700; cursor: pointer; white-space: nowrap; flex-shrink: 0; transition: filter .15s ease, transform .15s ease; }
+.install-btn:hover { filter: brightness(1.12); }
+.install-btn:active { transform: scale(0.97); }
+.install-btn svg { width: 16px; height: 16px; fill: currentColor; }
+@media (max-width: 640px) { .install-btn { width: 34px; height: 34px; padding: 0; justify-content: center; } .install-label { display: none; } }
+.mylists-dropdown {
+  position: absolute; top: calc(100% + 10px); right: 0; z-index: 60;
+  width: max-content; min-width: 230px; max-width: min(340px, calc(100vw - 20px));
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 8px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.5);
+  opacity: 0; visibility: hidden; transform: translateY(-8px) scale(0.98); transform-origin: top right; pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
+}
+.mylists-dropdown.show { opacity: 1; visibility: visible; transform: translateY(0) scale(1); pointer-events: auto; transition: opacity .18s ease, transform .18s ease, visibility 0s; }
+.mylists-rows { display: flex; flex-direction: column; gap: 2px; }
+.mylists-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 11px 14px; border-radius: 10px; color: var(--text); font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: background .14s ease, color .14s ease; }
+.mylists-row:hover { background: rgba(229,32,44,0.12); }
+.mylists-row.is-all { color: var(--red); background: rgba(229,32,44,0.07); font-weight: 700; }
+.mylists-row.current { background: rgba(229,32,44,0.16); color: var(--red); }
+.mylists-row .count { font-size: 0.74rem; color: var(--text-muted); background: var(--surface-2); border-radius: 999px; padding: 1px 8px; font-weight: 600; }
+@media (max-width: 640px) {
+  .mylists-wrap { position: static; }
+  .nav-pill { width: 34px; height: 34px; padding: 0; justify-content: center; border-radius: 50%; }
+  .nav-pill-label { display: none; }
+  .mylists-dropdown { top: calc(100% + 6px); left: 12px; right: 12px; width: auto; min-width: 0; max-width: none; transform-origin: top center; }
+}
+.mylists-rows { display: flex; flex-direction: column; gap: 2px; }
+.mylists-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 9px 10px; border-radius: 8px; color: var(--text); text-decoration: none; font-size: 0.84rem; }
+.mylists-row:hover { background: var(--surface-2); }
+.mylists-row .count { color: var(--text-muted); font-size: 0.74rem; flex-shrink: 0; }
+.mylists-row .name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mylists-divider { height: 1px; background: var(--line); margin: 6px 2px; }
+.mylists-empty-hint { padding: 8px 10px; color: var(--text-muted); font-size: 0.78rem; }
+.mylists-new-form { display: flex; gap: 6px; padding: 4px 2px 2px; }
+.mylists-new-form input { flex: 1; min-width: 0; background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; padding: 7px 9px; color: var(--text); font-size: 0.78rem; }
+.mylists-new-form button { background: var(--red); color: #fff; border: none; border-radius: 8px; padding: 7px 11px; font-size: 0.76rem; cursor: pointer; white-space: nowrap; }
+.icon-btn.active-mylists { color: var(--red); border-color: var(--red); }
+.icon-btn.active-mylists svg { transform: rotate(180deg); }
+.icon-btn svg { transition: transform .18s ease; }
+.mylists-card-remove { background: none; border: 1px solid var(--line); color: var(--text-muted); border-radius: 8px; padding: 6px 10px; font-size: 0.75rem; cursor: pointer; }
+.mylists-card-remove:hover { color: #ff5c5c; border-color: #ff5c5c; }
+.mylists-subtabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.mylists-subtab-btn { background: var(--surface); border: 1px solid var(--line); color: var(--text-muted); border-radius: 20px; padding: 9px 16px; font-size: 0.82rem; cursor: pointer; display: flex; align-items: center; gap: 6px; }
+.mylists-subtab-btn .n { color: var(--text-muted); font-size: 0.72rem; }
+.mylists-subtab-btn.active { background: var(--red); border-color: var(--red); color: #fff; }
+.mylists-subtab-btn.active .n { color: rgba(255,255,255,0.8); }
+.mylists-course-card { position: relative; }
+.mylists-course-card .mylists-card-remove { position: absolute; top: 8px; left: 8px; z-index: 2; background: rgba(12,12,13,0.85); }
+.icon-btn {
+  width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line);
+  background: var(--surface); display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--text-muted); transition: all 0.15s ease; flex-shrink: 0;
+}
+.icon-btn:hover { color: var(--red); border-color: var(--red-dim); }
+.icon-btn svg { width: 18px; height: 18px; fill: currentColor; }
+.icon-btn .sun { display: none; }
+html[data-theme="light"] .icon-btn .moon { display: none; }
+html[data-theme="light"] .icon-btn .sun { display: block; }
+
+/* ---------- شريط البحث والتصنيف ---------- */
+.tab-btn {
+  background: var(--surface); border: 1px solid var(--line); color: var(--text-muted);
+  font-family: var(--font-body); font-weight: 500; font-size: 0.82rem; padding: 8px 18px;
+  border-radius: var(--radius-sm); cursor: pointer; transition: all 0.15s ease;
+}
+.tab-btn:hover { color: var(--text); border-color: var(--red-dim); }
+.tab-btn.active { background: var(--red); border-color: var(--red); color: #fff; font-weight: 700; }
+
+/* ---------- شبكة الكروت ---------- */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 20px; padding: 22px 0 60px; }
+.course-card { position: relative; display: block; cursor: pointer; opacity: 0; transform: translateY(10px); animation: card-in 0.45s ease forwards; }
+@keyframes card-in { to { opacity: 1; transform: translateY(0); } }
+
+.card-media { position: relative; width: 100%; aspect-ratio: 2/3; border-radius: var(--radius-card); overflow: hidden; background: var(--surface); border: 1px solid var(--line); transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+.card-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.35s ease; }
+.card-badge { position: absolute; top: 10px; right: 10px; background: var(--red); color: #fff; font-size: 0.68rem; font-weight: 700; padding: 4px 11px; border-radius: 5px; box-shadow: 0 4px 10px rgba(0,0,0,0.4); }
+.card-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.35); opacity: 0; transition: opacity 0.2s ease; }
+.card-play svg { width: 46px; height: 46px; fill: #fff; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6)); transform: scale(0.85); transition: transform 0.2s ease; }
+.card-body { padding: 10px 2px 0; }
+.card-body h3 { margin: 0 0 3px; font-family: var(--font-display); font-weight: 700; font-size: 0.92rem; text-align: center; color: var(--text); }
+.card-body p { margin: 0; font-size: 0.76rem; color: var(--text-muted); text-align: center; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.course-card:hover .card-media, .course-card:focus-visible .card-media { border-color: var(--red); box-shadow: var(--shadow-lift), 0 0 0 1px var(--red-glow); }
+.course-card:hover .card-media img { transform: scale(1.06); }
+.course-card:hover .card-play { opacity: 1; }
+.course-card:hover .card-play svg { transform: scale(1); }
+
+/* ---------- حالة عدم وجود كورسات ---------- */
+
+/* ---------- التذييل ---------- */
+.site-footer { border-top: 1px solid var(--line); padding: 26px 0 34px; text-align: center; }
+.site-footer p { margin: 0 0 6px; font-size: 0.78rem; color: var(--text-muted); }
+.site-footer .rights-note { max-width: 560px; margin: 0 auto; font-size: 0.72rem; color: var(--text-muted); opacity: 0.7; }
+.site-footer .admin-link { display: inline-block; margin-top: 10px; font-size: 0.7rem; color: var(--text-muted); opacity: 0.5; }
+.site-footer .admin-link:hover { opacity: 1; color: var(--red); }
+
+/* ============================================================
+   صفحة الكورس (course.html)
+   ============================================================ */
+.back-link {
+  display: inline-flex; align-items: center; gap: 6px; color: var(--text-muted); font-size: 0.82rem; font-weight: 700;
+  margin: 22px 0 0; padding: 7px 14px; border: 1px solid var(--line); border-radius: 999px; transition: color .15s ease, border-color .15s ease;
+}
+.back-link:hover { color: var(--red); border-color: var(--red-dim); }
+.back-link svg { width: 15px; height: 15px; fill: currentColor; }
+
+/* قسم المعلومات */
+
+/* أزرار الحلقة السابقة / التالية */
+
+/* تبويبات تجميع الحلقات */
+
+/* ============================================================
+   إصلاحات الهاتف — الموقع كان شبه من غير أي تجاوب حقيقي غير
+   نقطتين صغيرين، فده تمرير عام لأهم المشاكل: تكدّس الهيدر،
+   قوائم منسدلة بتخرج بره الشاشة، حشو زيادة على الجنبين، وسكرول أفقي.
+   ============================================================ */
+html, body { overflow-x: hidden; max-width: 100%; }
+@media (max-width: 720px) {
+  .wrap { padding: 0 14px; }
+  .site-header-inner { padding: 10px 14px; gap: 6px; flex-wrap: nowrap; }
+  .brand { gap: 8px; }
+  .brand-mark { width: 34px; height: 34px; }
+  .brand-text p { display: none; }
+  .brand-text h1 { font-size: 1rem; }
+  .header-actions { gap: 3px; }
+  .icon-btn { width: 34px; height: 34px; }
+  .icon-btn svg { width: 16px; height: 16px; }
+  .admin-card { padding: 16px; }
+}
+@media (max-width: 480px) {
+  .brand-text h1 { font-size: 0.9rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .course-card, .card-media img, .brand-mark { transition: none !important; animation: none !important; }
+  .course-card { opacity: 1; transform: none; }
+}
+
+/* ============================================================
+   مشغّل الفيديو المخصص (player.js)
+   ============================================================ */
+@keyframes hp-spin { to { transform: rotate(360deg); } }
+@keyframes hp-pulse { 0% { transform: scale(1); } 40% { transform: scale(0.85); } 100% { transform: scale(1); } }
+
+/* ============================================================
+   صفحة الأدمن (admin.html)
+   ============================================================ */
+.admin-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-card); padding: 28px; margin-bottom: 20px; }
+.admin-card h2 { font-family: var(--font-display); font-size: 1.15rem; margin: 0 0 6px; }
+.admin-card .hint { font-size: 0.8rem; color: var(--text-muted); margin: 0 0 18px; line-height: 1.8; }
+
+.field { margin-bottom: 16px; }
+.field label { display: block; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px; font-weight: 600; }
+.field input[type="text"], .field input[type="password"], .field input[type="url"], .field textarea, .field select {
+  width: 100%; background: var(--surface-2); border: 1px solid var(--line); color: var(--text);
+  font-family: var(--font-body); font-size: 0.9rem; padding: 11px 13px; border-radius: var(--radius-sm);
+  transition: border-color 0.15s ease;
+}
+.field input:focus, .field textarea:focus, .field select:focus { border-color: var(--red); outline: none; }
+.field textarea { min-height: 80px; resize: vertical; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 560px) { .field-row { grid-template-columns: 1fr; } }
+
+.btn-primary, .btn-secondary, .btn-danger {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 11px 22px; border-radius: var(--radius-sm); font-family: var(--font-body);
+  font-weight: 700; font-size: 0.86rem; cursor: pointer; border: none; transition: all 0.15s ease;
+}
+.btn-primary { background: var(--red); color: #fff; }
+.btn-primary:hover { background: #ff2e3b; }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-secondary { background: var(--surface-2); color: var(--text); border: 1px solid var(--line); }
+.btn-secondary:hover { border-color: var(--red-dim); }
+.btn-danger { background: transparent; color: #ff5c5c; border: 1px solid rgba(255,92,92,0.4); }
+.btn-danger:hover { background: rgba(255,92,92,0.1); }
+
+.toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--surface-2); border: 1px solid var(--line); color: var(--text); padding: 13px 22px; border-radius: var(--radius-sm); font-size: 0.85rem; box-shadow: var(--shadow-lift); z-index: 100; opacity: 0; pointer-events: none; transition: all 0.25s ease; }
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.toast.success { border-color: var(--green); }
+.toast.error { border-color: #ff5c5c; }
+
+/* ============================================================
+   إضافات: القائمة الجانبية، الأقسام، الإشعارات/الاستطلاعات/المواعيد
+   ============================================================ */
+
+/* قائمة الهامبرغر */
+.hamburger-btn { display: flex; }
+.menu-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 40; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
+.menu-overlay.show { opacity: 1; pointer-events: auto; }
+.side-menu {
+  position: fixed; top: 0; bottom: 0; right: 0; width: 300px; max-width: 86vw;
+  background: var(--surface); border-left: 1px solid var(--line); z-index: 41;
+  transform: translateX(100%); transition: transform 0.25s ease; overflow-y: auto;
+  padding: 18px;
+}
+.side-menu.show { transform: translateX(0); }
+.side-menu h3 { font-family: var(--font-display); font-size: 0.78rem; color: var(--text-muted); margin: 18px 0 8px; padding: 0 4px; }
+.side-menu h3:first-child { margin-top: 0; }
+.side-menu a.menu-link {
+  display: flex; align-items: center; gap: 10px; padding: 11px 12px; border-radius: var(--radius-sm);
+  color: var(--text); font-size: 0.9rem; font-weight: 600; transition: background 0.15s ease;
+}
+.side-menu a.menu-link:hover { background: var(--surface-2); }
+.side-menu a.menu-link svg { width: 18px; height: 18px; fill: var(--text-muted); flex-shrink: 0; }
+.side-menu .menu-close { position: absolute; top: 14px; left: 14px; }
+
+/* صفحة الأقسام (section.html) والمركز (hub.html) */
+
+.hub-tabs { display: flex; flex-wrap: wrap; gap: 4px 8px; margin: 22px 0 0; border-bottom: 1px solid var(--line); }
+.hub-tab { padding: 11px 16px; font-size: 0.85rem; font-weight: 700; color: var(--text-muted); cursor: pointer; border-bottom: 2px solid transparent; white-space: nowrap; }
+.hub-tab.active { color: var(--red); border-color: var(--red); }
+@media (max-width: 640px) { .hub-tab { padding: 9px 10px; font-size: 0.78rem; } }
+.hub-panel { display: none; padding-bottom: 60px; }
+.hub-panel.active { display: block; }
+
+.notif-card, .schedule-card {
+  background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius-card);
+  padding: 16px 18px; margin-bottom: 12px;
+}
+.notif-card h4, .schedule-card h4 { margin: 0 0 6px; font-size: 0.95rem; font-family: var(--font-display); }
+.notif-card p, .schedule-card p { margin: 0; font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; }
+.notif-card .date, .schedule-card .date { font-size: 0.72rem; color: var(--red); margin-top: 8px; direction: ltr; text-align: right; }
+
+.poll-card { background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius-card); padding: 18px; margin-bottom: 16px; }
+.poll-card h4 { margin: 0 0 14px; font-size: 0.98rem; font-family: var(--font-display); }
+.poll-option { margin-bottom: 10px; }
+.poll-option-label { display: flex; justify-content: space-between; font-size: 0.84rem; margin-bottom: 5px; }
+.poll-option-label b { font-weight: 700; }
+.poll-bar-track { height: 10px; background: var(--bg); border-radius: 999px; overflow: hidden; }
+.poll-bar-fill { height: 100%; background: var(--red); border-radius: 999px; transition: width 0.4s ease; }
+.poll-total { font-size: 0.72rem; color: var(--text-muted); margin-top: 10px; }
+
+.empty-hub { text-align: center; padding: 50px 20px; color: var(--text-muted); font-size: 0.86rem; }
+
+/* شارات المشاهدات والإعجاب (عرض فقط) */
+
+/* ترقيم صفحات الحلقات (أرقام بسيطة) */
+
+
+/* إحصائيات الأدمن */
+
+/* أزرار الإعجاب/عدم الإعجاب التفاعلية وزر الإبلاغ */
+
+/* نموذج الاستطلاع التفاعلي */
+.poll-form-opts label:hover { color: var(--red); }
+.poll-result-msg strong { color: var(--text); }
+
+/* تقييم النجوم (الحلقة + الكورس ككل) */
+
+/* زر تليجرام عائم */
+.floating-telegram {
+  position: fixed; bottom: 22px; left: 22px; width: 52px; height: 52px; border-radius: 50%;
+  background: #229ed9; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4); z-index: 50; transition: transform 0.15s ease;
+}
+.floating-telegram:hover { transform: scale(1.08); }
+.floating-telegram svg { width: 26px; height: 26px; fill: #fff; }
+
+/* شريط إشعارات/استطلاعات بارز في الرئيسية */
+.home-alert-banner {
+  background: linear-gradient(90deg, rgba(229,32,44,0.16), rgba(229,32,44,0.04));
+  border: 1px solid var(--red-dim); border-radius: var(--radius-sm);
+  padding: 12px 16px; margin: 18px 0; display: flex; align-items: center; gap: 10px;
+  font-size: 0.86rem; animation: banner-in 0.4s ease;
+}
+.home-alert-banner svg { width: 18px; height: 18px; fill: var(--red); flex-shrink: 0; }
+.home-alert-banner a { color: var(--red); font-weight: 700; margin-right: auto; white-space: nowrap; }
+@keyframes banner-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+
+
+/* ---------- رأس مضغوط (نفس الصفحة الرئيسية) ---------- */
+.brand-mark { width: 30px; height: 30px; animation: none; filter: none; }
+.brand-text h1 { font-size: 1.02rem; }
+.brand-text p { display: none; }
+@media (max-width: 900px) {
+  .nav-pill { width: 36px; height: 36px; padding: 0; justify-content: center; border-radius: 50%; }
+  .nav-pill-label, .install-label { display: none; }
+  .install-btn { width: 36px; height: 36px; padding: 0; justify-content: center; }
+}
+@media (max-width: 720px) { .brand-text { display: block; min-width: 0; } .brand-text h1 { font-size: 0.82rem !important; max-width: 38vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .brand-mark { width: 26px !important; height: 26px !important; } }
+</style>
+<script src="nav.js" defer></script>
+<meta name="robots" content="noindex">
+<style>
+.pf-card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 20px; margin: 0 0 16px; }
+.pf-h { margin: 0 0 4px; font-size: 1.1rem; } .pf-h4 { margin: 16px 0 8px; font-size: 0.85rem; color: var(--text-muted); }
+.pf-sub { margin: 0 0 6px; font-size: 0.82rem; color: var(--text-muted); }
+.pf-head { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+.pf-avatar { position: relative; width: 104px; height: 104px; border-radius: 50%; flex: 0 0 auto; background: var(--red); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 2.4rem; font-weight: 800; overflow: hidden; border: 3px solid var(--red); }
+.pf-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pf-cam { position: absolute; inset: auto 0 0 0; background: rgba(0,0,0,.6); border: 0; color: #fff; font: inherit; font-size: 0.7rem; padding: 5px 0; cursor: pointer; }
+.pf-info { flex: 1; min-width: 190px; }
+.pf-name { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 1.35rem; font-weight: 800; margin: 0 0 2px; }
+.pf-mini { background: none; border: 1px solid var(--line); color: inherit; border-radius: 8px; padding: 3px 9px; font: inherit; font-size: 0.74rem; cursor: pointer; }
+.pf-mini:hover { border-color: var(--red); }
+.pf-email { font-size: 0.78rem; color: var(--text-muted); direction: ltr; text-align: right; }
+.pf-title { display: inline-block; margin-top: 8px; padding: 4px 12px; border-radius: 999px; background: rgba(229,32,44,.14); border: 1px solid rgba(229,32,44,.5); font-size: 0.78rem; font-weight: 700; }
+.pf-code { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 16px; padding: 12px 14px; border: 1px dashed var(--line); border-radius: 12px; }
+.pf-code b { font-size: 1.35rem; letter-spacing: 3px; font-family: monospace; direction: ltr; }
+.pf-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.pf-stat { border: 1px solid var(--line); border-radius: 14px; padding: 14px; text-align: center; background: var(--surface-2); }
+.pf-stat .n { font-size: 1.5rem; font-weight: 800; } .pf-stat .l { font-size: 0.74rem; color: var(--text-muted); }
+.pf-badge { border: 1px solid var(--line); border-radius: 14px; padding: 14px 10px; text-align: center; background: var(--surface-2); }
+.pf-badge .ic { font-size: 1.9rem; } .pf-badge .t { font-weight: 700; font-size: 0.82rem; margin-top: 4px; } .pf-badge .d { font-size: 0.68rem; color: var(--text-muted); margin-top: 2px; }
+.pf-badge.off { opacity: .42; filter: grayscale(1); }
+.pf-badge.on { border-color: rgba(229,32,44,.55); }
+.pf-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.pf-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.pf-chip { border: 1px solid var(--line); background: var(--surface-2); color: inherit; border-radius: 999px; padding: 7px 14px; font: inherit; font-size: 0.82rem; cursor: pointer; }
+.pf-chip.active { background: var(--red); border-color: var(--red); color: #fff; }
+.pf-input { width: 100%; max-width: 360px; box-sizing: border-box; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface-2); color: inherit; font: inherit; }
+.pf-rank { display: flex; align-items: center; gap: 12px; }
+.pf-rank .ic { font-size: 2rem; } .pf-soon { font-size: 0.72rem; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--text-muted); }
+.pf-actions { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; margin-top: 4px; }
+.pf-actions a, .pf-actions button { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 11px 8px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface-2); color: inherit; font: inherit; font-size: 0.84rem; cursor: pointer; text-decoration: none; }
+.pf-actions a:hover, .pf-actions button:hover { border-color: var(--red); }
+.pf-actions .danger { color: #ff7b84; }
+</style>
+<style id="hk-fixes">
+/* ===== إصلاحات الموبايل + زر تيليجرام + روابط الفوتر (أكتوبر 2026) ===== */
+@media (max-width: 720px) { .header-actions .mylists-wrap { display: none; } } /* الأقسام وقوائمي موجودين في الشريط السفلي والقائمة الجانبية */
+.floating-telegram { width: 60px !important; height: 60px !important; animation: tg-pulse 2.6s infinite; }
+.floating-telegram svg { width: 30px !important; height: 30px !important; }
+@keyframes tg-pulse { 0% { box-shadow: 0 6px 18px rgba(0,0,0,.4), 0 0 0 0 rgba(34,158,217,.6); } 70% { box-shadow: 0 6px 18px rgba(0,0,0,.4), 0 0 0 18px rgba(34,158,217,0); } 100% { box-shadow: 0 6px 18px rgba(0,0,0,.4), 0 0 0 0 rgba(34,158,217,0); } }
+@media (prefers-reduced-motion: reduce) { .floating-telegram { animation: none; } }
+.footer-links { display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: center; margin-top: 8px; }
+</style>
+<link rel="stylesheet" href="ui.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap site-header-inner">
+      <a href="index.html" class="brand">
+        <svg class="brand-mark" viewBox="0 0 200 200">
+          <defs>
+            <radialGradient id="bggm" cx="50%" cy="42%" r="65%"><stop offset="0%" stop-color="#1a1a1c"/><stop offset="100%" stop-color="#0c0c0d"/></radialGradient>
+            <linearGradient id="bladegm" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#ff5a63"/><stop offset="55%" stop-color="#e5202c"/><stop offset="100%" stop-color="#8c0f18"/></linearGradient>
+            <linearGradient id="flamegm" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#ff2e3b" stop-opacity="0"/><stop offset="100%" stop-color="#ff6a52"/></linearGradient>
+          </defs>
+          <circle cx="100" cy="100" r="98" fill="url(#bggm)" stroke="#e5202c" stroke-width="3"/>
+          <path d="M100 34 L112 92 L100 168 L88 92 Z" fill="url(#bladegm)"/>
+          <path d="M100 96 C70 86 58 60 66 30 C74 56 84 70 100 78 Z" fill="url(#flamegm)"/>
+          <path d="M100 96 C130 86 142 60 134 30 C126 56 116 70 100 78 Z" fill="url(#flamegm)"/>
+          <circle cx="100" cy="46" r="5" fill="#fff" opacity="0.9"/>
+        </svg>
+        <div class="brand-text">
+          <h1 class="js-site-name">منصة حكيم التعليمية</h1>
+          <p class="js-tagline">تعلّم بالترتيب الذي تريده أنت</p>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="mylists-wrap">
+          <button class="nav-pill" id="sectionsBtn" title="الأقسام" aria-label="الأقسام" aria-haspopup="true" aria-expanded="false"><span class="nav-pill-label" id="sectionsBtnLabel">الصفحة الرئيسية</span><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button>
+          <div class="mylists-dropdown" id="sectionsDropdown"></div>
+        </div>
+        <div class="mylists-wrap">
+          <button class="nav-pill" id="myListsBtn" title="قوائمي" aria-label="قوائمي" aria-haspopup="true" aria-expanded="false"><span class="nav-pill-label">قوائمي</span><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button>
+          <div class="mylists-dropdown" id="myListsDropdown"></div>
+        </div>
+        <button class="icon-btn" id="themeToggle" title="تبديل الوضع: ليلي / فاتح" aria-label="تبديل الوضع">
+          <svg class="moon" viewBox="0 0 24 24"><path d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>
+          <svg class="sun" viewBox="0 0 24 24"><path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0-5a1 1 0 011 1v2a1 1 0 11-2 0V3a1 1 0 011-1zm0 18a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1zM4.22 4.22a1 1 0 011.42 0l1.41 1.41a1 1 0 11-1.41 1.41L4.22 5.64a1 1 0 010-1.42zm12.73 12.73a1 1 0 011.41 0l1.41 1.41a1 1 0 01-1.41 1.41l-1.41-1.41a1 1 0 010-1.41zM1 12a1 1 0 011-1h2a1 1 0 110 2H2a1 1 0 01-1-1zm18 0a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1zM4.22 19.78a1 1 0 010-1.41l1.41-1.41a1 1 0 111.41 1.41l-1.41 1.41a1 1 0 01-1.41 0zM16.95 4.22a1 1 0 010 1.41l-1.41 1.41a1 1 0 11-1.41-1.41l1.41-1.41a1 1 0 011.41 0z"/></svg>
+        </button>
+        <button class="install-btn" id="installAppBtn" type="button" title="تثبيت التطبيق" aria-label="تثبيت التطبيق"><svg viewBox="0 0 24 24"><path d="M12 3a1 1 0 011 1v9.59l3.3-3.3a1 1 0 111.4 1.42l-5 5a1 1 0 01-1.4 0l-5-5a1 1 0 111.4-1.42l3.3 3.3V4a1 1 0 011-1zM5 19a1 1 0 011-1h12a1 1 0 110 2H6a1 1 0 01-1-1z"/></svg><span class="install-label">تثبيت التطبيق</span></button>
+        <button class="icon-btn hamburger-btn" id="menuBtn" title="القائمة" aria-label="القائمة">
+          <svg viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="menu-overlay" id="menuOverlay"></div>
+  <nav class="side-menu" id="sideMenu">
+    <button class="icon-btn menu-close" id="menuCloseBtn" aria-label="إغلاق"><svg viewBox="0 0 24 24"><path d="M6.4 4.98L4.98 6.4 10.59 12l-5.61 5.6 1.42 1.42L12 13.41l5.6 5.61 1.42-1.42L13.41 12l5.61-5.6-1.42-1.42L12 10.59z"/></svg></button>
+    <div id="sideMenuItems"></div>
+  </nav>
+
+  <main class="wrap">
+  <a href="index.html" class="back-link">
+    <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20z"/></svg>
+    العودة للرئيسية
+  </a>
+  <div id="pfRoot"><div class="pf-card" style="text-align:center;padding:40px 16px">جارٍ التحميل...</div></div>
+
+
+</main>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="js-footer-rights">© 2026 منصة حكيم التعليمية — جميع الحقوق محفوظة</p>
+      <p class="rights-note js-footer-note">
+        المحتوى التعليمي المعروض على المنصة ملك لأصحابه ومقدّمي الكورسات الأصليين؛
+        هذه المنصة أداة عرض وتنظيم فقط ولا تدّعي ملكية أي مادة تعليمية بها.
+      </p>
+      <nav class="footer-links">
+        <a href="hub.html?tab=complaint" class="admin-link">قسم الشكوى وتقييم بلاغ</a>
+        <a href="hub.html?tab=contact" class="admin-link">اتصل بنا</a>
+        <a href="hub.html?tab=dmca" class="admin-link">DMCA</a>
+        <a href="hub.html?tab=join" class="admin-link">أريد العمل معكم</a>
+      </nav>
+      
+    </div>
+  </footer>
+
+<script>
+/* لا تعدّل هذا الملف — هذه دالة داخلية يستخدمها كل ملف كورس تلقائيًا */
+function registerCourse(id, data) {
+  window.__HAKIM_COURSES = window.__HAKIM_COURSES || {};
+  window.__HAKIM_COURSES[id] = data;
+}
+
+</script>
+<script>
+/* ============================================================
+   common.js — دوال مشتركة بين كل صفحات الموقع
+   ============================================================ */
+
+function hakimEscapeHtml(str) {
+  const d = document.createElement('div');
+  d.textContent = str == null ? '' : String(str);
+  return d.innerHTML;
+}
+
+const __hakimLoadedScripts = {};
+/* ملفات البيانات (إعدادات الموقع/القوائم/الكورسات) بنطلبها بنسخة كل 30 ثانية، عشان تعديلات الأدمن (وضع الصيانة مثلًا)
+   تظهر بسرعة بدل ما تستنى كاش المتصفح والـCDN (حوالي 10 دقايق على GitHub Pages) */
+function hakimVersioned(src) {
+  if (/^vendor\//.test(src) || /^media-utils\.js/.test(src) || /[?&]v=/.test(src)) return src;
+  return src + (src.indexOf('?') > -1 ? '&' : '?') + 'v=' + Math.floor(Date.now() / 30000);
+}
+function hakimLoadScript(src) {
+  if (__hakimLoadedScripts[src]) return __hakimLoadedScripts[src];
+  __hakimLoadedScripts[src] = new Promise((resolve) => {
+    const s = document.createElement('script');
+    s.src = hakimVersioned(src);
+    s.onload = () => resolve(true);
+    s.onerror = () => resolve(false);
+    document.head.appendChild(s);
+  });
+  return __hakimLoadedScripts[src];
+}
+
+/* تحميل بيانات كارت الكورس: من courses-index.js (ملف واحد سريع) مع رجوع لملف الكورس القديم .js لو لسه موجود */
+async function hakimLoadCourseCard(id) {
+  window.__HAKIM_COURSES = window.__HAKIM_COURSES || {};
+  if (window.__HAKIM_COURSES[id]) return true;
+  await hakimLoadScript('courses-index.js');
+  const c = window.COURSES_INDEX && window.COURSES_INDEX[id];
+  if (c) {
+    const d = Object.assign({}, c);
+    d.videos = new Array(c.videosCount || 0).fill({});
+    window.__HAKIM_COURSES[id] = d;
+    return true;
+  }
+  return hakimLoadScript(`${id}.js`);
+}
+
+/* ---------------- زر تثبيت التطبيق (PWA) ---------------- */
+let __hakimInstallPrompt = null;
+function hakimIsStandalone() { return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true; }
+function hakimIsIOS() { return /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1); }
+function hakimSyncInstallButton() { document.querySelectorAll('#installAppBtn').forEach(b => { b.style.display = hakimIsStandalone() ? 'none' : ''; }); }
+window.addEventListener('appinstalled', () => {
+  window.__hakimBIP = null;
+  document.querySelectorAll('#installAppBtn').forEach(b => { b.style.display = 'none'; });
+  if (typeof hakimToast === 'function') hakimToast('تم تثبيت التطبيق بنجاح ✅', 'success');
+});
+function hakimShowInstallHelp() {
+  const ios = hakimIsIOS();
+  const inApp = /FBAN|FBAV|Instagram|Line\/|Snapchat|TikTok|MicroMessenger/i.test(navigator.userAgent);
+  const body = ios
+    ? '<p style="margin:0 0 8px;font-size:.88rem;color:var(--text-muted)">آبل ما بتسمحش بالتثبيت بضغطة واحدة في آيفون/آيباد — لازم 3 خطوات سريعة من سفاري:</p><ol style="margin:0 0 14px;padding-inline-start:20px;line-height:1.9;font-size:.9rem;color:var(--text-muted)"><li>اضغط زر المشاركة ⬆️</li><li>اختر "إضافة إلى الشاشة الرئيسية"</li><li>اضغط "إضافة"</li></ol>'
+    : '<p style="margin:0 0 14px;line-height:1.8;font-size:.9rem;color:var(--text-muted)">' + (inApp ? 'المتصفح المدمج داخل التطبيق ده مش بيدعم التثبيت — افتح الرابط في Chrome أو Edge وجرّب تاني.' : 'المتصفح ده مش بيدعم التثبيت المباشر. افتح الموقع في Chrome أو Edge وهتلاقي التثبيت بضغطة واحدة.') + '</p>';
+  const old = document.getElementById('installHelpOverlay'); if (old) old.remove();
+  const ov = document.createElement('div'); ov.id = 'installHelpOverlay';
+  ov.style.cssText = 'position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;padding:16px';
+  ov.innerHTML = '<div role="dialog" aria-modal="true" style="background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;max-width:360px;width:100%;color:var(--text);box-shadow:0 20px 50px rgba(0,0,0,.5)"><h3 style="margin:0 0 10px;font-size:1.05rem">تثبيت التطبيق على الشاشة الرئيسية</h3>' + body + '<button type="button" style="width:100%;background:var(--red);color:#fff;border:0;border-radius:10px;padding:10px;font:inherit;font-weight:700;cursor:pointer">تمام</button></div>';
+  ov.addEventListener('click', (e) => { if (e.target === ov || e.target.tagName === 'BUTTON') ov.remove(); });
+  document.body.appendChild(ov);
+}
+/* ينتظر حدث beforeinstallprompt لحظة قصيرة (مصدره سكربت صغير في أول الصفحة) */
+function hakimWaitForInstallPrompt(ms) {
+  return new Promise(resolve => {
+    if (window.__hakimBIP) return resolve(window.__hakimBIP);
+    const t = setTimeout(() => { window.removeEventListener('hakim-bip', on); resolve(null); }, ms);
+    function on() { clearTimeout(t); resolve(window.__hakimBIP); }
+    window.addEventListener('hakim-bip', on, { once: true });
+  });
+}
+async function hakimInstallApp(btn) {
+  if (hakimIsStandalone()) { if (typeof hakimToast === 'function') hakimToast('التطبيق مثبّت عندك بالفعل ✅', 'success'); return; }
+  const ev = window.__hakimBIP || (hakimIsIOS() ? null : await hakimWaitForInstallPrompt(1800));
+  if (!ev) { hakimShowInstallHelp(); return; }
+  window.__hakimBIP = null;
+  try {
+    ev.prompt();
+    const r = await ev.userChoice;
+    if (r && r.outcome === 'accepted') btn.style.display = 'none';
+  } catch (e) { hakimShowInstallHelp(); }
+}
+function hakimInitInstallButton() {
+  const btn = document.getElementById('installAppBtn');
+  if (!btn) return;
+  hakimSyncInstallButton();
+  btn.addEventListener('click', () => hakimInstallApp(btn));
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+}
+
+const HAKIM_PLACEHOLDER_IMG =
+  'data:image/svg+xml;utf8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="300" height="450" viewBox="0 0 300 450"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a0f13"/><stop offset="1" stop-color="#0f1016"/></linearGradient></defs><rect width="300" height="450" fill="url(#g)"/><circle cx="150" cy="215" r="46" fill="none" stroke="#e5202c" stroke-width="3" opacity=".85"/><path d="M138 192v46l38-23z" fill="#e5202c" opacity=".9"/></svg>`);
+
+/* إعدادات الموقع (اسم/فوتر/حقوق) — يتم تحميلها وتطبيقها على أي عنصر بالكلاسات المذكورة */
+async function hakimApplySiteSettings() {
+  await hakimLoadScript('site-settings.js');
+  const s = window.SITE_SETTINGS || {};
+  if (s.siteName) { document.querySelectorAll('.js-site-name').forEach(el => { el.textContent = s.siteName; }); const baked = s.siteNameApplied || 'منصة حكيم التعليمية'; if (baked !== s.siteName) document.title = document.title.split(baked).join(s.siteName); }
+  if (s.tagline) document.querySelectorAll('.js-tagline').forEach(el => { el.textContent = s.tagline; });
+  if (s.footerRights) document.querySelectorAll('.js-footer-rights').forEach(el => { el.textContent = s.footerRights; });
+  if (s.footerNote) document.querySelectorAll('.js-footer-note').forEach(el => { el.textContent = s.footerNote; });
+  return s;
+}
+
+async function hakimRenderSideMenu() {
+  const host = document.getElementById('sideMenuItems');
+  if (!host) return;
+  try { await hakimLoadScript('menu-config.js'); } catch (e) {}
+  const P = {
+    home: 'M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z', user: 'M12 12a4 4 0 100-8 4 4 0 000 8zm0 2c-3.3 0-8 1.7-8 5v1h16v-1c0-3.3-4.7-5-8-5z',
+    folder: 'M10 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V8a2 2 0 00-2-2h-8l-2-2z', mail: 'M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5z',
+    bell: 'M12 22a2 2 0 002-2h-4a2 2 0 002 2zm6-6V11a6 6 0 10-12 0v5l-2 2v1h16v-1l-2-2z', chart: 'M5 9h3v10H5zm5-5h3v15h-3zm5 8h3v7h-3z',
+    cal: 'M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 16H5V9h14z', bulb: 'M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z'
+  };
+  /* لو menu-config.js ما اتحمّلش (نت ضعيف / فتح من ملف محلي) القائمة ما تفضلش فاضية */
+  const cfg = (window.MENU_CONFIG && window.MENU_CONFIG.length) ? window.MENU_CONFIG : [
+    { label: 'الإشعارات', href: 'hub.html?tab=notifications', type: 'other', icon: P.bell }, { label: 'الاستطلاعات', href: 'hub.html?tab=polls', type: 'other', icon: P.chart },
+    { label: 'مواعيد العرض', href: 'hub.html?tab=schedule', type: 'other', icon: P.cal }, { label: 'الاقتراحات والأفكار', href: 'hub.html?tab=suggestions', type: 'other', icon: P.bulb }
+  ];
+  const vis = cfg.filter(it => it.visible !== false);
+  const link = (it, ico) => `<a class="menu-link${hakimIsHere(it.href || '#') ? ' current' : ''}" href="${hakimEscapeHtml(it.href || '#')}"><svg viewBox="0 0 24 24"><path d="${it.icon || ico}"/></svg>${hakimEscapeHtml(it.label || '')}</a>`;
+  const sections = vis.filter(it => it.type === 'section'), others = vis.filter(it => it.type !== 'section');
+  const accounts = !!((window.SITE_SETTINGS || {}).supabaseUrl);
+  const contact = [{ label: 'اتصل بنا', href: 'hub.html?tab=contact' }, { label: 'الشكاوى والبلاغات', href: 'hub.html?tab=complaint' }, { label: 'DMCA', href: 'hub.html?tab=dmca' }, { label: 'أريد العمل معكم', href: 'hub.html?tab=join' }];
+  host.innerHTML = link({ label: 'الرئيسية', href: 'index.html' }, P.home)
+    + (accounts ? link({ label: 'ملفي الشخصي', href: 'profile.html' }, P.user) : '')
+    + (sections.length ? '<h3>الأقسام</h3>' + sections.map(it => link(it, P.folder)).join('') : '')
+    + (others.length ? '<h3>المزيد</h3>' + others.map(it => link(it, P.folder)).join('') : '')
+    + '<h3>تواصل معنا</h3>' + contact.map(it => link(it, P.mail)).join('');
+}
+
+function hakimIsHere(href) {
+  try {
+    const u = new URL(href, location.href), f = p => p.split('/').pop() || 'index.html';
+    if (f(u.pathname) !== f(location.pathname)) return false;
+    const cur = new URLSearchParams(location.search);
+    for (const [k, v] of u.searchParams) if (cur.get(k) !== v) return false;
+    return true;
+  } catch (e) { return false; }
+}
+function hakimPlaceDropdown(btn, panel) {
+  panel.style.left = ''; panel.style.right = '';
+  if (window.matchMedia('(max-width: 640px)').matches) return;
+  const wrap = btn.closest('.mylists-wrap'); if (!wrap) return;
+  const vw = document.documentElement.clientWidth, w = panel.offsetWidth, wr = wrap.getBoundingClientRect();
+  const left = Math.max(10, Math.min(wr.right - w, vw - w - 10));
+  panel.style.right = 'auto'; panel.style.left = (left - wr.left) + 'px';
+}
+function hakimSetDropdownOpen(btn, panel, on) {
+  panel._btn = btn;
+  panel.classList.toggle('show', on); btn.classList.toggle('active-mylists', on); btn.setAttribute('aria-expanded', on ? 'true' : 'false');
+  if (on) hakimPlaceDropdown(btn, panel);
+}
+window.addEventListener('resize', () => document.querySelectorAll('.mylists-dropdown.show').forEach(p => p._btn && hakimPlaceDropdown(p._btn, p)));
+
+async function hakimRenderSectionsDropdown() {
+  const host = document.getElementById('sectionsDropdown');
+  if (!host) return;
+  await hakimLoadScript('menu-config.js');
+  const items = (window.MENU_CONFIG || []).filter(it => it.visible !== false && it.type === 'section');
+  if (items.length === 0) {
+    host.innerHTML = `<p class="mylists-empty-hint">لا توجد أقسام مضافة بعد.</p>`;
+    return;
+  }
+  host.innerHTML = `<div class="mylists-rows"><a class="mylists-row is-all${hakimIsHere('index.html') ? ' current' : ''}" href="index.html"><span class="name">الصفحة الرئيسية</span></a>${items.map(it =>
+    `<a class="mylists-row${hakimIsHere(it.href || '#') ? ' current' : ''}" href="${hakimEscapeHtml(it.href || '#')}"><span class="name">${hakimEscapeHtml(it.label || '')}</span></a>`
+  ).join('')}</div>`;
+}
+function hakimInitSectionsMenu() {
+  const btn = document.getElementById('sectionsBtn');
+  const panel = document.getElementById('sectionsDropdown');
+  if (!btn || !panel) return;
+  function open() { const o = document.getElementById('myListsDropdown'), ob = document.getElementById('myListsBtn'); if (o && ob) hakimSetDropdownOpen(ob, o, false); hakimSetDropdownOpen(btn, panel, true); Promise.resolve(hakimRenderSectionsDropdown()).then(() => hakimPlaceDropdown(btn, panel)); }
+  function close() { hakimSetDropdownOpen(btn, panel, false); }
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (panel.classList.contains('show')) close(); else open();
+  });
+  document.addEventListener('click', (e) => {
+    if (panel.classList.contains('show') && !panel.contains(e.target) && !btn.contains(e.target)) close();
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+}
+
+function hakimInitMenu() {
+  const btn = document.getElementById('menuBtn');
+  const overlay = document.getElementById('menuOverlay');
+  const panel = document.getElementById('sideMenu');
+  const closeBtn = document.getElementById('menuCloseBtn');
+  if (!btn || !overlay || !panel) return;
+  hakimRenderSideMenu();
+  function open() { overlay.classList.add('show'); panel.classList.add('show'); }
+  function close() { overlay.classList.remove('show'); panel.classList.remove('show'); }
+  btn.addEventListener('click', open);
+  overlay.addEventListener('click', close);
+  if (closeBtn) closeBtn.addEventListener('click', close);
+}
+
+function hakimInitTheme() {
+  const themeToggle = document.getElementById('themeToggle');
+  if (!themeToggle) return;
+  themeToggle.addEventListener('click', () => {
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    if (isLight) { document.documentElement.removeAttribute('data-theme'); localStorage.setItem('hakim_theme', 'dark'); }
+    else { document.documentElement.setAttribute('data-theme', 'light'); localStorage.setItem('hakim_theme', 'light'); }
+  });
+}
+
+function hakimAddTelegramButton() {
+  const s = window.SITE_SETTINGS || {};
+  if (!s.telegramUrl) return;
+  const a = document.createElement('a');
+  a.href = s.telegramUrl; a.target = '_blank'; a.rel = 'noopener';
+  a.className = 'floating-telegram'; a.title = 'انضم لقناتنا على تليجرام';
+  a.innerHTML = `<svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71l-4.14-3.05-2 1.92c-.23.23-.42.42-.82.42z"/></svg>`;
+  document.body.appendChild(a);
+}
+
+/* ============================================================
+   قوائمي — المفضلة + المتابعة + قوائم تشغيل مخصصة (محلي بالكامل)
+   ============================================================ */
+const HAKIM_MYLISTS_KEY = 'hakim_mylists';
+
+function hakimGetMyLists() {
+  try {
+    const d = JSON.parse(localStorage.getItem(HAKIM_MYLISTS_KEY) || '{}');
+    return { favorites: d.favorites || [], following: d.following || [], playlists: d.playlists || [] };
+  } catch (e) { return { favorites: [], following: [], playlists: [] }; }
+}
+function hakimSaveMyLists(d) { localStorage.setItem(HAKIM_MYLISTS_KEY, JSON.stringify(d)); }
+
+function hakimIsFavorite(id) { return hakimGetMyLists().favorites.includes(id); }
+function hakimToggleFavorite(id) {
+  const d = hakimGetMyLists();
+  const i = d.favorites.indexOf(id);
+  if (i === -1) d.favorites.unshift(id); else d.favorites.splice(i, 1);
+  hakimSaveMyLists(d);
+  return i === -1;
+}
+function hakimIsFollowing(id) { return hakimGetMyLists().following.includes(id); }
+function hakimToggleFollowing(id) {
+  const d = hakimGetMyLists();
+  const i = d.following.indexOf(id);
+  if (i === -1) d.following.unshift(id); else d.following.splice(i, 1);
+  hakimSaveMyLists(d);
+  return i === -1;
+}
+function hakimCreatePlaylist(name) {
+  const d = hakimGetMyLists();
+  const pl = { id: 'pl_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), name, courseIds: [] };
+  d.playlists.push(pl);
+  hakimSaveMyLists(d);
+  return pl.id;
+}
+function hakimRenamePlaylist(plId, name) {
+  const d = hakimGetMyLists();
+  const pl = d.playlists.find(p => p.id === plId);
+  if (pl && name) { pl.name = name; hakimSaveMyLists(d); }
+}
+function hakimDeletePlaylist(plId) {
+  const d = hakimGetMyLists();
+  d.playlists = d.playlists.filter(p => p.id !== plId);
+  hakimSaveMyLists(d);
+}
+function hakimIsInPlaylist(plId, courseId) {
+  const pl = hakimGetMyLists().playlists.find(p => p.id === plId);
+  return !!(pl && pl.courseIds.includes(courseId));
+}
+function hakimTogglePlaylistCourse(plId, courseId) {
+  const d = hakimGetMyLists();
+  const pl = d.playlists.find(p => p.id === plId);
+  if (!pl) return false;
+  const i = pl.courseIds.indexOf(courseId);
+  if (i === -1) pl.courseIds.unshift(courseId); else pl.courseIds.splice(i, 1);
+  hakimSaveMyLists(d);
+  return i === -1;
+}
+
+function hakimToast(msg, type) {
+  let el = document.getElementById('hakimToast');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'hakimToast';
+    el.className = 'toast';
+    document.body.appendChild(el);
+  }
+  el.textContent = msg;
+  el.className = 'toast show' + (type ? ' ' + type : '');
+  clearTimeout(el._hakimToastT);
+  el._hakimToastT = setTimeout(() => { el.classList.remove('show'); }, 2500);
+}
+
+function hakimRenderMyListsDropdown() {
+  const host = document.getElementById('myListsDropdown');
+  if (!host) return;
+  const d = hakimGetMyLists();
+  let rows = `
+    <a class="mylists-row is-all" href="hub.html?tab=mylists"><span class="name">عرض كل قوائمي</span></a>
+    <a class="mylists-row" href="hub.html?tab=mylists&list=favorites"><span class="name">♥ ${hakimEscapeHtml((window.SITE_TEXT && window.SITE_TEXT.favoritesLabel) || 'المفضلة')}</span><span class="count">${d.favorites.length}</span></a>
+    <a class="mylists-row" href="hub.html?tab=mylists&list=following"><span class="name">◔ ${hakimEscapeHtml((window.SITE_TEXT && window.SITE_TEXT.followingLabel) || 'المتابعة')}</span><span class="count">${d.following.length}</span></a>`;
+  if (d.playlists.length) {
+    rows += `<div class="mylists-divider"></div>` + d.playlists.map(pl =>
+      `<a class="mylists-row" href="hub.html?tab=mylists&list=${encodeURIComponent(pl.id)}"><span class="name">▶ ${hakimEscapeHtml(pl.name)}</span><span class="count">${pl.courseIds.length}</span></a>`
+    ).join('');
+  }
+  host.innerHTML = `
+    <div class="mylists-rows">${rows}</div>
+    <div class="mylists-divider"></div>
+    <form class="mylists-new-form" id="myListsNewForm" autocomplete="off">
+      <input type="text" id="myListsNewName" placeholder="${hakimEscapeHtml((window.SITE_TEXT && window.SITE_TEXT.newPlaylistPlaceholder) || 'اسم قائمة تشغيل جديدة')}" required>
+      <button type="submit">+ ${hakimEscapeHtml((window.SITE_TEXT && window.SITE_TEXT.createBtn) || 'إنشاء')}</button>
+    </form>`;
+  const form = document.getElementById('myListsNewForm');
+  if (form) form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const input = document.getElementById('myListsNewName');
+    const name = input.value.trim();
+    if (!name) return;
+    if (window.hakimAuthGate && hakimAuthGate('سجّل دخولك عشان تعمل قوائم وتحفظ كورساتك')) return; hakimCreatePlaylist(name);
+    input.value = '';
+    hakimRenderMyListsDropdown();
+    hakimToast('تم إنشاء قائمة "' + name + '"', 'success');
+  });
+}
+
+function hakimInitMyListsMenu() {
+  const btn = document.getElementById('myListsBtn');
+  const panel = document.getElementById('myListsDropdown');
+  if (!btn || !panel) return;
+  function open() { const o = document.getElementById('sectionsDropdown'), ob = document.getElementById('sectionsBtn'); if (o && ob) hakimSetDropdownOpen(ob, o, false); hakimRenderMyListsDropdown(); hakimSetDropdownOpen(btn, panel, true); }
+  function close() { hakimSetDropdownOpen(btn, panel, false); }
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (panel.classList.contains('show')) close(); else open();
+  });
+  document.addEventListener('click', (e) => {
+    if (panel.classList.contains('show') && !panel.contains(e.target) && !btn.contains(e.target)) close();
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+}
+
+async function hakimRenderHomeAlertBanner(hostId) {
+  const host = document.getElementById(hostId);
+  if (!host) return;
+  await Promise.all([hakimLoadScript('notifications.js'), hakimLoadScript('polls.js')]);
+  const notif = (window.NOTIFICATIONS || []).slice(-1)[0];
+  const pollsCount = (window.POLLS || []).length;
+  if (!notif && pollsCount === 0) return;
+  const parts = [];
+  if (notif) parts.push(`📢 ${hakimEscapeHtml(notif.title || '')}`);
+  if (pollsCount > 0) parts.push(`📋 فيه ${pollsCount} استطلاع جديد`);
+  host.innerHTML = `
+    <div class="home-alert-banner">
+      <svg viewBox="0 0 24 24"><path d="M12 22a2 2 0 002-2h-4a2 2 0 002 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4a1.5 1.5 0 00-3 0v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1z"/></svg>
+      <span>${parts.join(' — ')}</span>
+      <a href="hub.html">التفاصيل ←</a>
+    </div>`;
+}
+
+function hakimLazyFade(img) {
+  if (img.complete && img.naturalWidth > 0) { img.classList.add('loaded'); return; }
+  img.addEventListener('load', () => img.classList.add('loaded'));
+  img.addEventListener('error', () => img.classList.add('loaded'));
+}
+
+/* ============================================================
+   Supabase — تحليلات، تقييمات، شكاوى، اقتراحات (بدون مكتبات خارجية)
+   ============================================================ */
+function hakimSbConfig() {
+  const s = window.SITE_SETTINGS || {};
+  return { url: s.supabaseUrl || '', anonKey: s.supabaseAnonKey || '' };
+}
+function hakimSbReady() {
+  const c = hakimSbConfig();
+  return !!(c.url && c.anonKey);
+}
+async function hakimSbInsert(table, row) {
+  const { url, anonKey } = hakimSbConfig();
+  if (!url || !anonKey) return false;
+  try {
+    const res = await fetch(`${url}/rest/v1/${table}`, {
+      method: 'POST',
+      headers: { 'apikey': anonKey, 'Authorization': `Bearer ${anonKey}`, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
+      body: JSON.stringify(row)
+    });
+    return res.ok;
+  } catch (e) { return false; }
+}
+async function hakimSbUpsert(table, row, conflictCols) {
+  const { url, anonKey } = hakimSbConfig();
+  if (!url || !anonKey) return false;
+  try {
+    const res = await fetch(`${url}/rest/v1/${table}?on_conflict=${conflictCols}`, {
+      method: 'POST',
+      headers: { 'apikey': anonKey, 'Authorization': `Bearer ${anonKey}`, 'Content-Type': 'application/json', 'Prefer': 'resolution=merge-duplicates,return=minimal' },
+      body: JSON.stringify(row)
+    });
+    return res.ok;
+  } catch (e) { return false; }
+}
+async function hakimSbRpc(fn, params) {
+  const { url, anonKey } = hakimSbConfig();
+  if (!url || !anonKey) return null;
+  try {
+    const res = await fetch(`${url}/rest/v1/rpc/${fn}`, {
+      method: 'POST',
+      headers: { 'apikey': anonKey, 'Authorization': `Bearer ${anonKey}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify(params || {})
+    });
+    if (!res.ok) return null;
+    return await res.json();
+  } catch (e) { return null; }
+}
+async function hakimSbSelect(pathWithQuery) {
+  const { url, anonKey } = hakimSbConfig();
+  if (!url || !anonKey) return null;
+  try {
+    const res = await fetch(`${url}/rest/v1/${pathWithQuery}`, {
+      headers: { 'apikey': anonKey, 'Authorization': `Bearer ${anonKey}` }
+    });
+    if (!res.ok) return null;
+    return await res.json();
+  } catch (e) { return null; }
+}
+
+/* حقن كود مخصص (زي سكربت إعلانات Monetag) — بيتفعّل فورًا/يتوقف فورًا
+   عبر مفتاح site_config.ads.enabled في Supabase، حتى لو الكود نفسه
+   محفوظ بالفعل في site-settings.js (المتحكم السريع هو التفعيل بس) */
+function hakimShowMaintenanceIfNeeded() {
+  const s = window.SITE_SETTINGS || {};
+  if (!s.maintenanceMode) return false;
+  location.replace('maintenance.html');
+  return true;
+}
+
+async function hakimInjectCustomCode() {
+  const s = window.SITE_SETTINGS || {};
+  if (!s.customCode || !hakimSbReady()) return;
+  try {
+    const rows = await hakimSbSelect('site_config?key=eq.ads&select=value');
+    const adsEnabled = !!(rows && rows[0] && rows[0].value && rows[0].value.enabled);
+    if (!adsEnabled) return;
+  } catch (e) { return; }
+  try {
+    const holder = document.createElement('div');
+    holder.innerHTML = s.customCode;
+    Array.from(holder.childNodes).forEach(node => {
+      if (node.tagName === 'SCRIPT') {
+        const s2 = document.createElement('script');
+        Array.from(node.attributes || []).forEach(a => s2.setAttribute(a.name, a.value));
+        if (!node.src) s2.textContent = node.textContent;
+        document.body.appendChild(s2);
+      } else {
+        document.body.appendChild(node);
+      }
+    });
+  } catch (e) { /* كود مخصص خاطئ — يتجاهل بصمت عشان ميكسرش باقي الصفحة */ }
+}
+
+function hakimSessionId() {
+  let sid = localStorage.getItem('hakim_session_id');
+  if (!sid) {
+    sid = 'sid_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2);
+    localStorage.setItem('hakim_session_id', sid);
+  }
+  return sid;
+}
+
+function hakimDetectAdblock() {
+  return new Promise((resolve) => {
+    const bait = document.createElement('div');
+    bait.className = 'ad-banner ads ad-container adsbox';
+    bait.style.cssText = 'position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;';
+    document.body.appendChild(bait);
+    setTimeout(() => {
+      const blocked = !bait.offsetParent || bait.offsetHeight === 0 || getComputedStyle(bait).display === 'none';
+      bait.remove();
+      resolve(blocked);
+    }, 100);
+  });
+}
+
+async function hakimDetectCountry() {
+  try {
+    const cached = sessionStorage.getItem('hakim_country');
+    if (cached) return cached;
+    const res = await fetch('https://ipapi.co/json/');
+    if (!res.ok) return '';
+    const data = await res.json();
+    const country = data.country_name || '';
+    sessionStorage.setItem('hakim_country', country);
+    return country;
+  } catch (e) { return ''; }
+}
+
+async function hakimTrackPageView(page, courseId, episodeIndex) {
+  if (!hakimSbReady()) return;
+  const [country, isAdblock] = await Promise.all([hakimDetectCountry(), hakimDetectAdblock()]);
+  hakimSbInsert('page_views', { session_id: hakimSessionId(), page, course_id: courseId || null, episode_index: episodeIndex != null ? episodeIndex : null, country, is_adblock: isAdblock });
+}
+
+</script>
+<script>
+(function () {
+  'use strict';
+  const $ = (id) => document.getElementById(id);
+  const esc = (t) => String(t == null ? '' : t).replace(/[&<>"']/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+  const params = new URLSearchParams(location.search);
+  const viewCode = (params.get('u') || '').trim().toUpperCase();
+
+  /* ----- التصنيف العالمي: لسه ما اتصنعش -----
+     TODO(rank): خطة نظام التصنيف لسه ما اتحدّدتش. المكان محجوز في الواجهة (بطاقة "التصنيف العالمي")،
+     ولما الخطة تتحدّد هنحسبه من الخادم (مش من الجهاز) عشان ما يتزوّرش. */
+
+  const BADGES = [
+    { id: 'member', ic: '🌱', t: 'عضو جديد', d: 'أنشأت حسابك', ok: (s) => s.loggedIn },
+    { id: 'first', ic: '🎬', t: 'أول حلقة', d: 'شاهد حلقة واحدة على الأقل', ok: (s) => s.watched >= 1 },
+    { id: 'active', ic: '🔥', t: 'متابع نشيط', d: 'شاهد 10 حلقات', ok: (s) => s.watched >= 10 },
+    { id: 'collector', ic: '📚', t: 'جامع كورسات', d: 'احفظ 5 كورسات في قوائمك', ok: (s) => s.saved >= 5 },
+    { id: 'explorer', ic: '🧭', t: 'مستكشف', d: 'شاهد حلقات من 3 كورسات مختلفة', ok: (s) => s.courses >= 3 }
+  ];
+  const TITLES = ['طالب جديد', 'متعلّم', 'مثابر', 'متقن', 'حكيم'];
+
+  function localStats() {
+    let watched = 0, courses = 0, saved = new Set();
+    try {
+      for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (k && k.indexOf('hakim_watched_') === 0) { try { const n = (JSON.parse(localStorage.getItem(k)) || []).length; watched += n; if (n) courses++; } catch (e) {} }
+      }
+      const l = JSON.parse(localStorage.getItem('hakim_mylists') || '{}');
+      (l.favorites || []).forEach((x) => saved.add(x)); (l.following || []).forEach((x) => saved.add(x));
+      (l.playlists || []).forEach((p) => (p.courses || []).forEach((x) => saved.add(x)));
+    } catch (e) {}
+    return { watched, courses, saved: saved.size };
+  }
+
+  function shareUrl(code) { return location.origin + location.pathname.replace(/[^/]*$/, '') + 'profile.html?u=' + encodeURIComponent(code); }
+  async function copy(text) { try { await navigator.clipboard.writeText(text); return true; } catch (e) { const t = document.createElement('textarea'); t.value = text; document.body.appendChild(t); t.select(); let ok = false; try { ok = document.execCommand('copy'); } catch (e2) {} t.remove(); return ok; } }
+  async function shareProfile(code, name) {
+    const url = shareUrl(code), text = 'شوف ملفي الشخصي على منصة حكيم التعليمية — ' + name;
+    if (navigator.share) { try { await navigator.share({ title: name, text, url }); return; } catch (e) { if (e && e.name === 'AbortError') return; } }
+    hakimToast((await copy(url)) ? 'اتنسخ رابط ملفك الشخصي 🔗' : url, 'success');
+  }
+
+  function avatarHtml(p, editable) {
+    const nm = (p && p.username) || '؟';
+    return `<div class="pf-avatar">${p && p.avatar_url ? `<img src="${esc(p.avatar_url)}" alt="">` : esc(nm.charAt(0).toUpperCase())}${editable ? '<button class="pf-cam" type="button" id="pfCam">📷 تغيير الصورة</button><input type="file" id="pfFile" accept="image/*" style="display:none">' : ''}</div>`;
+  }
+
+  /* ---------------- ملفي الشخصي ---------------- */
+  function renderOwn() {
+    const root = $('pfRoot'), acc = window.HakimAccount;
+    if (!acc || !acc.enabled()) {
+      root.innerHTML = `<div class="pf-card" style="text-align:center"><div style="font-size:2.2rem">👤</div><h2 class="pf-h">الحسابات لسه ما اتفعّلتش</h2><p class="pf-sub">نظام التسجيل محتاج ربط الموقع بـ Supabase (من لوحة التحكم ← إعدادات الموقع). </p></div>`;
+      return;
+    }
+    const u = acc.user, p = acc.profile;
+    if (!u) {
+      root.innerHTML = `<div class="pf-card" style="text-align:center;padding:34px 16px"><div style="font-size:2.6rem">👤</div><h2 class="pf-h">ملفك الشخصي</h2><p class="pf-sub" style="max-width:420px;margin:6px auto 16px">سجّل دخولك عشان تحفظ وتتابع كورساتك، وتاخد شارات وألقاب، وتشارك ملفك مع أصحابك.</p><div class="pf-row" style="justify-content:center"><button class="btn-primary" id="pfLogin" type="button">تسجيل الدخول</button><button class="btn-secondary" id="pfSignup" type="button">إنشاء حساب</button></div></div>`;
+      $('pfLogin').addEventListener('click', () => acc.openAuth('login')); $('pfSignup').addEventListener('click', () => acc.openAuth('signup'));
+      return;
+    }
+    if (!p) { root.innerHTML = '<div class="pf-card" style="text-align:center">جارٍ تحميل ملفك... لو فضلت الرسالة دي شغّل setup.sql في Supabase.</div>'; return; }
+    const st = Object.assign(localStats(), { loggedIn: true });
+    const earned = BADGES.filter((b) => b.ok(st)), title = TITLES[Math.min(earned.length - 1, TITLES.length - 1)] || TITLES[0];
+    const joined = p.created_at ? new Date(p.created_at).toLocaleDateString('ar-EG', { year: 'numeric', month: 'long' }) : '';
+    root.innerHTML = `
+      <section class="pf-card">
+        <div class="pf-head">
+          ${avatarHtml(p, true)}
+          <div class="pf-info">
+            <div class="pf-name"><span id="pfNameTxt">${esc(p.username)}</span><button class="pf-mini" id="pfEditName" type="button">✏️ تعديل الاسم</button></div>
+            <div id="pfNameEdit" style="display:none;margin:6px 0"><div class="pf-row"><input class="pf-input" id="pfNameInp" maxlength="24" value="${esc(p.username)}"><button class="btn-primary" id="pfNameSave" type="button">حفظ</button><button class="btn-secondary" id="pfNameCancel" type="button">إلغاء</button></div><div id="pfNameMsg" class="pf-sub" style="color:#ff7b84"></div></div>
+            <div class="pf-email">${esc(u.email || '')}</div>
+            <span class="pf-title">🏷️ ${esc(title)}</span>
+          </div>
+        </div>
+        <div class="pf-code"><span class="pf-sub" style="margin:0">رمزك المميز</span><b id="pfCode">${esc(p.code)}</b><button class="pf-mini" id="pfCopyCode" type="button">📋 نسخ</button></div>
+      </section>
+
+      <section class="pf-card">
+        <div class="pf-rank"><span class="ic">🏆</span><div style="flex:1"><h2 class="pf-h" style="margin:0">التصنيف العالمي</h2><div class="pf-sub" style="margin:2px 0 0">ترتيبك بين كل مستخدمي المنصة</div></div><span class="pf-soon">قريبًا ⏳</span></div>
+        <!-- TODO(rank): نظام التصنيف العالمي لسه ما اتصنعش بجد — المكان ده محجوز لحد ما الخطة تتحدّد -->
+      </section>
+
+      <section class="pf-card">
+        <div class="pf-grid">
+          <div class="pf-stat"><div class="n">${st.watched}</div><div class="l">حلقة اتشافت</div></div>
+          <div class="pf-stat"><div class="n">${st.saved}</div><div class="l">كورس في قوائمك</div></div>
+          <div class="pf-stat"><div class="n">${earned.length}/${BADGES.length}</div><div class="l">شارات</div></div>
+          <div class="pf-stat"><div class="n" style="font-size:1rem;padding-top:6px">${esc(joined) || '—'}</div><div class="l">عضو من</div></div>
+        </div>
+      </section>
+
+      <section class="pf-card">
+        <h2 class="pf-h">🎖️ شاراتك</h2><p class="pf-sub">الشارات المقفولة بتفتح لما تكمّل شرطها.</p>
+        <div class="pf-grid">${BADGES.map((b) => { const on = b.ok(st); return `<div class="pf-badge ${on ? 'on' : 'off'}"><div class="ic">${on ? b.ic : '🔒'}</div><div class="t">${esc(b.t)}</div><div class="d">${esc(b.d)}</div></div>`; }).join('')}</div>
+      </section>
+
+      <section class="pf-card">
+        <h2 class="pf-h">اختصارات</h2>
+        <div class="pf-actions">
+          <button type="button" id="pfShare">🔗 شارك بروفايلك</button>
+          <a href="hub.html?tab=mylists">📚 قوائمي</a>
+          <a href="hub.html?tab=notifications">🔔 الإشعارات</a>
+          <a href="hub.html?tab=suggestions">💡 اقترح علينا</a>
+          <button type="button" class="danger" id="pfOut">🚪 تسجيل الخروج</button>
+        </div>
+      </section>`;
+    $('pfCam').addEventListener('click', () => $('pfFile').click());
+    $('pfFile').addEventListener('change', async (e) => {
+      const f = e.target.files[0]; if (!f) return; hakimToast('جارٍ رفع الصورة...', 'success');
+      const r = await acc.uploadAvatar(f); hakimToast(r.error || 'اتغيّرت صورتك ✅', r.error ? 'error' : 'success');
+    });
+    $('pfEditName').addEventListener('click', () => { $('pfNameEdit').style.display = ''; $('pfNameInp').focus(); });
+    $('pfNameCancel').addEventListener('click', () => { $('pfNameEdit').style.display = 'none'; $('pfNameMsg').textContent = ''; });
+    $('pfNameSave').addEventListener('click', async () => {
+      const r = await acc.updateProfile({ username: $('pfNameInp').value });
+      if (r.error) $('pfNameMsg').textContent = r.error; else hakimToast('اتغيّر اسمك ✅', 'success');
+    });
+    $('pfCopyCode').addEventListener('click', async () => hakimToast((await copy(p.code)) ? 'اتنسخ الرمز' : p.code, 'success'));
+    $('pfShare').addEventListener('click', () => shareProfile(p.code, p.username));
+    $('pfOut').addEventListener('click', () => { acc.signOut(); hakimToast('تم تسجيل الخروج', 'success'); });
+  }
+
+  /* ---------------- بروفايل شخص تاني (رابط المشاركة) ---------------- */
+  async function renderPublic(code) {
+    const root = $('pfRoot'), c = (window.HakimAccount && HakimAccount.cfg()) || { url: '', key: '' };
+    if (!/^[A-Z0-9]{8}$/.test(code)) { root.innerHTML = '<div class="pf-card" style="text-align:center">الرمز غير صحيح.</div>'; return; }
+    if (!c.url) { root.innerHTML = '<div class="pf-card" style="text-align:center">الحسابات غير مفعّلة.</div>'; return; }
+    try {
+      const res = await fetch(`${c.url}/rest/v1/public_profiles?code=eq.${encodeURIComponent(code)}&select=*`, { headers: { apikey: c.key, Authorization: 'Bearer ' + c.key } });
+      const rows = res.ok ? await res.json() : [];
+      if (!rows[0]) { root.innerHTML = '<div class="pf-card" style="text-align:center"><div style="font-size:2rem">🔍</div>مفيش مستخدم بالرمز ده.</div>'; return; }
+      const p = rows[0], joined = p.created_at ? new Date(p.created_at).toLocaleDateString('ar-EG', { year: 'numeric', month: 'long' }) : '';
+      root.innerHTML = `<section class="pf-card"><div class="pf-head">${avatarHtml(p, false)}<div class="pf-info"><div class="pf-name">${esc(p.username)}</div><div class="pf-sub">عضو من ${esc(joined)}</div></div></div><div class="pf-code"><span class="pf-sub" style="margin:0">الرمز</span><b>${esc(p.code)}</b></div><div class="pf-row" style="margin-top:14px"><button class="btn-secondary" id="pfShare" type="button">🔗 شارك البروفايل</button><a class="btn-primary" href="profile.html" style="text-decoration:none;padding:10px 16px">ملفي أنا</a></div></section>`;
+      $('pfShare').addEventListener('click', () => shareProfile(p.code, p.username));
+    } catch (e) { root.innerHTML = '<div class="pf-card" style="text-align:center">تعذّر تحميل البروفايل.</div>'; }
+  }
+
+  async function init() {
+    await hakimApplySiteSettings();
+    hakimInjectCustomCode();
+    if (hakimShowMaintenanceIfNeeded()) return;
+    hakimAddTelegramButton();
+    hakimInitInstallButton();
+    hakimInitTheme(); hakimInitMenu(); hakimInitMyListsMenu(); hakimInitSectionsMenu();
+    await hakimLoadScript('site-text.js');
+    let t = 0; while (!window.HakimAccount && t++ < 30) await new Promise((r) => setTimeout(r, 200));
+    if (viewCode) { renderPublic(viewCode); }
+    else if (window.HakimAccount) { HakimAccount.onChange(renderOwn); renderOwn(); }
+    else renderOwn();
+  }
+  init();
+})();
+
+</script>
+</body>
+</html>
