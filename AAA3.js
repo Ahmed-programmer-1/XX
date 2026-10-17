@@ -1,7 +1,7 @@
 registerCourse("AAA3", {
   "hostTag": "Uqload",
   "playback": {
-    "antiPopupAll": false
+    "antiPopupAll": true
   },
   "img": "https://raw.githubusercontent.com/Ahmed-programmer-1/XX/main/images/AAA3-1792276941878.jfif",
   "name": "دراغون بول زد كاي",
@@ -16,6 +16,7 @@ registerCourse("AAA3", {
     "قوة خارقة"
   ],
   "firstPublishedAt": "2026-10-17T22:56:19.026Z",
+  "lastEpisodeAt": "2026-10-17T23:04:54.981Z",
   "menuSection": "",
   "singleLang": "ar",
   "seo": {
@@ -405,6 +406,5 @@ registerCourse("AAA3", {
       "disabled": false,
       "disabledMessage": ""
     }
-  ],
-  "lastEpisodeAt": "2026-10-17T23:04:54.981Z"
+  ]
 });
