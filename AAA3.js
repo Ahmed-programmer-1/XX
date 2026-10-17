@@ -1,7 +1,7 @@
 registerCourse("AAA3", {
   "hostTag": "Uqload",
   "playback": {
-    "antiPopupAll": true
+    "antiPopupAll": false
   },
   "img": "https://raw.githubusercontent.com/Ahmed-programmer-1/XX/main/images/AAA3-1792276941878.jfif",
   "name": "دراغون بول زد كاي",
