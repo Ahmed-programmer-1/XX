@@ -1,0 +1,1727 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<script>window.__hakimBIP=null;window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();window.__hakimBIP=e;window.dispatchEvent(new Event('hakim-bip'));});</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>منصة حكيم التعليمية</title>
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="icon-32.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#e5202c">
+<script>(function(){try{if(localStorage.getItem('hakim_theme')==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
+<style>
+/* ============================================================
+   منصة حكيم التعليمية — نظام التصميم (نسخة موسّعة)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #0c0c0d;
+  --surface: #161616;
+  --surface-2: #1c1c1e;
+  --line: #2a2a2c;
+  --text: #f2f2f2;
+  --text-muted: #9a9a9d;
+
+  --red: #e5202c;
+  --red-dim: #a3141c;
+  --red-glow: rgba(229,32,44,0.35);
+
+  --green: #2fb85f;
+  --amber: #e8a33d;
+
+  --font-display: 'Tajawal', sans-serif;
+  --font-body: 'IBM Plex Sans Arabic', sans-serif;
+
+  --radius-card: 10px;
+  --radius-sm: 8px;
+
+  --shadow-lift: 0 16px 32px rgba(0,0,0,0.55);
+}
+
+/* ---------- الوضع الفاتح: أزرق مشرق وملوّن ---------- */
+html[data-theme="light"] {
+  --bg: #e9f3ff;
+  --surface: #ffffff;
+  --surface-2: #e2eeff;
+  --line: #c7dbf6;
+  --text: #0c2748;
+  --text-muted: #546f90;
+  --red: #2563eb;
+  --red-dim: rgba(37,99,235,0.45);
+  --red-glow: rgba(37,99,235,0.28);
+  --green: #12a150;
+  --amber: #f59e0b;
+  --shadow-lift: 0 14px 30px rgba(37,99,235,0.18);
+}
+html[data-theme="light"] body { background: radial-gradient(900px 520px at 88% -8%, rgba(56,189,248,0.38), transparent 62%), radial-gradient(800px 520px at 2% 8%, rgba(167,139,250,0.30), transparent 62%), radial-gradient(760px 520px at 55% 105%, rgba(251,191,36,0.22), transparent 60%), linear-gradient(180deg, #e6f1ff 0%, #f4faff 100%); background-attachment: fixed; }
+html[data-theme="light"] .site-header { background: rgba(255,255,255,0.82); backdrop-filter: blur(12px); border-bottom: 3px solid transparent; border-image: linear-gradient(90deg, #2563eb, #06b6d4, #8b5cf6, #ec4899) 1; box-shadow: 0 4px 18px rgba(37,99,235,0.12); }
+html[data-theme="light"] .icon-btn, html[data-theme="light"] .nav-pill { background: #fff; border-color: var(--line); color: var(--text); box-shadow: 0 1px 4px rgba(37,99,235,0.12); }
+html[data-theme="light"] .icon-btn:hover, html[data-theme="light"] .nav-pill:hover { background: #eef5ff; border-color: var(--red); }
+html[data-theme="light"] .nav-pill.active-mylists { background: rgba(37,99,235,0.12); border-color: var(--red); color: var(--red); }
+html[data-theme="light"] .install-btn { background: linear-gradient(135deg, #2563eb, #7c3aed); border-color: transparent; color: #fff; }
+html[data-theme="light"] input, html[data-theme="light"] textarea, html[data-theme="light"] select { background: #fff; border-color: var(--line); color: var(--text); }
+html[data-theme="light"] .header-search input { box-shadow: 0 2px 8px rgba(37,99,235,0.10); }
+html[data-theme="light"] .mylists-dropdown { background: #fff; border-color: var(--line); box-shadow: var(--shadow-lift); }
+html[data-theme="light"] .mylists-row:hover { background: rgba(37,99,235,0.10); }
+html[data-theme="light"] .mylists-row.is-all { color: var(--red); background: rgba(37,99,235,0.07); }
+html[data-theme="light"] .mylists-row.current { background: rgba(37,99,235,0.14); color: var(--red); }
+html[data-theme="light"] .site-footer, html[data-theme="light"] footer { background: rgba(255,255,255,0.72); }
+html[data-theme="light"] .home-alert-banner { background: #fff3cd; border-color: #f5b301; color: #4a3200; }
+html[data-theme="light"] .card-media { border-color: var(--line); box-shadow: 0 6px 16px rgba(37,99,235,0.12); }
+html[data-theme="light"] .card-badge { background: linear-gradient(135deg, #2563eb, #7c3aed); }
+html[data-theme="light"] .course-card:hover .card-media { border-color: var(--red); box-shadow: 0 12px 28px rgba(37,99,235,0.28); }
+html[data-theme="light"] .discovery-tab, html[data-theme="light"] .tab-btn { background: #fff; }
+html[data-theme="light"] .tab-btn.active { background: linear-gradient(135deg, #2563eb, #7c3aed); border-color: transparent; }
+html[data-theme="light"] .continue-card { background: #fff; border-color: var(--line); box-shadow: 0 4px 14px rgba(37,99,235,0.10); }
+html[data-theme="light"] .reco-banner { background: linear-gradient(90deg, rgba(37,99,235,0.09), rgba(139,92,246,0.09)); border-color: var(--line); }
+html[data-theme="light"] .related-card.current { background: rgba(37,99,235,0.08); }
+html[data-theme="light"] .admin-card, html[data-theme="light"] .course-row, html[data-theme="light"] .work-card { box-shadow: 0 4px 16px rgba(37,99,235,0.08); }
+html[data-theme="light"] .discovery-tab.active { background: var(--tab-color, var(--red)); color: #fff; border-color: transparent; }
+html[data-theme="light"] .banner-img { background: var(--surface-2); color: var(--text-muted); }
+
+* { box-sizing: border-box; }
+html { color-scheme: dark; }
+html[data-theme="light"] { color-scheme: light; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  background-image: radial-gradient(circle at 15% 0%, rgba(229,32,44,0.09), transparent 45%);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--red); color: #fff; }
+:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; border-radius: 4px; }
+
+
+/* ---------- الرأس (مضغوط: شعار صغير + بحث في النص + أزرار) ---------- */
+.site-header { position: sticky; top: 0; z-index: 30; background: rgba(12,12,13,0.88); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+.site-header .site-header-inner { display: flex; align-items: center; gap: 12px; max-width: 1440px; margin: 0 auto; padding: 10px 20px; }
+.head-links { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.random-link { background: none; border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; font: inherit; font-size: 0.82rem; cursor: pointer; color: inherit; }
+.random-link:hover { border-color: var(--red); color: var(--red); }
+.brand { display: flex; align-items: center; gap: 9px; flex: 0 0 auto; min-width: 0; }
+.brand-mark { width: 30px; height: 30px; flex-shrink: 0; }
+.brand-text h1 { font-family: var(--font-display); font-weight: 800; font-size: 1.02rem; margin: 0; white-space: nowrap; }
+.brand-text p { display: none; }
+.header-search { position: relative; flex: 1 1 260px; max-width: 540px; margin-inline: auto; }
+.header-search input { width: 100%; height: 40px; background: var(--surface); border: 1px solid var(--line); color: var(--text); font-family: var(--font-body); font-size: 0.9rem; padding: 0 40px 0 38px; border-radius: 999px; transition: border-color .15s ease, box-shadow .15s ease; }
+.header-search input::placeholder { color: var(--text-muted); }
+.header-search input:focus { border-color: var(--red); outline: none; box-shadow: 0 0 0 3px var(--red-glow); }
+.header-search .s-icon { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); width: 17px; height: 17px; fill: none; stroke: var(--text-muted); stroke-width: 2; pointer-events: none; }
+.header-search .s-clear { position: absolute; left: 8px; top: 50%; transform: translateY(-50%); width: 26px; height: 26px; border: 0; border-radius: 50%; background: var(--surface-2); color: var(--text-muted); cursor: pointer; display: none; font-size: 0.8rem; line-height: 1; }
+.header-search.has-text .s-clear { display: block; }
+.header-actions { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
+@media (max-width: 900px) {
+  .nav-pill { width: 36px; height: 36px; padding: 0; justify-content: center; border-radius: 50%; }
+  .nav-pill-label, .install-label { display: none; }
+  .install-btn { width: 36px; height: 36px; padding: 0; justify-content: center; }
+}
+@media (max-width: 720px) {
+  .site-header .site-header-inner { flex-wrap: wrap; padding: 8px 14px; gap: 8px; }
+  .brand-text { display: block; min-width: 0; }
+  .brand-text h1 { font-size: 0.82rem !important; max-width: 38vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .brand-mark { width: 26px !important; height: 26px !important; }
+  .header-actions { margin-inline-start: auto; gap: 6px; }
+  .header-search { order: 3; flex: 1 1 100%; max-width: none; margin: 0; }
+}
+
+.mylists-wrap { position: relative; display: flex; align-items: center; }
+.nav-pill { display: inline-flex; align-items: center; gap: 6px; height: 38px; padding: 0 12px 0 10px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--text); font: inherit; font-size: 0.82rem; font-weight: 600; cursor: pointer; white-space: nowrap; max-width: 210px; transition: background .18s ease, border-color .18s ease, color .18s ease; }
+.nav-pill-label { overflow: hidden; text-overflow: ellipsis; }
+.nav-pill svg { width: 16px; height: 16px; fill: currentColor; flex-shrink: 0; transition: transform .22s ease; }
+.nav-pill:hover { border-color: var(--red-dim); background: var(--surface-2); }
+.nav-pill:focus-visible, .mylists-row:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+.nav-pill.active-mylists { background: rgba(229,32,44,0.12); border-color: var(--red); color: var(--red); }
+.nav-pill.active-mylists svg { transform: rotate(180deg); }
+.install-btn { display: inline-flex; align-items: center; gap: 7px; height: 38px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--red); background: var(--red); color: #fff; font: inherit; font-size: 0.82rem; font-weight: 700; cursor: pointer; white-space: nowrap; flex-shrink: 0; transition: filter .15s ease, transform .15s ease; }
+.install-btn:hover { filter: brightness(1.12); }
+.install-btn:active { transform: scale(0.97); }
+.install-btn svg { width: 16px; height: 16px; fill: currentColor; }
+@media (max-width: 640px) { .install-btn { width: 34px; height: 34px; padding: 0; justify-content: center; } .install-label { display: none; } }
+.mylists-dropdown {
+  position: absolute; top: calc(100% + 10px); right: 0; z-index: 60;
+  width: max-content; min-width: 230px; max-width: min(340px, calc(100vw - 20px));
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 8px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.5);
+  opacity: 0; visibility: hidden; transform: translateY(-8px) scale(0.98); transform-origin: top right; pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease, visibility 0s linear .18s;
+}
+.mylists-dropdown.show { opacity: 1; visibility: visible; transform: translateY(0) scale(1); pointer-events: auto; transition: opacity .18s ease, transform .18s ease, visibility 0s; }
+.mylists-rows { display: flex; flex-direction: column; gap: 2px; }
+.mylists-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 11px 14px; border-radius: 10px; color: var(--text); font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: background .14s ease, color .14s ease; }
+.mylists-row:hover { background: rgba(229,32,44,0.12); }
+.mylists-row.is-all { color: var(--red); background: rgba(229,32,44,0.07); font-weight: 700; }
+.mylists-row.current { background: rgba(229,32,44,0.16); color: var(--red); }
+.mylists-row .count { font-size: 0.74rem; color: var(--text-muted); background: var(--surface-2); border-radius: 999px; padding: 1px 8px; font-weight: 600; }
+@media (max-width: 640px) {
+  .mylists-wrap { position: static; }
+  .nav-pill { width: 34px; height: 34px; padding: 0; justify-content: center; border-radius: 50%; }
+  .nav-pill-label { display: none; }
+  .mylists-dropdown { top: calc(100% + 6px); left: 12px; right: 12px; width: auto; min-width: 0; max-width: none; transform-origin: top center; }
+}
+.mylists-rows { display: flex; flex-direction: column; gap: 2px; }
+.mylists-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 9px 10px; border-radius: 8px; color: var(--text); text-decoration: none; font-size: 0.84rem; }
+.mylists-row:hover { background: var(--surface-2); }
+.mylists-row .count { color: var(--text-muted); font-size: 0.74rem; flex-shrink: 0; }
+.mylists-row .name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mylists-divider { height: 1px; background: var(--line); margin: 6px 2px; }
+.mylists-empty-hint { padding: 8px 10px; color: var(--text-muted); font-size: 0.78rem; }
+.mylists-new-form { display: flex; gap: 6px; padding: 4px 2px 2px; }
+.mylists-new-form input { flex: 1; min-width: 0; background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; padding: 7px 9px; color: var(--text); font-size: 0.78rem; }
+.mylists-new-form button { background: var(--red); color: #fff; border: none; border-radius: 8px; padding: 7px 11px; font-size: 0.76rem; cursor: pointer; white-space: nowrap; }
+.icon-btn.active-mylists { color: var(--red); border-color: var(--red); }
+.icon-btn.active-mylists svg { transform: rotate(180deg); }
+.icon-btn svg { transition: transform .18s ease; }
+.icon-btn {
+  width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line);
+  background: var(--surface); display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--text-muted); transition: all 0.15s ease; flex-shrink: 0;
+}
+.icon-btn:hover { color: var(--red); border-color: var(--red-dim); }
+.icon-btn svg { width: 18px; height: 18px; fill: currentColor; }
+.icon-btn .sun { display: none; }
+html[data-theme="light"] .icon-btn .moon { display: none; }
+html[data-theme="light"] .icon-btn .sun { display: block; }
+
+/* ---------- أقسام الصفحة والشرائح ---------- */
+:root { --gap: 16px; --cols: 2; }
+@media (min-width: 561px) { :root { --cols: 3; } }
+@media (min-width: 861px) { :root { --cols: 4; } }
+@media (min-width: 1101px) { :root { --cols: 5; } }
+@media (min-width: 1360px) { :root { --cols: 6; } }
+@media (max-width: 560px) { :root { --gap: 12px; } }
+.block { margin-top: 26px; }
+.section-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.section-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; margin: 0; line-height: 1.3; }
+.section-eyebrow { display: block; font-size: 0.72rem; font-weight: 700; color: var(--tab-color, var(--red)); margin-bottom: 2px; }
+.section-link { flex-shrink: 0; font-size: 0.8rem; font-weight: 700; color: var(--text-muted); padding: 6px 13px; border-radius: 999px; border: 1px solid var(--line); white-space: nowrap; transition: color .15s ease, border-color .15s ease; }
+.section-link:hover { color: var(--text); border-color: var(--text-muted); }
+.chips { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding: 2px 0 4px; margin-bottom: 14px; -webkit-overflow-scrolling: touch; }
+.chips::-webkit-scrollbar { display: none; }
+.discovery-tab, .tab-btn { flex: 0 0 auto; height: 34px; padding: 0 15px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--text-muted); font-family: var(--font-body); font-weight: 600; font-size: 0.8rem; cursor: pointer; white-space: nowrap; transition: color .15s ease, background .15s ease, border-color .15s ease; }
+.discovery-tab:hover, .tab-btn:hover { color: var(--text); border-color: var(--red-dim); }
+.discovery-tab.active { color: #fff; background: var(--tab-color, var(--red)); border-color: transparent; }
+.tab-btn.active { color: #fff; background: var(--red); border-color: var(--red); }
+
+/* ---------------- التوصيات (Onboarding + موصى به لك) ---------------- */
+.onboarding-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 80; display: flex;
+  align-items: center; justify-content: center; padding: 16px; opacity: 0; pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.onboarding-overlay.show { opacity: 1; pointer-events: auto; }
+.onboarding-modal {
+  position: relative; width: 100%; max-width: 560px; max-height: 90vh; overflow-y: auto;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-card);
+  box-shadow: var(--shadow-lift); padding: 26px 24px;
+}
+.onboarding-modal h2 { margin: 0 0 6px; font-size: 1.25rem; }
+.onboarding-modal .hint { color: var(--text-muted); font-size: 0.84rem; margin: 0 0 20px; }
+.onboarding-close { position: absolute; top: 14px; left: 14px; }
+.onboarding-section { margin-bottom: 20px; }
+.onboarding-section h4 { margin: 0 0 10px; font-size: 0.9rem; }
+.onboarding-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.onb-chip {
+  background: var(--surface-2); border: 1px solid var(--line); color: var(--text-muted);
+  font-family: var(--font-body); font-size: 0.8rem; padding: 8px 16px; border-radius: 20px;
+  cursor: pointer; transition: all 0.15s ease;
+}
+.onb-chip:hover { color: var(--text); border-color: var(--red-dim); }
+.onb-chip.active { background: var(--red); border-color: var(--red); color: #fff; font-weight: 700; }
+.onboarding-section input[type=text] {
+  width: 100%; background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius-sm);
+  padding: 10px 14px; color: var(--text); font-family: var(--font-body); font-size: 0.85rem;
+}
+.onboarding-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+.continue-card { display: flex; align-items: center; gap: 12px; margin: 16px 0 0; padding: 10px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; color: var(--text); text-decoration: none; transition: border-color .15s ease; }
+.continue-card:hover { border-color: var(--red); }
+.continue-card img { width: 46px; height: 66px; object-fit: cover; border-radius: 8px; background: var(--surface-2); flex-shrink: 0; }
+.continue-card .cc-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
+.continue-card .cc-text small { color: var(--text-muted); font-size: 0.74rem; }
+.continue-card .cc-text strong { font-size: 0.98rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.continue-card .cc-play { width: 38px; height: 38px; border-radius: 50%; background: var(--red); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0; }
+.reco-banner { margin-top: 0;
+  display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap;
+  background: linear-gradient(135deg, rgba(229,32,44,0.12), rgba(229,32,44,0.02));
+  border: 1px solid rgba(229,32,44,0.3); border-radius: var(--radius-card); padding: 9px 14px;
+  margin-bottom: 14px; font-size: 0.82rem;
+}
+.reco-banner .reco-edit-link { color: var(--red); cursor: pointer; font-weight: 700; white-space: nowrap; text-decoration: none; }
+
+/* ---------- شبكة الكروت (نفس الكارت في الشريط والمكتبة) ---------- */
+.grid { display: grid; grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); gap: 22px var(--gap); padding: 4px 0 40px; }
+.course-card { position: relative; display: block; min-width: 0; cursor: pointer; transition: transform 0.2s ease; }
+.course-card:hover, .course-card:focus-visible { transform: translateY(-4px); }
+.card-media { position: relative; width: 100%; aspect-ratio: 2/3; border-radius: 12px; overflow: hidden; background: linear-gradient(135deg, var(--surface-2), var(--surface)); border: 1px solid var(--line); transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+.card-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.35s ease; }
+.card-media::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 45%); opacity: 0; transition: opacity 0.2s ease; }
+.course-card:hover .card-media::after { opacity: 1; }
+.card-badge { position: absolute; top: 8px; right: 8px; max-width: calc(100% - 16px); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; background: var(--red); color: #fff; font-size: 0.66rem; font-weight: 700; padding: 3px 9px; border-radius: 5px; box-shadow: 0 3px 8px rgba(0,0,0,0.4); z-index: 1; }
+.card-rating { position: absolute; top: 8px; left: 8px; background: rgba(12,12,13,0.78); color: #ffc94d; font-size: 0.7rem; font-weight: 800; padding: 3px 8px; border-radius: 999px; z-index: 1; }
+.card-meta { position: absolute; bottom: 8px; right: 9px; display: flex; align-items: center; gap: 4px; background: rgba(12,12,13,0.72); color: #fff; font-size: 0.68rem; font-weight: 700; padding: 3px 8px; border-radius: 999px; z-index: 1; }
+.card-meta svg { width: 11px; height: 11px; fill: #fff; }
+.card-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); opacity: 0; transition: opacity 0.2s ease; }
+.card-play svg { width: 44px; height: 44px; fill: #fff; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5)); transform: scale(0.85); transition: transform 0.2s ease; }
+.card-body { padding: 10px 2px 0; }
+.card-body h3 { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: 0.92rem; line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.9em; transition: color 0.2s ease; }
+.course-card:hover .card-media, .course-card:focus-visible .card-media { border-color: var(--red); box-shadow: 0 10px 26px rgba(229,32,44,0.18); }
+.course-card:hover .card-media img { transform: scale(1.06); }
+.course-card:hover .card-play { opacity: 1; }
+.course-card:hover .card-play svg { transform: scale(1); }
+.course-card:hover .card-body h3 { color: var(--red); }
+@media (max-width: 560px) { .card-body h3 { font-size: 0.85rem; } .section-title { font-size: 1.05rem; } }
+
+.grid-loading { grid-column: 1/-1; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 50px 0; color: var(--text-muted); font-size: 0.85rem; }
+.grid-loading .spin { width: 18px; height: 18px; border: 2px solid var(--line); border-top-color: var(--red); border-radius: 50%; animation: hp-spin 0.7s linear infinite; }
+
+.show-more-row { display: flex; justify-content: center; padding: 8px 0 40px; }
+.show-more-btn {
+  background: var(--surface); border: 1px solid var(--line); color: var(--text);
+  font-family: var(--font-body); font-weight: 700; font-size: 0.86rem; padding: 12px 32px;
+  border-radius: 999px; cursor: pointer; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 8px;
+}
+.show-more-btn:hover { border-color: var(--red); color: var(--red); box-shadow: 0 6px 16px rgba(0,0,0,0.2); transform: translateY(-2px); }
+.show-more-btn:active { transform: translateY(0) scale(0.96); }
+.show-more-btn .spin { width: 14px; height: 14px; border: 2px solid var(--line); border-top-color: var(--red); border-radius: 50%; animation: hp-spin 0.7s linear infinite; }
+
+/* ---------- حالة عدم وجود كورسات ---------- */
+.empty-state { text-align: center; padding: 70px 20px 90px; color: var(--text-muted); }
+.empty-state svg { width: 56px; height: 56px; fill: none; stroke: var(--text-muted); stroke-width: 1.4; margin-bottom: 16px; }
+.empty-state h2 { font-family: var(--font-display); color: var(--text); font-size: 1.15rem; margin: 0 0 8px; }
+.empty-state p { max-width: 420px; margin: 0 auto; font-size: 0.86rem; }
+.empty-state code { background: var(--surface); border: 1px solid var(--line); padding: 2px 7px; border-radius: 5px; font-size: 0.8rem; color: var(--red); direction: ltr; display: inline-block; }
+
+/* ---------- التذييل ---------- */
+.site-footer { border-top: 1px solid var(--line); padding: 26px 0 34px; text-align: center; }
+.site-footer p { margin: 0 0 6px; font-size: 0.78rem; color: var(--text-muted); }
+.site-footer .rights-note { max-width: 560px; margin: 0 auto; font-size: 0.72rem; color: var(--text-muted); opacity: 0.7; }
+.site-footer .admin-link { display: inline-block; margin-top: 10px; font-size: 0.7rem; color: var(--text-muted); opacity: 0.5; }
+.site-footer .admin-link:hover { opacity: 1; color: var(--red); }
+
+/* ============================================================
+   صفحة الكورس (course.html)
+   ============================================================ */
+
+/* قسم المعلومات */
+
+/* أزرار الحلقة السابقة / التالية */
+
+/* تبويبات تجميع الحلقات */
+
+html, body { overflow-x: hidden; max-width: 100%; }
+.wrap { max-width: 1440px; margin: 0 auto; padding: 0 20px; }
+@media (max-width: 720px) {
+  .wrap { padding: 0 14px; }
+  .icon-btn { width: 36px; height: 36px; }
+  .icon-btn svg { width: 16px; height: 16px; }
+}
+
+/* ============================================================
+   منطقة الاكتشاف: تبويبات صغيرة + شريط أفقي بنفس كارت المكتبة
+   ============================================================ */
+.discovery-carousel { position: relative; }
+.discovery-track { display: flex; gap: var(--gap); overflow-x: auto; scroll-snap-type: x proximity; padding: 4px 0 12px; scrollbar-width: none; min-height: 120px; }
+.discovery-track::-webkit-scrollbar { display: none; }
+.discovery-track > .course-card { flex: 0 0 calc((100% - (var(--cols) - 1) * var(--gap)) / var(--cols)); scroll-snap-align: start; }
+.discovery-nav { position: absolute; top: 38%; transform: translateY(-50%); z-index: 2; width: 38px; height: 38px; border-radius: 50%; background: var(--surface); border: 1px solid var(--line); color: var(--text); font-size: 1.2rem; line-height: 1; cursor: pointer; box-shadow: var(--shadow-lift); display: flex; align-items: center; justify-content: center; }
+.discovery-nav.prev { inset-inline-start: -10px; }
+.discovery-nav.next { inset-inline-end: -10px; }
+@media (max-width: 720px) { .discovery-nav { display: none; } }
+.discovery-empty { color: var(--text-muted); font-size: 0.85rem; padding: 24px 10px; text-align: center; width: 100%; }
+
+@media (prefers-reduced-motion: reduce) {
+  .course-card, .card-media img, .brand-mark { transition: none !important; animation: none !important; }
+}
+
+/* ============================================================
+   مشغّل الفيديو المخصص (player.js)
+   ============================================================ */
+@keyframes hp-spin { to { transform: rotate(360deg); } }
+@keyframes hp-pulse { 0% { transform: scale(1); } 40% { transform: scale(0.85); } 100% { transform: scale(1); } }
+
+/* ============================================================
+   صفحة الأدمن (admin.html)
+   ============================================================ */
+
+.btn-primary, .btn-secondary {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 11px 22px; border-radius: var(--radius-sm); font-family: var(--font-body);
+  font-weight: 700; font-size: 0.86rem; cursor: pointer; border: none; transition: all 0.15s ease;
+}
+.btn-primary { background: var(--red); color: #fff; }
+.btn-primary:hover { background: #ff2e3b; }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-primary:active:not(:disabled), .btn-secondary:active, .tab-btn:active, .icon-btn:active { transform: scale(0.95); }
+.btn-secondary { background: var(--surface-2); color: var(--text); border: 1px solid var(--line); }
+.btn-secondary:hover { border-color: var(--red-dim); }
+
+.toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--surface-2); border: 1px solid var(--line); color: var(--text); padding: 13px 22px; border-radius: var(--radius-sm); font-size: 0.85rem; box-shadow: var(--shadow-lift); z-index: 100; opacity: 0; pointer-events: none; transition: all 0.25s ease; }
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.toast.success { border-color: var(--green); }
+.toast.error { border-color: #ff5c5c; }
+
+/* ============================================================
+   إضافات: القائمة الجانبية، الأقسام، الإشعارات/الاستطلاعات/المواعيد
+   ============================================================ */
+
+/* قائمة الهامبرغر */
+.hamburger-btn { display: flex; }
+.menu-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 40; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
+.menu-overlay.show { opacity: 1; pointer-events: auto; }
+.side-menu {
+  position: fixed; top: 0; bottom: 0; right: 0; width: 300px; max-width: 86vw;
+  background: var(--surface); border-left: 1px solid var(--line); z-index: 41;
+  transform: translateX(100%); transition: transform 0.25s ease; overflow-y: auto;
+  padding: 18px;
+}
+.side-menu.show { transform: translateX(0); }
+.side-menu h3 { font-family: var(--font-display); font-size: 0.78rem; color: var(--text-muted); margin: 18px 0 8px; padding: 0 4px; }
+.side-menu h3:first-child { margin-top: 0; }
+.side-menu a.menu-link {
+  display: flex; align-items: center; gap: 10px; padding: 11px 12px; border-radius: var(--radius-sm);
+  color: var(--text); font-size: 0.9rem; font-weight: 600; transition: background 0.15s ease;
+}
+.side-menu a.menu-link:hover { background: var(--surface-2); }
+.side-menu a.menu-link svg { width: 18px; height: 18px; fill: var(--text-muted); flex-shrink: 0; }
+.side-menu .menu-close { position: absolute; top: 14px; left: 14px; }
+
+/* صفحة الأقسام (section.html) والمركز (hub.html) */
+
+/* شارات المشاهدات والإعجاب (عرض فقط) */
+
+/* ترقيم صفحات الحلقات (أرقام بسيطة) */
+
+
+/* إحصائيات الأدمن */
+
+/* أزرار الإعجاب/عدم الإعجاب التفاعلية وزر الإبلاغ */
+
+/* نموذج الاستطلاع التفاعلي */
+
+/* تقييم النجوم (الحلقة + الكورس ككل) */
+
+/* زر تليجرام عائم */
+.floating-telegram {
+  position: fixed; bottom: 22px; left: 22px; width: 52px; height: 52px; border-radius: 50%;
+  background: #229ed9; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4); z-index: 50; transition: transform 0.15s ease;
+}
+.floating-telegram:hover { transform: scale(1.08); }
+.floating-telegram svg { width: 26px; height: 26px; fill: #fff; }
+
+/* شريط إشعارات/استطلاعات بارز في الرئيسية */
+.home-alert-banner {
+  background: linear-gradient(90deg, rgba(229,32,44,0.16), rgba(229,32,44,0.04));
+  border: 1px solid var(--red-dim); border-radius: var(--radius-sm);
+  padding: 12px 16px; margin: 18px 0; display: flex; align-items: center; gap: 10px;
+  font-size: 0.86rem; animation: banner-in 0.4s ease;
+}
+.home-alert-banner svg { width: 18px; height: 18px; fill: var(--red); flex-shrink: 0; }
+.home-alert-banner a { color: var(--red); font-weight: 700; margin-right: auto; white-space: nowrap; }
+@keyframes banner-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+
+
+/* ---------- البانر المميز ---------- */
+.hero { position: relative; margin-top: 16px; border-radius: 18px; overflow: hidden; min-height: 330px; background: var(--surface); border: 1px solid var(--line); }
+.hero-slide { position: absolute; inset: 0; display: flex; align-items: center; gap: 28px; padding: 28px 36px; opacity: 0; visibility: hidden; transition: opacity .6s ease, visibility .6s; color: #fff; }
+.hero-slide.active { opacity: 1; visibility: visible; }
+.hero-bg { position: absolute; inset: -30px; background-size: cover; background-position: center; filter: blur(26px) saturate(1.3); transform: scale(1.1); z-index: 0; }
+.hero-slide::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(8,8,12,0.88) 0%, rgba(8,8,12,0.55) 60%, rgba(8,8,12,0.35) 100%); }
+.hero-poster, .hero-info { position: relative; z-index: 2; }
+.hero-poster { flex: 0 0 auto; width: 170px; aspect-ratio: 2/3; border-radius: 14px; overflow: hidden; box-shadow: 0 16px 40px rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.18); background: var(--surface-2); }
+.hero-poster img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-info { flex: 1; min-width: 0; max-width: 640px; }
+.hero-badges { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+.hero-badges span { font-size: 0.72rem; font-weight: 800; padding: 3px 11px; border-radius: 999px; background: rgba(255,255,255,0.16); backdrop-filter: blur(6px); }
+.hero-badges .b-cat { background: var(--red); }
+.hero-info h2 { margin: 0 0 8px; font-family: var(--font-display); font-weight: 800; font-size: clamp(1.4rem, 3vw, 2.2rem); line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.hero-meta { margin: 0 0 8px; font-size: 0.82rem; opacity: 0.85; }
+.hero-desc { margin: 0 0 16px; font-size: 0.9rem; line-height: 1.8; opacity: 0.9; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.hero-btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 26px; border-radius: 999px; font-weight: 800; font-size: 0.92rem; background: var(--red); color: #fff; box-shadow: 0 8px 24px var(--red-glow); transition: transform .15s ease, filter .15s ease; }
+.hero-btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+.hero-nav { position: absolute; top: 50%; transform: translateY(-50%); z-index: 4; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.3); background: rgba(8,8,12,0.55); color: #fff; font-size: 1.3rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.hero-nav.prev { inset-inline-start: 12px; } .hero-nav.next { inset-inline-end: 12px; }
+.hero-dots { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); z-index: 4; display: flex; gap: 7px; }
+.hero-dots button { width: 8px; height: 8px; border-radius: 999px; border: 0; background: rgba(255,255,255,0.45); cursor: pointer; padding: 0; transition: width .25s ease, background .25s ease; }
+.hero-dots button.on { width: 26px; background: #fff; }
+@media (max-width: 720px) {
+  .hero { min-height: 300px; margin-top: 12px; border-radius: 14px; }
+  .hero-slide { padding: 18px 16px 34px; align-items: flex-end; }
+  .hero-poster { display: none; }
+  .hero-nav { display: none; }
+  .hero-desc { -webkit-line-clamp: 2; font-size: 0.82rem; margin-bottom: 12px; }
+  .hero-btn { padding: 9px 22px; font-size: 0.86rem; }
+}
+.hero[hidden] { display: none; }
+/* ---------- علامات الكروت + شريط التقدم ---------- */
+.card-ribbon { position: absolute; top: 8px; left: 8px; z-index: 2; font-size: 0.66rem; font-weight: 800; padding: 3px 9px; border-radius: 5px; color: #fff; box-shadow: 0 3px 8px rgba(0,0,0,0.4); }
+.card-ribbon.new { background: #12a150; } .card-ribbon.newep { background: #2563eb; }
+.card-ribbon + .card-rating { top: 34px; }
+.card-status { position: absolute; bottom: 8px; left: 9px; z-index: 1; font-size: 0.66rem; font-weight: 800; padding: 3px 8px; border-radius: 999px; color: #fff; }
+.card-status.ongoing { background: rgba(232,163,61,0.92); color: #1b1200; } .card-status.complete { background: rgba(18,161,80,0.92); }
+.card-progress { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: rgba(255,255,255,0.28); z-index: 3; }
+.card-progress i { display: block; height: 100%; background: var(--red); }
+.card-x { position: absolute; top: 8px; left: 8px; z-index: 4; width: 26px; height: 26px; border-radius: 50%; border: 0; background: rgba(8,8,12,0.7); color: #fff; font-size: 0.75rem; cursor: pointer; opacity: 0; transition: opacity .15s ease; }
+.course-card:hover .card-x, .card-x:focus-visible { opacity: 1; }
+@media (hover: none) { .card-x { opacity: 1; } }
+/* ---------- أدوات المكتبة: فرز + حالة + عرض ---------- */
+.lib-tools { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.lib-tools select { height: 34px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--text); font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; padding: 0 12px; cursor: pointer; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--surface); }
+.seg button { border: 0; background: none; color: var(--text-muted); font-family: var(--font-body); font-size: 0.78rem; font-weight: 700; padding: 0 12px; height: 32px; cursor: pointer; }
+.seg button.on { background: var(--red); color: #fff; }
+.cat-rows { display: block; }
+.cat-row { margin-bottom: 8px; }
+.cat-row .section-title { font-size: 1.05rem; } .cat-row .section-title small { color: var(--text-muted); font-weight: 600; font-size: 0.78rem; }
+.rail-btn { position: absolute; top: 38%; transform: translateY(-50%); z-index: 2; width: 36px; height: 36px; border-radius: 50%; background: var(--surface); border: 1px solid var(--line); color: var(--text); font-size: 1.1rem; cursor: pointer; box-shadow: var(--shadow-lift); display: flex; align-items: center; justify-content: center; }
+.rail-btn.prev { inset-inline-start: -8px; } .rail-btn.next { inset-inline-end: -8px; }
+@media (max-width: 720px) { .rail-btn { display: none; } .lib-tools { width: 100%; } }
+/* ---------- اقتراحات البحث ---------- */
+.search-pop { position: absolute; top: calc(100% + 8px); right: 0; left: 0; z-index: 60; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow-lift); padding: 6px; max-height: 70vh; overflow-y: auto; }
+.search-pop[hidden] { display: none; }
+.sp-head { display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; font-size: 0.72rem; color: var(--text-muted); font-weight: 700; }
+.sp-head button { background: none; border: 0; color: var(--red); font: inherit; cursor: pointer; }
+.sp-item { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 10px; color: var(--text); cursor: pointer; text-decoration: none; }
+.sp-item:hover, .sp-item.act, .sp-all:hover, .sp-all.act { background: rgba(229,32,44,0.1); }
+.sp-item img { width: 36px; height: 54px; object-fit: cover; border-radius: 6px; background: var(--surface-2); flex-shrink: 0; }
+.sp-t { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
+.sp-t b { font-size: 0.9rem; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sp-t small { font-size: 0.72rem; color: var(--text-muted); }
+.sp-x { background: none; border: 0; color: var(--text-muted); cursor: pointer; font-size: 0.8rem; padding: 4px 8px; }
+.sp-all { display: block; width: 100%; text-align: right; background: none; border: 0; border-top: 1px solid var(--line); margin-top: 4px; padding: 10px; color: var(--red); font: inherit; font-weight: 700; font-size: 0.84rem; cursor: pointer; border-radius: 10px; }
+.sp-empty { padding: 16px; text-align: center; color: var(--text-muted); font-size: 0.84rem; }
+html[data-theme="light"] .sp-item:hover, html[data-theme="light"] .sp-item.act, html[data-theme="light"] .sp-all:hover, html[data-theme="light"] .sp-all.act { background: rgba(37,99,235,0.1); }
+</style>
+<script src="nav.js" defer></script>
+<style id="hk-fixes">
+/* ===== إصلاحات الموبايل + زر تيليجرام + روابط الفوتر (أكتوبر 2026) ===== */
+@media (max-width: 720px) { .header-actions .mylists-wrap { display: none; } } /* الأقسام وقوائمي موجودين في الشريط السفلي والقائمة الجانبية */
+.floating-telegram { width: 60px !important; height: 60px !important; animation: tg-pulse 2.6s infinite; }
+.floating-telegram svg { width: 30px !important; height: 30px !important; }
+@keyframes tg-pulse { 0% { box-shadow: 0 6px 18px rgba(0,0,0,.4), 0 0 0 0 rgba(34,158,217,.6); } 70% { box-shadow: 0 6px 18px rgba(0,0,0,.4), 0 0 0 18px rgba(34,158,217,0); } 100% { box-shadow: 0 6px 18px rgba(0,0,0,.4), 0 0 0 0 rgba(34,158,217,0); } }
+@media (prefers-reduced-motion: reduce) { .floating-telegram { animation: none; } }
+.footer-links { display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: center; margin-top: 8px; }
+</style>
+<link rel="stylesheet" href="ui.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap site-header-inner">
+      <div class="brand">
+        <svg class="brand-mark" viewBox="0 0 200 200">
+          <defs>
+            <radialGradient id="bggm" cx="50%" cy="42%" r="65%"><stop offset="0%" stop-color="#1a1a1c"/><stop offset="100%" stop-color="#0c0c0d"/></radialGradient>
+            <linearGradient id="bladegm" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#ff5a63"/><stop offset="55%" stop-color="#e5202c"/><stop offset="100%" stop-color="#8c0f18"/></linearGradient>
+            <linearGradient id="flamegm" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#ff2e3b" stop-opacity="0"/><stop offset="100%" stop-color="#ff6a52"/></linearGradient>
+          </defs>
+          <circle cx="100" cy="100" r="98" fill="url(#bggm)" stroke="#e5202c" stroke-width="3"/>
+          <path d="M100 34 L112 92 L100 168 L88 92 Z" fill="url(#bladegm)"/>
+          <path d="M100 96 C70 86 58 60 66 30 C74 56 84 70 100 78 Z" fill="url(#flamegm)"/>
+          <path d="M100 96 C130 86 142 60 134 30 C126 56 116 70 100 78 Z" fill="url(#flamegm)"/>
+          <circle cx="100" cy="46" r="5" fill="#fff" opacity="0.9"/>
+        </svg>
+        <div class="brand-text">
+          <h1 class="js-site-name">منصة حكيم التعليمية</h1>
+          <p class="js-tagline">تعلّم بالترتيب الذي تريده أنت</p>
+        </div>
+      </div>
+      <div class="header-search" id="headerSearch">
+        <svg class="s-icon" viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"/></svg>
+        <input type="text" id="searchInput" placeholder="ابحث عن كورس..." autocomplete="off" enterkeyhint="search" aria-label="ابحث عن كورس">
+        <button type="button" class="s-clear" id="searchClear" aria-label="مسح البحث">✕</button>
+        <div class="search-pop" id="searchPop" hidden></div>
+      </div>
+      <div class="header-actions">
+        <div class="mylists-wrap">
+          <button class="nav-pill" id="sectionsBtn" title="الأقسام" aria-label="الأقسام" aria-haspopup="true" aria-expanded="false"><span class="nav-pill-label" id="sectionsBtnLabel">الصفحة الرئيسية</span><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button>
+          <div class="mylists-dropdown" id="sectionsDropdown"></div>
+        </div>
+        <div class="mylists-wrap">
+          <button class="nav-pill" id="myListsBtn" title="قوائمي" aria-label="قوائمي" aria-haspopup="true" aria-expanded="false"><span class="nav-pill-label">قوائمي</span><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button>
+          <div class="mylists-dropdown" id="myListsDropdown"></div>
+        </div>
+        <button class="icon-btn" id="themeToggle" title="تبديل الوضع: ليلي / فاتح" aria-label="تبديل الوضع">
+          <svg class="moon" viewBox="0 0 24 24"><path d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>
+          <svg class="sun" viewBox="0 0 24 24"><path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0-5a1 1 0 011 1v2a1 1 0 11-2 0V3a1 1 0 011-1zm0 18a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1zM4.22 4.22a1 1 0 011.42 0l1.41 1.41a1 1 0 11-1.41 1.41L4.22 5.64a1 1 0 010-1.42zm12.73 12.73a1 1 0 011.41 0l1.41 1.41a1 1 0 01-1.41 1.41l-1.41-1.41a1 1 0 010-1.41zM1 12a1 1 0 011-1h2a1 1 0 110 2H2a1 1 0 01-1-1zm18 0a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1zM4.22 19.78a1 1 0 010-1.41l1.41-1.41a1 1 0 111.41 1.41l-1.41 1.41a1 1 0 01-1.41 0zM16.95 4.22a1 1 0 010 1.41l-1.41 1.41a1 1 0 11-1.41-1.41l1.41-1.41a1 1 0 011.41 0z"/></svg>
+        </button>
+        <button class="install-btn" id="installAppBtn" type="button" title="تثبيت التطبيق" aria-label="تثبيت التطبيق"><svg viewBox="0 0 24 24"><path d="M12 3a1 1 0 011 1v9.59l3.3-3.3a1 1 0 111.4 1.42l-5 5a1 1 0 01-1.4 0l-5-5a1 1 0 111.4-1.42l3.3 3.3V4a1 1 0 011-1zM5 19a1 1 0 011-1h12a1 1 0 110 2H6a1 1 0 01-1-1z"/></svg><span class="install-label">تثبيت التطبيق</span></button>
+        <button class="icon-btn hamburger-btn" id="menuBtn" title="القائمة" aria-label="القائمة">
+          <svg viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="menu-overlay" id="menuOverlay"></div>
+  
+  <nav class="side-menu" id="sideMenu">
+    <button class="icon-btn menu-close" id="menuCloseBtn" aria-label="إغلاق"><svg viewBox="0 0 24 24"><path d="M6.4 4.98L4.98 6.4 10.59 12l-5.61 5.6 1.42 1.42L12 13.41l5.6 5.61 1.42-1.42L13.41 12l5.61-5.6-1.42-1.42L12 10.59z"/></svg></button>
+    <div id="sideMenuItems"></div>
+  </nav>
+
+  <main class="wrap">
+    <div id="homeAlertHost"></div>
+    <section class="hero" id="hero" hidden aria-label="أعمال مميزة"></section>
+    <div id="continueHost"></div>
+
+    <section class="block discovery-section" id="discoverySection">
+      <div class="section-head discovery-head">
+        <div>
+          <span class="section-eyebrow" id="discoveryEyebrow"></span>
+          <h2 class="section-title" id="discoveryTitle"></h2>
+        </div>
+        <div class="head-links"><button type="button" class="section-link random-link" id="randomPickBtn" title="يفتح كورس عشوائي من المكتبة">🎲 اختر لي عشوائيًا</button><a href="#librarySection" class="section-link">عرض الكل ‹</a></div>
+      </div>
+      <div class="chips" id="discoveryTabs"></div>
+      <div class="discovery-carousel">
+        <button type="button" class="discovery-nav prev" id="discoveryPrev" aria-label="السابق">‹</button>
+        <div class="discovery-track" id="discoveryGrid"></div>
+        <button type="button" class="discovery-nav next" id="discoveryNext" aria-label="التالي">›</button>
+      </div>
+    </section>
+
+    <section class="block" id="librarySection">
+      <div class="section-head">
+        <h2 class="section-title" id="libTitle">كل الكورسات</h2>
+        <div class="lib-tools">
+          <select id="statusSel" aria-label="حالة العمل"><option value="all">كل الحالات</option><option value="ongoing">مستمر</option><option value="complete">مكتمل</option></select>
+          <select id="sortSel" aria-label="ترتيب"><option value="default">مقترح لك (ذكي)</option><option value="newest">الأحدث</option><option value="top_rated">الأعلى تقييمًا</option><option value="most_viewed">الأكثر مشاهدة</option><option value="alpha">أبجدي</option></select>
+          <div class="seg" id="viewSeg"><button type="button" data-view="rows">☰ صفوف</button><button type="button" data-view="grid">▦ شبكة</button></div>
+        </div>
+      </div>
+      <div class="chips" id="tabRow"></div>
+      <div id="recoBannerHost"></div>
+      <div class="grid" id="grid"></div>
+      <div class="show-more-row" id="showMoreRow"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="js-footer-rights">© 2026 منصة حكيم التعليمية — جميع الحقوق محفوظة</p>
+      <p class="rights-note js-footer-note">
+        المحتوى التعليمي المعروض على المنصة ملك لأصحابه ومقدّمي الكورسات الأصليين؛
+        هذه المنصة أداة عرض وتنظيم فقط ولا تدّعي ملكية أي مادة تعليمية بها.
+      </p>
+      <nav class="footer-links">
+        <a href="hub.html?tab=complaint" class="admin-link">قسم الشكوى وتقييم بلاغ</a>
+        <a href="hub.html?tab=contact" class="admin-link">اتصل بنا</a>
+        <a href="hub.html?tab=dmca" class="admin-link">DMCA</a>
+        <a href="hub.html?tab=join" class="admin-link">أريد العمل معكم</a>
+      </nav>
+      <a href="admin.html" class="admin-link">إدارة الموقع</a>
+    </div>
+  </footer>
+
+<script>
+/* لا تعدّل هذا الملف — هذه دالة داخلية يستخدمها كل ملف كورس تلقائيًا */
+function registerCourse(id, data) {
+  window.__HAKIM_COURSES = window.__HAKIM_COURSES || {};
+  window.__HAKIM_COURSES[id] = data;
+}
+
+</script>
+<script>
+/* ============================================================
+   common.js — دوال مشتركة بين كل صفحات الموقع
+   ============================================================ */
+
+function hakimEscapeHtml(str) {
+  const d = document.createElement('div');
+  d.textContent = str == null ? '' : String(str);
+  return d.innerHTML;
+}
+
+const __hakimLoadedScripts = {};
+/* ملفات البيانات (إعدادات الموقع/القوائم/الكورسات) بنطلبها بنسخة كل 30 ثانية، عشان تعديلات الأدمن (وضع الصيانة مثلًا)
+   تظهر بسرعة بدل ما تستنى كاش المتصفح والـCDN (حوالي 10 دقايق على GitHub Pages) */
+function hakimVersioned(src) {
+  if (/^vendor\//.test(src) || /^media-utils\.js/.test(src) || /[?&]v=/.test(src)) return src;
+  return src + (src.indexOf('?') > -1 ? '&' : '?') + 'v=' + Math.floor(Date.now() / 30000);
+}
+function hakimLoadScript(src) {
+  if (__hakimLoadedScripts[src]) return __hakimLoadedScripts[src];
+  __hakimLoadedScripts[src] = new Promise((resolve) => {
+    const s = document.createElement('script');
+    s.src = hakimVersioned(src);
+    s.onload = () => resolve(true);
+    s.onerror = () => resolve(false);
+    document.head.appendChild(s);
+  });
+  return __hakimLoadedScripts[src];
+}
+
+/* تحميل بيانات كارت الكورس: من courses-index.js (ملف واحد سريع) مع رجوع لملف الكورس القديم .js لو لسه موجود */
+async function hakimLoadCourseCard(id) {
+  window.__HAKIM_COURSES = window.__HAKIM_COURSES || {};
+  if (window.__HAKIM_COURSES[id]) return true;
+  await hakimLoadScript('courses-index.js');
+  const c = window.COURSES_INDEX && window.COURSES_INDEX[id];
+  if (c) {
+    const d = Object.assign({}, c);
+    d.videos = new Array(c.videosCount || 0).fill({});
+    window.__HAKIM_COURSES[id] = d;
+    return true;
+  }
+  return hakimLoadScript(`${id}.js`);
+}
+
+/* ---------------- زر تثبيت التطبيق (PWA) ---------------- */
+let __hakimInstallPrompt = null;
+function hakimIsStandalone() { return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true; }
+function hakimIsIOS() { return /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1); }
+function hakimSyncInstallButton() { document.querySelectorAll('#installAppBtn').forEach(b => { b.style.display = hakimIsStandalone() ? 'none' : ''; }); }
+window.addEventListener('appinstalled', () => {
+  window.__hakimBIP = null;
+  document.querySelectorAll('#installAppBtn').forEach(b => { b.style.display = 'none'; });
+  if (typeof hakimToast === 'function') hakimToast('تم تثبيت التطبيق بنجاح ✅', 'success');
+});
+function hakimShowInstallHelp() {
+  const ios = hakimIsIOS();
+  const inApp = /FBAN|FBAV|Instagram|Line\/|Snapchat|TikTok|MicroMessenger/i.test(navigator.userAgent);
+  const body = ios
+    ? '<p style="margin:0 0 8px;font-size:.88rem;color:var(--text-muted)">آبل ما بتسمحش بالتثبيت بضغطة واحدة في آيفون/آيباد — لازم 3 خطوات سريعة من سفاري:</p><ol style="margin:0 0 14px;padding-inline-start:20px;line-height:1.9;font-size:.9rem;color:var(--text-muted)"><li>اضغط زر المشاركة ⬆️</li><li>اختر "إضافة إلى الشاشة الرئيسية"</li><li>اضغط "إضافة"</li></ol>'
+    : '<p style="margin:0 0 14px;line-height:1.8;font-size:.9rem;color:var(--text-muted)">' + (inApp ? 'المتصفح المدمج داخل التطبيق ده مش بيدعم التثبيت — افتح الرابط في Chrome أو Edge وجرّب تاني.' : 'المتصفح ده مش بيدعم التثبيت المباشر. افتح الموقع في Chrome أو Edge وهتلاقي التثبيت بضغطة واحدة.') + '</p>';
+  const old = document.getElementById('installHelpOverlay'); if (old) old.remove();
+  const ov = document.createElement('div'); ov.id = 'installHelpOverlay';
+  ov.style.cssText = 'position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;padding:16px';
+  ov.innerHTML = '<div role="dialog" aria-modal="true" style="background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;max-width:360px;width:100%;color:var(--text);box-shadow:0 20px 50px rgba(0,0,0,.5)"><h3 style="margin:0 0 10px;font-size:1.05rem">تثبيت التطبيق على الشاشة الرئيسية</h3>' + body + '<button type="button" style="width:100%;background:var(--red);color:#fff;border:0;border-radius:10px;padding:10px;font:inherit;font-weight:700;cursor:pointer">تمام</button></div>';
+  ov.addEventListener('click', (e) => { if (e.target === ov || e.target.tagName === 'BUTTON') ov.remove(); });
+  document.body.appendChild(ov);
+}
+/* ينتظر حدث beforeinstallprompt لحظة قصيرة (مصدره سكربت صغير في أول الصفحة) */
+function hakimWaitForInstallPrompt(ms) {
+  return new Promise(resolve => {
+    if (window.__hakimBIP) return resolve(window.__hakimBIP);
+    const t = setTimeout(() => { window.removeEventListener('hakim-bip', on); resolve(null); }, ms);
+    function on() { clearTimeout(t); resolve(window.__hakimBIP); }
+    window.addEventListener('hakim-bip', on, { once: true });
+  });
+}
+async function hakimInstallApp(btn) {
+  if (hakimIsStandalone()) { if (typeof hakimToast === 'function') hakimToast('التطبيق مثبّت عندك بالفعل ✅', 'success'); return; }
+  const ev = window.__hakimBIP || (hakimIsIOS() ? null : await hakimWaitForInstallPrompt(1800));
+  if (!ev) { hakimShowInstallHelp(); return; }
+  window.__hakimBIP = null;
+  try {
+    ev.prompt();
+    const r = await ev.userChoice;
+    if (r && r.outcome === 'accepted') btn.style.display = 'none';
+  } catch (e) { hakimShowInstallHelp(); }
+}
+function hakimInitInstallButton() {
+  const btn = document.getElementById('installAppBtn');
+  if (!btn) return;
+  hakimSyncInstallButton();
+  btn.addEventListener('click', () => hakimInstallApp(btn));
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+}
+
+const HAKIM_PLACEHOLDER_IMG =
+  'data:image/svg+xml;utf8,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="300" height="450" viewBox="0 0 300 450"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a0f13"/><stop offset="1" stop-color="#0f1016"/></linearGradient></defs><rect width="300" height="450" fill="url(#g)"/><circle cx="150" cy="215" r="46" fill="none" stroke="#e5202c" stroke-width="3" opacity=".85"/><path d="M138 192v46l38-23z" fill="#e5202c" opacity=".9"/></svg>`);
+
+/* إعدادات الموقع (اسم/فوتر/حقوق) — يتم تحميلها وتطبيقها على أي عنصر بالكلاسات المذكورة */
+async function hakimApplySiteSettings() {
+  await hakimLoadScript('site-settings.js');
+  const s = window.SITE_SETTINGS || {};
+  if (s.siteName) { document.querySelectorAll('.js-site-name').forEach(el => { el.textContent = s.siteName; }); const baked = s.siteNameApplied || 'منصة حكيم التعليمية'; if (baked !== s.siteName) document.title = document.title.split(baked).join(s.siteName); }
+  if (s.tagline) document.querySelectorAll('.js-tagline').forEach(el => { el.textContent = s.tagline; });
+  if (s.footerRights) document.querySelectorAll('.js-footer-rights').forEach(el => { el.textContent = s.footerRights; });
+  if (s.footerNote) document.querySelectorAll('.js-footer-note').forEach(el => { el.textContent = s.footerNote; });
+  return s;
+}
+
+async function hakimRenderSideMenu() {
+  const host = document.getElementById('sideMenuItems');
+  if (!host) return;
+  try { await hakimLoadScript('menu-config.js'); } catch (e) {}
+  const P = {
+    home: 'M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z', user: 'M12 12a4 4 0 100-8 4 4 0 000 8zm0 2c-3.3 0-8 1.7-8 5v1h16v-1c0-3.3-4.7-5-8-5z',
+    folder: 'M10 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V8a2 2 0 00-2-2h-8l-2-2z', mail: 'M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5z',
+    bell: 'M12 22a2 2 0 002-2h-4a2 2 0 002 2zm6-6V11a6 6 0 10-12 0v5l-2 2v1h16v-1l-2-2z', chart: 'M5 9h3v10H5zm5-5h3v15h-3zm5 8h3v7h-3z',
+    cal: 'M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 16H5V9h14z', bulb: 'M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z'
+  };
+  /* لو menu-config.js ما اتحمّلش (نت ضعيف / فتح من ملف محلي) القائمة ما تفضلش فاضية */
+  const cfg = (window.MENU_CONFIG && window.MENU_CONFIG.length) ? window.MENU_CONFIG : [
+    { label: 'الإشعارات', href: 'hub.html?tab=notifications', type: 'other', icon: P.bell }, { label: 'الاستطلاعات', href: 'hub.html?tab=polls', type: 'other', icon: P.chart },
+    { label: 'مواعيد العرض', href: 'hub.html?tab=schedule', type: 'other', icon: P.cal }, { label: 'الاقتراحات والأفكار', href: 'hub.html?tab=suggestions', type: 'other', icon: P.bulb }
+  ];
+  const vis = cfg.filter(it => it.visible !== false);
+  const link = (it, ico) => `<a class="menu-link${hakimIsHere(it.href || '#') ? ' current' : ''}" href="${hakimEscapeHtml(it.href || '#')}"><svg viewBox="0 0 24 24"><path d="${it.icon || ico}"/></svg>${hakimEscapeHtml(it.label || '')}</a>`;
+  const sections = vis.filter(it => it.type === 'section'), others = vis.filter(it => it.type !== 'section');
+  const accounts = !!((window.SITE_SETTINGS || {}).supabaseUrl);
+  const contact = [{ label: 'اتصل بنا', href: 'hub.html?tab=contact' }, { label: 'الشكاوى والبلاغات', href: 'hub.html?tab=complaint' }, { label: 'DMCA', href: 'hub.html?tab=dmca' }, { label: 'أريد العمل معكم', href: 'hub.html?tab=join' }];
+  host.innerHTML = link({ label: 'الرئيسية', href: 'index.html' }, P.home)
+    + (accounts ? link({ label: 'ملفي الشخصي', href: 'profile.html' }, P.user) : '')
+    + (sections.length ? '<h3>الأقسام</h3>' + sections.map(it => link(it, P.folder)).join('') : '')
+    + (others.length ? '<h3>المزيد</h3>' + others.map(it => link(it, P.folder)).join('') : '')
+    + '<h3>تواصل معنا</h3>' + contact.map(it => link(it, P.mail)).join('');
+}
+
+function hakimIsHere(href) {
+  try {
+    const u = new URL(href, location.href), f = p => p.split('/').pop() || 'index.html';
+    if (f(u.pathname) !== f(location.pathname)) return false;
+    const cur = new URLSearchParams(location.search);
+    for (const [k, v] of u.searchParams) if (cur.get(k) !== v) return false;
+    return true;
+  } catch (e) { return false; }
+}
+function hakimPlaceDropdown(btn, panel) {
+  panel.style.left = ''; panel.style.right = '';
+  if (window.matchMedia('(max-width: 640px)').matches) return;
+  const wrap = btn.closest('.mylists-wrap'); if (!wrap) return;
+  const vw = document.documentElement.clientWidth, w = panel.offsetWidth, wr = wrap.getBoundingClientRect();
+  const left = Math.max(10, Math.min(wr.right - w, vw - w - 10));
+  panel.style.right = 'auto'; panel.style.left = (left - wr.left) + 'px';
+}
+function hakimSetDropdownOpen(btn, panel, on) {
+  panel._btn = btn;
+  panel.classList.toggle('show', on); btn.classList.toggle('active-mylists', on); btn.setAttribute('aria-expanded', on ? 'true' : 'false');
+  if (on) hakimPlaceDropdown(btn, panel);
+}
+window.addEventListener('resize', () => document.querySelectorAll('.mylists-dropdown.show').forEach(p => p._btn && hakimPlaceDropdown(p._btn, p)));
+
+async function hakimRenderSectionsDropdown() {
+  const host = document.getElementById('sectionsDropdown');
+  if (!host) return;
+  await hakimLoadScript('menu-config.js');
+  const items = (window.MENU_CONFIG || []).filter(it => it.visible !== false && it.type === 'section');
+  if (items.length === 0) {
+    host.innerHTML = `<p class="mylists-empty-hint">لا توجد أقسام مضافة بعد.</p>`;
+    return;
+  }
+  host.innerHTML = `<div class="mylists-rows"><a class="mylists-row is-all${hakimIsHere('index.html') ? ' current' : ''}" href="index.html"><span class="name">الصفحة الرئيسية</span></a>${items.map(it =>
+    `<a class="mylists-row${hakimIsHere(it.href || '#') ? ' current' : ''}" href="${hakimEscapeHtml(it.href || '#')}"><span class="name">${hakimEscapeHtml(it.label || '')}</span></a>`
+  ).join('')}</div>`;
+}
+function hakimInitSectionsMenu() {
+  const btn = document.getElementById('sectionsBtn');
+  const panel = document.getElementById('sectionsDropdown');
+  if (!btn || !panel) return;
+  function open() { const o = document.getElementById('myListsDropdown'), ob = document.getElementById('myListsBtn'); if (o && ob) hakimSetDropdownOpen(ob, o, false); hakimSetDropdownOpen(btn, panel, true); Promise.resolve(hakimRenderSectionsDropdown()).then(() => hakimPlaceDropdown(btn, panel)); }
+  function close() { hakimSetDropdownOpen(btn, panel, false); }
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (panel.classList.contains('show')) close(); else open();
+  });
+  document.addEventListener('click', (e) => {
+    if (panel.classList.contains('show') && !panel.contains(e.target) && !btn.contains(e.target)) close();
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+}
+
+function hakimInitMenu() {
+  const btn = document.getElementById('menuBtn');
+  const overlay = document.getElementById('menuOverlay');
+  const panel = document.getElementById('sideMenu');
+  const closeBtn = document.getElementById('menuCloseBtn');
+  if (!btn || !overlay || !panel) return;
+  hakimRenderSideMenu();
+  function open() { overlay.classList.add('show'); panel.classList.add('show'); }
+  function close() { overlay.classList.remove('show'); panel.classList.remove('show'); }
+  btn.addEventListener('click', open);
+  overlay.addEventListener('click', close);
+  if (closeBtn) closeBtn.addEventListener('click', close);
+}
+
+function hakimInitTheme() {
+  const themeToggle = document.getElementById('themeToggle');
+  if (!themeToggle) return;
+  themeToggle.addEventListener('click', () => {
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    if (isLight) { document.documentElement.removeAttribute('data-theme'); localStorage.setItem('hakim_theme', 'dark'); }
+    else { document.documentElement.setAttribute('data-theme', 'light'); localStorage.setItem('hakim_theme', 'light'); }
+  });
+}
+
+function hakimAddTelegramButton() {
+  const s = window.SITE_SETTINGS || {};
+  if (!s.telegramUrl) return;
+  const a = document.createElement('a');
+  a.href = s.telegramUrl; a.target = '_blank'; a.rel = 'noopener';
+  a.className = 'floating-telegram'; a.title = 'انضم لقناتنا على تليجرام';
+  a.innerHTML = `<svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71l-4.14-3.05-2 1.92c-.23.23-.42.42-.82.42z"/></svg>`;
+  document.body.appendChild(a);
+}
+
+/* ============================================================
+   قوائمي — المفضلة + المتابعة + قوائم تشغيل مخصصة (محلي بالكامل)
+   ============================================================ */
+const HAKIM_MYLISTS_KEY = 'hakim_mylists';
+
+function hakimGetMyLists() {
+  try {
+    const d = JSON.parse(localStorage.getItem(HAKIM_MYLISTS_KEY) || '{}');
+    return { favorites: d.favorites || [], following: d.following || [], playlists: d.playlists || [] };
+  } catch (e) { return { favorites: [], following: [], playlists: [] }; }
+}
+function hakimSaveMyLists(d) { localStorage.setItem(HAKIM_MYLISTS_KEY, JSON.stringify(d)); }
+
+function hakimIsFavorite(id) { return hakimGetMyLists().favorites.includes(id); }
+function hakimToggleFavorite(id) {
+  const d = hakimGetMyLists();
+  const i = d.favorites.indexOf(id);
+  if (i === -1) d.favorites.unshift(id); else d.favorites.splice(i, 1);
+  hakimSaveMyLists(d);
+  return i === -1;
+}
+function hakimIsFollowing(id) { return hakimGetMyLists().following.includes(id); }
+function hakimToggleFollowing(id) {
+  const d = hakimGetMyLists();
+  const i = d.following.indexOf(id);
+  if (i === -1) d.following.unshift(id); else d.following.splice(i, 1);
+  hakimSaveMyLists(d);
+  return i === -1;
+}
+function hakimCreatePlaylist(name) {
+  const d = hakimGetMyLists();
+  const pl = { id: 'pl_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), name, courseIds: [] };
+  d.playlists.push(pl);
+  hakimSaveMyLists(d);
+  return pl.id;
+}
+function hakimRenamePlaylist(plId, name) {
+  const d = hakimGetMyLists();
+  const pl = d.playlists.find(p => p.id === plId);
+  if (pl && name) { pl.name = name; hakimSaveMyLists(d); }
+}
+function hakimDeletePlaylist(plId) {
+  const d = hakimGetMyLists();
+  d.playlists = d.playlists.filter(p => p.id !== plId);
+  hakimSaveMyLists(d);
+}
+function hakimIsInPlaylist(plId, courseId) {
+  const pl = hakimGetMyLists().playlists.find(p => p.id === plId);
+  return !!(pl && pl.courseIds.includes(courseId));
+}
+function hakimTogglePlaylistCourse(plId, courseId) {
+  const d = hakimGetMyLists();
+  const pl = d.playlists.find(p => p.id === plId);
+  if (!pl) return false;
+  const i = pl.courseIds.indexOf(courseId);
+  if (i === -1) pl.courseIds.unshift(courseId); else pl.courseIds.splice(i, 1);
+  hakimSaveMyLists(d);
+  return i === -1;
+}
+
+function hakimToast(msg, type) {
+  let el = document.getElementById('hakimToast');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'hakimToast';
+    el.className = 'toast';
+    document.body.appendChild(el);
+  }
+  el.textContent = msg;
+  el.className = 'toast show' + (type ? ' ' + type : '');
+  clearTimeout(el._hakimToastT);
+  el._hakimToastT = setTimeout(() => { el.classList.remove('show'); }, 2500);
+}
+
+function hakimRenderMyListsDropdown() {
+  const host = document.getElementById('myListsDropdown');
+  if (!host) return;
+  const d = hakimGetMyLists();
+  let rows = `
+    <a class="mylists-row is-all" href="hub.html?tab=mylists"><span class="name">عرض كل قوائمي</span></a>
+    <a class="mylists-row" href="hub.html?tab=mylists&list=favorites"><span class="name">♥ ${hakimEscapeHtml((window.SITE_TEXT && window.SITE_TEXT.favoritesLabel) || 'المفضلة')}</span><span class="count">${d.favorites.length}</span></a>
+    <a class="mylists-row" href="hub.html?tab=mylists&list=following"><span class="name">◔ ${hakimEscapeHtml((window.SITE_TEXT && window.SITE_TEXT.followingLabel) || 'المتابعة')}</span><span class="count">${d.following.length}</span></a>`;
+  if (d.playlists.length) {
+    rows += `<div class="mylists-divider"></div>` + d.playlists.map(pl =>
+      `<a class="mylists-row" href="hub.html?tab=mylists&list=${encodeURIComponent(pl.id)}"><span class="name">▶ ${hakimEscapeHtml(pl.name)}</span><span class="count">${pl.courseIds.length}</span></a>`
+    ).join('');
+  }
+  host.innerHTML = `
+    <div class="mylists-rows">${rows}</div>
+    <div class="mylists-divider"></div>
+    <form class="mylists-new-form" id="myListsNewForm" autocomplete="off">
+      <input type="text" id="myListsNewName" placeholder="${hakimEscapeHtml((window.SITE_TEXT && window.SITE_TEXT.newPlaylistPlaceholder) || 'اسم قائمة تشغيل جديدة')}" required>
+      <button type="submit">+ ${hakimEscapeHtml((window.SITE_TEXT && window.SITE_TEXT.createBtn) || 'إنشاء')}</button>
+    </form>`;
+  const form = document.getElementById('myListsNewForm');
+  if (form) form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const input = document.getElementById('myListsNewName');
+    const name = input.value.trim();
+    if (!name) return;
+    if (window.hakimAuthGate && hakimAuthGate('سجّل دخولك عشان تعمل قوائم وتحفظ كورساتك')) return; hakimCreatePlaylist(name);
+    input.value = '';
+    hakimRenderMyListsDropdown();
+    hakimToast('تم إنشاء قائمة "' + name + '"', 'success');
+  });
+}
+
+function hakimInitMyListsMenu() {
+  const btn = document.getElementById('myListsBtn');
+  const panel = document.getElementById('myListsDropdown');
+  if (!btn || !panel) return;
+  function open() { const o = document.getElementById('sectionsDropdown'), ob = document.getElementById('sectionsBtn'); if (o && ob) hakimSetDropdownOpen(ob, o, false); hakimRenderMyListsDropdown(); hakimSetDropdownOpen(btn, panel, true); }
+  function close() { hakimSetDropdownOpen(btn, panel, false); }
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (panel.classList.contains('show')) close(); else open();
+  });
+  document.addEventListener('click', (e) => {
+    if (panel.classList.contains('show') && !panel.contains(e.target) && !btn.contains(e.target)) close();
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+}
+
+/* الأحدث نشرًا أولًا؛ الكورس بلا firstPublishedAt (قديم) يأتي بعد المؤرَّخين مع الحفاظ على ترتيبه */
+function hakimPublishedTime(entry) {
+  const t = entry && entry.firstPublishedAt ? Date.parse(entry.firstPublishedAt) : NaN;
+  return isNaN(t) ? -Infinity : t;
+}
+/* موعد الظهور المجدول: الكورس مخفي عن القوائم لحد ما يجي موعده */
+function hakimVisibleNow(e) { return !(e && e.publishAt && Date.parse(e.publishAt) > Date.now()); }
+function hakimNewestFirst(ids, idx) {
+  return ids.map((id, i) => ({ id, i, t: hakimPublishedTime(idx[id]) }))
+    .sort((a, b) => (a.t !== b.t ? (b.t > a.t ? 1 : -1) : a.i - b.i)).map(x => x.id);
+}
+/* جديد هذا الشهر: أول نشر فعلي داخل الشهر التقويمي الحالي (بتوقيت جهاز الزائر) */
+function hakimIsThisMonth(entry) {
+  const t = hakimPublishedTime(entry); if (t === -Infinity) return false;
+  const d = new Date(t), n = new Date();
+  return d.getFullYear() === n.getFullYear() && d.getMonth() === n.getMonth();
+}
+
+async function hakimRenderHomeAlertBanner(hostId) {
+  const host = document.getElementById(hostId);
+  if (!host) return;
+  await Promise.all([hakimLoadScript('notifications.js'), hakimLoadScript('polls.js')]);
+  const notif = (window.NOTIFICATIONS || []).slice(-1)[0];
+  const pollsCount = (window.POLLS || []).length;
+  if (!notif && pollsCount === 0) return;
+  const parts = [];
+  if (notif) parts.push(`📢 ${hakimEscapeHtml(notif.title || '')}`);
+  if (pollsCount > 0) parts.push(`📋 فيه ${pollsCount} استطلاع جديد`);
+  host.innerHTML = `
+    <div class="home-alert-banner">
+      <svg viewBox="0 0 24 24"><path d="M12 22a2 2 0 002-2h-4a2 2 0 002 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4a1.5 1.5 0 00-3 0v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1z"/></svg>
+      <span>${parts.join(' — ')}</span>
+      <a href="hub.html">التفاصيل ←</a>
+    </div>`;
+}
+
+function hakimLazyFade(img) {
+  if (img.complete && img.naturalWidth > 0) { img.classList.add('loaded'); return; }
+  img.addEventListener('load', () => img.classList.add('loaded'));
+  img.addEventListener('error', () => img.classList.add('loaded'));
+}
+
+/* ============================================================
+   Supabase — تحليلات، تقييمات، شكاوى، اقتراحات (بدون مكتبات خارجية)
+   ============================================================ */
+function hakimSbConfig() {
+  const s = window.SITE_SETTINGS || {};
+  return { url: s.supabaseUrl || '', anonKey: s.supabaseAnonKey || '' };
+}
+function hakimSbReady() {
+  const c = hakimSbConfig();
+  return !!(c.url && c.anonKey);
+}
+async function hakimSbInsert(table, row) {
+  const { url, anonKey } = hakimSbConfig();
+  if (!url || !anonKey) return false;
+  try {
+    const res = await fetch(`${url}/rest/v1/${table}`, {
+      method: 'POST',
+      headers: { 'apikey': anonKey, 'Authorization': `Bearer ${anonKey}`, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
+      body: JSON.stringify(row)
+    });
+    return res.ok;
+  } catch (e) { return false; }
+}
+async function hakimSbUpsert(table, row, conflictCols) {
+  const { url, anonKey } = hakimSbConfig();
+  if (!url || !anonKey) return false;
+  try {
+    const res = await fetch(`${url}/rest/v1/${table}?on_conflict=${conflictCols}`, {
+      method: 'POST',
+      headers: { 'apikey': anonKey, 'Authorization': `Bearer ${anonKey}`, 'Content-Type': 'application/json', 'Prefer': 'resolution=merge-duplicates,return=minimal' },
+      body: JSON.stringify(row)
+    });
+    return res.ok;
+  } catch (e) { return false; }
+}
+async function hakimSbRpc(fn, params) {
+  const { url, anonKey } = hakimSbConfig();
+  if (!url || !anonKey) return null;
+  try {
+    const res = await fetch(`${url}/rest/v1/rpc/${fn}`, {
+      method: 'POST',
+      headers: { 'apikey': anonKey, 'Authorization': `Bearer ${anonKey}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify(params || {})
+    });
+    if (!res.ok) return null;
+    return await res.json();
+  } catch (e) { return null; }
+}
+async function hakimSbSelect(pathWithQuery) {
+  const { url, anonKey } = hakimSbConfig();
+  if (!url || !anonKey) return null;
+  try {
+    const res = await fetch(`${url}/rest/v1/${pathWithQuery}`, {
+      headers: { 'apikey': anonKey, 'Authorization': `Bearer ${anonKey}` }
+    });
+    if (!res.ok) return null;
+    return await res.json();
+  } catch (e) { return null; }
+}
+
+/* حقن كود مخصص (زي سكربت إعلانات Monetag) — بيتفعّل فورًا/يتوقف فورًا
+   عبر مفتاح site_config.ads.enabled في Supabase، حتى لو الكود نفسه
+   محفوظ بالفعل في site-settings.js (المتحكم السريع هو التفعيل بس) */
+function hakimShowMaintenanceIfNeeded() {
+  const s = window.SITE_SETTINGS || {};
+  if (!s.maintenanceMode) return false;
+  location.replace('maintenance.html');
+  return true;
+}
+
+async function hakimInjectCustomCode() {
+  const s = window.SITE_SETTINGS || {};
+  if (!s.customCode || !hakimSbReady()) return;
+  try {
+    const rows = await hakimSbSelect('site_config?key=eq.ads&select=value');
+    const adsEnabled = !!(rows && rows[0] && rows[0].value && rows[0].value.enabled);
+    if (!adsEnabled) return;
+  } catch (e) { return; }
+  try {
+    const holder = document.createElement('div');
+    holder.innerHTML = s.customCode;
+    Array.from(holder.childNodes).forEach(node => {
+      if (node.tagName === 'SCRIPT') {
+        const s2 = document.createElement('script');
+        Array.from(node.attributes || []).forEach(a => s2.setAttribute(a.name, a.value));
+        if (!node.src) s2.textContent = node.textContent;
+        document.body.appendChild(s2);
+      } else {
+        document.body.appendChild(node);
+      }
+    });
+  } catch (e) { /* كود مخصص خاطئ — يتجاهل بصمت عشان ميكسرش باقي الصفحة */ }
+}
+
+function hakimSessionId() {
+  let sid = localStorage.getItem('hakim_session_id');
+  if (!sid) {
+    sid = 'sid_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2);
+    localStorage.setItem('hakim_session_id', sid);
+  }
+  return sid;
+}
+
+function hakimDetectAdblock() {
+  return new Promise((resolve) => {
+    const bait = document.createElement('div');
+    bait.className = 'ad-banner ads ad-container adsbox';
+    bait.style.cssText = 'position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;';
+    document.body.appendChild(bait);
+    setTimeout(() => {
+      const blocked = !bait.offsetParent || bait.offsetHeight === 0 || getComputedStyle(bait).display === 'none';
+      bait.remove();
+      resolve(blocked);
+    }, 100);
+  });
+}
+
+async function hakimDetectCountry() {
+  try {
+    const cached = sessionStorage.getItem('hakim_country');
+    if (cached) return cached;
+    const res = await fetch('https://ipapi.co/json/');
+    if (!res.ok) return '';
+    const data = await res.json();
+    const country = data.country_name || '';
+    sessionStorage.setItem('hakim_country', country);
+    return country;
+  } catch (e) { return ''; }
+}
+
+async function hakimTrackPageView(page, courseId, episodeIndex) {
+  if (!hakimSbReady()) return;
+  const [country, isAdblock] = await Promise.all([hakimDetectCountry(), hakimDetectAdblock()]);
+  hakimSbInsert('page_views', { session_id: hakimSessionId(), page, course_id: courseId || null, episode_index: episodeIndex != null ? episodeIndex : null, country, is_adblock: isAdblock });
+}
+
+</script>
+<script src="courses-list.js"></script>
+<script src="reco-engine.js"></script>
+<script>
+/* ============================================================
+   app.js — الصفحة الرئيسية
+   ============================================================ */
+
+(function () {
+  const grid = document.getElementById('grid');
+  const searchInput = document.getElementById('searchInput');
+  const tabRow = document.getElementById('tabRow');
+
+  const BATCH_SIZE = 12;
+  let allCourses = [];       // {id, data} for courses whose script has been loaded so far, الأحدث نشرًا أولًا
+  let homeIds = [];          // full ordered id list eligible for the homepage (from COURSES_LIST — الأحدث نشرًا أولًا، يضبطه admin.html)
+  let loadedUpToIndex = 0;
+  let allLoaded = false;
+  let isLoadingBatch = false;
+  let renderedCount = BATCH_SIZE;
+  let activeCategory = 'الكل';
+  let sortMode = 'default', statusFilter = 'all';
+  let viewMode = (() => { try { return localStorage.getItem('hakim_view') === 'grid' ? 'grid' : 'rows'; } catch (e) { return 'rows'; } })();
+  const metricCache = {};
+
+  /* ============================================================
+     التوصيات — Onboarding + خوارزمية "موصى به لك"
+     ============================================================ */
+
+  function hakimNormalizeAr(s) {
+    return String(s || '').trim().toLowerCase()
+      .replace(/[\u064B-\u0652\u0640]/g, '').replace(/[إأآا]/g, 'ا').replace(/ى/g, 'ي').replace(/ة/g, 'ه').replace(/\s+/g, ' ');
+  }
+
+  function renderEmptyState() {
+    grid.innerHTML = `
+      <div class="empty-state" style="grid-column:1/-1">
+        <svg viewBox="0 0 24 24"><path d="M4 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v9a2 2 0 01-2 2H6a2 2 0 01-2-2V6z"/></svg>
+        <h2>لا توجد كورسات مضافة بعد</h2>
+        <p>لسه مفيش كورسات هنا — تابعنا قريبًا 🙌</p>
+      </div>`;
+    tabRow.style.display = 'none';
+  }
+
+  function buildTabs(categories) {
+    if (categories.length === 0) { tabRow.style.display = 'none'; tabRow.dataset.hasCats = '0'; return; }
+    tabRow.style.display = 'flex';
+    tabRow.dataset.hasCats = '1';
+    const allLabel = (window.SITE_TEXT && window.SITE_TEXT.allTabLabel) || 'الكل';
+    const cats = ['الكل', ...categories];
+    tabRow.innerHTML = cats.map(cat =>
+      `<button class="tab-btn ${cat === activeCategory ? 'active' : ''}" data-cat="${hakimEscapeHtml(cat)}">${hakimEscapeHtml(cat === 'الكل' ? allLabel : cat)}</button>`
+    ).join('');
+    tabRow.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeCategory = btn.dataset.cat;
+        renderedCount = BATCH_SIZE;
+        tabRow.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderGrid();
+      });
+    });
+  }
+
+  async function loadMoreScripts(minHomepageCount) {
+    while (!allLoaded && allCourses.length < minHomepageCount) {
+      const nextIds = homeIds.slice(loadedUpToIndex, loadedUpToIndex + BATCH_SIZE);
+      if (nextIds.length === 0) { allLoaded = true; break; }
+      await Promise.all(nextIds.map(id => hakimLoadCourseCard(id)));
+      loadedUpToIndex += nextIds.length;
+      if (loadedUpToIndex >= homeIds.length) allLoaded = true;
+      allCourses = homeIds.slice(0, loadedUpToIndex)
+        .map(id => ({ id, data: (window.__HAKIM_COURSES || {})[id] }))
+        .filter(c => !!c.data && !c.data.menuSection);
+    }
+  }
+
+  async function loadAllRemaining() {
+    if (allLoaded) return;
+    const remaining = homeIds.slice(loadedUpToIndex);
+    if (remaining.length) await Promise.all(remaining.map(id => hakimLoadCourseCard(id)));
+    loadedUpToIndex = homeIds.length;
+    allLoaded = true;
+    allCourses = homeIds
+      .map(id => ({ id, data: (window.__HAKIM_COURSES || {})[id] }))
+      .filter(c => !!c.data && !c.data.menuSection);
+  }
+
+  /* كارت واحد للمكتبة وللشريط (نفس الحجم والشكل) */
+  function courseCardHtml(id, data, opts) {
+    opts = opts || {};
+    const epCount = (data.videos || []).length;
+    const name = data.name || 'كورس بدون اسم';
+    const DAY = 86400000, now = Date.now();
+    const fp = Date.parse(data.firstPublishedAt), le = Date.parse(data.lastEpisodeAt);
+    let ribbon = '';
+    if (le && now - le < 7 * DAY) ribbon = '<span class="card-ribbon newep">حلقة جديدة</span>';
+    else if (fp && now - fp < 14 * DAY) ribbon = '<span class="card-ribbon new">جديد</span>';
+    const st = data.info && data.info.status;
+    const status = st === 'ongoing' ? '<span class="card-status ongoing">مستمر</span>' : (st === 'complete' ? '<span class="card-status complete">مكتمل</span>' : '');
+    const href = opts.href || (encodeURIComponent(id) + '.html');
+    return `
+      <a class="course-card" href="${href}" title="${hakimEscapeHtml(name)}">
+        <div class="card-media">
+          <img loading="lazy" decoding="async" src="${data.img ? hakimEscapeHtml(data.img) : HAKIM_PLACEHOLDER_IMG}"
+               alt="${hakimEscapeHtml(name)}"
+               onerror="this.onerror=null;this.src='${HAKIM_PLACEHOLDER_IMG}'">
+          ${data.category ? `<span class="card-badge">${hakimEscapeHtml(data.category)}</span>` : ''}
+          ${opts.removable ? `<button type="button" class="card-x" data-rm="${hakimEscapeHtml(id)}" aria-label="إزالة من متابعة المشاهدة">✕</button>` : ribbon}
+          ${opts.badge ? `<span class="card-rating">${opts.badge.icon} ${opts.badge.value}</span>` : ''}
+          ${opts.epLabel ? `<span class="card-meta">${hakimEscapeHtml(opts.epLabel)}</span>` : (epCount ? `<span class="card-meta"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>${epCount} حلقة</span>` : '')}
+          ${status}
+          <div class="card-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          ${opts.progress != null ? `<div class="card-progress"><i style="width:${Math.max(3, Math.min(100, Math.round(opts.progress * 100)))}%"></i></div>` : ''}
+        </div>
+        <div class="card-body"><h3>${hakimEscapeHtml(name)}</h3></div>
+      </a>`;
+  }
+  function cardHtml(id, data) { return courseCardHtml(id, data); }
+
+  async function onShowMoreClick() {
+    if (isLoadingBatch) return;
+    isLoadingBatch = true;
+    const btn = document.getElementById('showMoreBtn');
+    if (btn) { btn.disabled = true; btn.innerHTML = `<span class="spin"></span><span>جارٍ التحميل...</span>`; }
+    renderedCount += BATCH_SIZE;
+    if (!allLoaded) await loadMoreScripts(renderedCount);
+    isLoadingBatch = false;
+    renderGrid();
+  }
+
+  async function renderGrid() {
+    tabRow.style.display = (tabRow.dataset.hasCats === '1' ? 'flex' : 'none');
+    const showMoreHost = document.getElementById('showMoreRow');
+
+    const q = hakimNormalizeAr(searchInput.value);
+    const qTokens = q ? q.split(' ') : [];
+    const rowsApplicable = viewMode === 'rows' && activeCategory === 'الكل' && !q && statusFilter === 'all' && sortMode === 'default';
+    const useReco = sortMode === 'default' && !q && !!window.HakimReco;
+  const needsFullData = useReco || activeCategory !== 'الكل' || !!q || statusFilter !== 'all' || sortMode !== 'default' || rowsApplicable;
+    if (needsFullData && !allLoaded) {
+      grid.innerHTML = `<div class="grid-loading"><span class="spin"></span><span>جارٍ تحميل باقي الكورسات...</span></div>`;
+      showMoreHost.innerHTML = '';
+      await loadAllRemaining();
+    }
+
+    let filtered = allCourses.filter(({ data }) => {
+      const matchesCategory = activeCategory === 'الكل' || data.category === activeCategory;
+      const matchesSearch = !q || (() => {
+        const hay = hakimNormalizeAr([
+          data.name, data.description, data.category,
+          (data.categories || []).join(' '),
+          ((data.info && data.info.overview) || ''),
+          (data.videos || []).map(v => v.title).join(' ')
+        ].join(' '));
+        return qTokens.every(t => hay.includes(t));
+      })();
+      return matchesCategory && matchesSearch;
+    });
+
+    /* ترتيب ذكي صامت: 70% خوارزمية / 20% متنوع / 10% مضاد — مبعثر ومش بالتاريخ (reco-engine.js) */
+  if (useReco) filtered = HakimReco.order(filtered);
+
+  if (statusFilter !== 'all') filtered = filtered.filter(({ data }) => (data.info && data.info.status) === statusFilter);
+    if (sortMode === 'newest') filtered = filtered.slice().sort((a, b) => (Date.parse(b.data.firstPublishedAt) || 0) - (Date.parse(a.data.firstPublishedAt) || 0));
+    else if (sortMode === 'alpha') filtered = filtered.slice().sort((a, b) => String(a.data.name || '').localeCompare(String(b.data.name || ''), 'ar'));
+    else if (sortMode === 'top_rated' || sortMode === 'most_viewed') {
+      const m = await getMetric(sortMode);
+      if (!m) { hakimToast('الترتيب ده محتاج ربط Supabase — رجّعنا الترتيب الافتراضي', 'error'); sortMode = 'default'; document.getElementById('sortSel').value = 'default'; }
+      else filtered = filtered.slice().sort((a, b) => (m.get(b.id) || 0) - (m.get(a.id) || 0));
+    }
+
+    if (rowsApplicable && filtered.length && renderCategoryRows(filtered)) { showMoreHost.innerHTML = ''; return; }
+    grid.className = 'grid';
+    if (filtered.length === 0) {
+      const st = window.SITE_TEXT || {};
+      grid.innerHTML = `
+        <div class="empty-state" style="grid-column:1/-1">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          <h2>${hakimEscapeHtml(st.emptyStateTitle || 'لا توجد نتائج مطابقة')}</h2>
+          <p>${hakimEscapeHtml(st.emptyStateSubtitle || 'جرّب كلمة بحث أخرى أو اختر تصنيفًا مختلفًا.')}</p>
+          ${(q && hakimSbReady()) ? `<p style="opacity:.75;font-size:.85rem">${hakimEscapeHtml(st.searchMissNote || 'بحثك اتسجّل عندنا — بنراجع الطلبات ونضيف الكورسات الناقصة 🙌')}</p>` : ''}
+        </div>`;
+      showMoreHost.innerHTML = '';
+      if (q) logSearchMiss(searchInput.value, q);
+      return;
+    }
+
+    const pageItems = filtered.slice(0, renderedCount);
+    const hasMoreInFiltered = filtered.length > renderedCount;
+    const hasMoreToLoad = !allLoaded;
+    if (hasMoreInFiltered || hasMoreToLoad) {
+      showMoreHost.innerHTML = `<button class="show-more-btn" id="showMoreBtn"><span>عرض المزيد</span></button>`;
+      document.getElementById('showMoreBtn').addEventListener('click', onShowMoreClick);
+    } else {
+      showMoreHost.innerHTML = '';
+    }
+
+    grid.innerHTML = pageItems.map(({ id, data }, i) => cardHtml(id, data, i)).join('');
+    grid.querySelectorAll('img').forEach(hakimLazyFade);
+  }
+
+  function applySiteText() {
+    const st = window.SITE_TEXT || {};
+    if (st.searchPlaceholder) searchInput.placeholder = st.searchPlaceholder;
+    const setText = (id, key) => { const el = document.getElementById(id); if (el && st[key]) el.textContent = st[key]; };
+    setText('onbTitle', 'onbTitle');
+    setText('onbHint', 'onbHint');
+    setText('onbCategoriesHeading', 'onbCategoriesHeading');
+    setText('onbAgeHeading', 'onbAgeHeading');
+    setText('onbReleaseHeading', 'onbReleaseHeading');
+    setText('onbCountryHeading', 'onbCountryHeading');
+    setText('onboardingSaveBtn', 'onbSaveBtn');
+    setText('onboardingSkipBtn', 'onbSkipBtn');
+    const countryInput = document.getElementById('onbCountry');
+    if (countryInput && st.onbCountryPlaceholder) countryInput.placeholder = st.onbCountryPlaceholder;
+  }
+
+  async function init() {
+    await hakimApplySiteSettings();
+    hakimInjectCustomCode();
+    if (hakimShowMaintenanceIfNeeded()) return;
+    await hakimLoadScript('site-text.js');
+    applySiteText();
+    hakimTrackPageView('home');
+    hakimAddTelegramButton();
+    hakimInitInstallButton();
+    hakimRenderHomeAlertBanner('homeAlertHost');
+
+    await hakimLoadScript('courses-index.js');
+    const __idx0 = window.COURSES_INDEX || {};
+    /* المواسم اللاحقة تظهر داخل صفحة الكورس (ذات الصلة) وليس في المكتبة */
+    homeIds = (window.COURSES_LIST || []).filter(id => !(__idx0[id] && (__idx0[id].seasonNumber > 1 || !hakimVisibleNow(__idx0[id]))));
+    if (homeIds.length === 0) { renderEmptyState(); return; }
+    renderContinueWatching();
+    renderHero();
+
+    await hakimLoadScript('categories.js');
+    buildTabs(window.CATEGORIES || []);
+
+    grid.innerHTML = `<div class="grid-loading"><span class="spin"></span><span>جارٍ تحميل الكورسات...</span></div>`;
+    await loadMoreScripts(BATCH_SIZE);
+
+    if (allCourses.length === 0) { renderEmptyState(); return; }
+
+    renderGrid();
+  }
+
+
+  /* ============================================================
+     منطقة الاكتشاف: 5 تصنيفات فوق مكتبة الكورسات الكاملة —
+     الأعلى تقييمًا/الأكثر مشاهدة (من Supabase)، حصري (يدوي)،
+     أعمال مشهورة (يدوي، ترتيب من الأدمن)، مستمر (حالة الكورس + مشاهدات)
+     ============================================================ */
+  const DISCOVERY_TABS = [
+    { key: 'most_viewed', label: 'الأكثر مشاهدة', eyebrow: 'اختيارات الجمهور', title: 'الأكثر مشاهدة 🔥', color: '#e5202c' },
+    { key: 'top_rated', label: 'الأعلى تقييمًا', eyebrow: 'تقييم الطلاب', title: 'الأعلى تقييمًا ⭐', color: '#2f7cf6' },
+    { key: 'exclusive', label: 'حصري', eyebrow: 'مختارات المنصة', title: 'حصري', color: '#f5a623' },
+    { key: 'ongoing', label: 'مستمر', eyebrow: 'قيد الإضافة الآن', title: 'مستمر', color: '#27ae60' }
+  ];
+  let discoveryActive = 'most_viewed';
+
+  function initDiscovery() {
+    const host = document.getElementById('discoveryTabs');
+    if (!host) return;
+    host.innerHTML = DISCOVERY_TABS.map(t =>
+      `<button type="button" class="discovery-tab${t.key === discoveryActive ? ' active' : ''}" data-key="${t.key}" style="--tab-color:${t.color}">${hakimEscapeHtml(t.label)}</button>`
+    ).join('');
+    document.getElementById('randomPickBtn').addEventListener('click', async () => {
+      await hakimLoadScript('courses-list.js'); await hakimLoadScript('courses-index.js');
+      const published = window.COURSES_LIST || [], idx = window.COURSES_INDEX || {};
+      const pool = published.filter(id => idx[id] && !(idx[id].seasonNumber > 1) && hakimVisibleNow(idx[id]));
+      if (!pool.length) { hakimToast('مفيش كورسات متاحة دلوقتي', 'error'); return; }
+      location.href = pool[Math.floor(Math.random() * pool.length)] + '.html';
+    });
+    host.querySelectorAll('.discovery-tab[data-key]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (btn.dataset.key === discoveryActive) return;
+        discoveryActive = btn.dataset.key;
+        host.querySelectorAll('.discovery-tab').forEach(b => b.classList.toggle('active', b === btn));
+        loadDiscoveryTab(discoveryActive);
+      });
+    });
+    const track = document.getElementById('discoveryGrid');
+    document.getElementById('discoveryPrev').addEventListener('click', () => track.scrollBy({ left: track.clientWidth * 0.85, behavior: 'smooth' }));
+    document.getElementById('discoveryNext').addEventListener('click', () => track.scrollBy({ left: -track.clientWidth * 0.85, behavior: 'smooth' }));
+    loadDiscoveryTab(discoveryActive);
+  }
+
+  function discoveryCardHtml(id, data, badge) { return courseCardHtml(id, data, { badge }); }
+
+  async function discoveryRenderIds(ids, badgeMap, emptyMsg) {
+    const gridEl = document.getElementById('discoveryGrid');
+    if (!ids.length) { gridEl.innerHTML = `<div class="discovery-empty">${hakimEscapeHtml(emptyMsg || 'لا يوجد محتوى هنا حاليًا.')}</div>`; return; }
+    await Promise.all(ids.map(id => hakimLoadCourseCard(id)));
+    const html = ids.map(id => {
+      const d = (window.__HAKIM_COURSES || {})[id];
+      return d ? discoveryCardHtml(id, d, badgeMap && badgeMap[id]) : '';
+    }).join('');
+    gridEl.innerHTML = html || `<div class="discovery-empty">تعذّر تحميل الكورسات.</div>`;
+    gridEl.querySelectorAll('img').forEach(hakimLazyFade);
+    gridEl.scrollLeft = 0;
+  }
+
+  async function loadDiscoveryTab(key) {
+    const t = DISCOVERY_TABS.find(x => x.key === key);
+    document.getElementById('discoveryEyebrow').textContent = t.eyebrow;
+    document.getElementById('discoveryTitle').textContent = t.title;
+    document.querySelector('.discovery-head').style.setProperty('--tab-color', t.color);
+    document.getElementById('discoveryEyebrow').style.setProperty('--tab-color', t.color);
+    const gridEl = document.getElementById('discoveryGrid');
+    gridEl.innerHTML = `<div class="discovery-empty">جارٍ التحميل...</div>`;
+    await hakimLoadScript('courses-index.js');
+    const idx = window.COURSES_INDEX || {};
+    const publishedIds = window.COURSES_LIST || [];
+    const allIds = (Object.keys(idx).length ? Object.keys(idx) : publishedIds).filter(id => publishedIds.includes(id) && !(idx[id] && (idx[id].seasonNumber > 1 || !hakimVisibleNow(idx[id]))));
+
+    if (key === 'exclusive') {
+      const ids = allIds.filter(id => idx[id] && idx[id].exclusive).slice(0, 5);
+      return discoveryRenderIds(ids);
+    }
+    if (key === 'ongoing') {
+      let ongoingIds = allIds.filter(id => idx[id] && idx[id].info && idx[id].info.status === 'ongoing');
+      if (hakimSbReady()) {
+        const rows = await hakimSbRpc('get_top_viewed_courses', { p_limit: 100 });
+        if (rows) {
+          const rank = new Map(rows.map((r, i) => [r.course_id, i]));
+          ongoingIds.sort((a, b) => (rank.has(a) ? rank.get(a) : 999) - (rank.has(b) ? rank.get(b) : 999));
+        }
+      } else {
+        ongoingIds = hakimNewestFirst(ongoingIds, idx);
+      }
+      return discoveryRenderIds(ongoingIds.slice(0, 5));
+    }
+    // top_rated / most_viewed: تحتاج Supabase؛ لو مش متاح نرجع لأحدث الكورسات كبديل
+    if (!hakimSbReady()) {
+      const ids = hakimNewestFirst(allIds, idx).slice(0, 8);
+      return discoveryRenderIds(ids);
+    }
+    const rpcName = key === 'top_rated' ? 'get_top_rated_courses' : 'get_top_viewed_courses';
+    const rows = await hakimSbRpc(rpcName, { p_limit: 8 });
+    if (!rows || !rows.length) {
+      const ids = hakimNewestFirst(allIds, idx).slice(0, 8);
+      return discoveryRenderIds(ids);
+    }
+    const ids = rows.map(r => r.course_id).filter(id => allIds.includes(id));
+    const badgeMap = {};
+    rows.forEach(r => {
+      if (key === 'top_rated') badgeMap[r.course_id] = { icon: '⭐', value: r.avg_rating };
+      else badgeMap[r.course_id] = { icon: '👁', value: r.views };
+    });
+    return discoveryRenderIds(ids, badgeMap);
+  }
+
+  const headerSearch = document.getElementById('headerSearch');
+  function syncSearchUi() {
+    const q = searchInput.value.trim();
+    headerSearch.classList.toggle('has-text', !!q);
+    document.getElementById('discoverySection').hidden = !!q;
+    const ch = document.getElementById('continueHost'); if (ch) ch.hidden = !!q;
+    const hh = document.getElementById('hero'); if (hh) hh.hidden = !!q || hh.dataset.empty === '1' || !hh.innerHTML.trim();
+    document.getElementById('libTitle').textContent = q ? 'نتائج البحث عن «' + q + '»' : 'كل الكورسات';
+  }
+  /* ---- بحث بدون نتيجة: بنسجّله (من غير أي بيانات شخصية) عشان نعرف الناس بتدوّر على إيه ونضيفه ---- */
+  const missSeen = new Set(); let missTimer = null;
+  function logSearchMiss(raw, qNorm) {
+    clearTimeout(missTimer);
+    if (!qNorm || qNorm.length < 2 || missSeen.has(qNorm) || !hakimSbReady()) return;
+    if (activeCategory !== 'الكل' || statusFilter !== 'all') return; /* ممكن النتيجة موجودة في تصنيف تاني */
+    missTimer = setTimeout(() => {
+      if (hakimNormalizeAr(searchInput.value) !== qNorm) return;          /* لسه بيكتب */
+      if (!grid.querySelector('.empty-state')) return;                    /* ظهرت نتائج */
+      missSeen.add(qNorm);
+      hakimSbInsert('search_misses', { session_id: hakimSessionId(), q: String(raw).trim().slice(0, 80), q_norm: qNorm.slice(0, 80) });
+    }, 1500);
+  }
+  searchInput.addEventListener('input', () => { syncSearchUi(); renderedCount = BATCH_SIZE; renderGrid(); });
+  document.getElementById('searchClear').addEventListener('click', () => { searchInput.value = ''; searchInput.dispatchEvent(new Event('input')); searchInput.focus(); });
+
+  /* ============================================================
+     مقاييس الترتيب (تقييم/مشاهدات) + صفوف التصنيفات
+     ============================================================ */
+  async function getMetric(kind) {
+    if (metricCache[kind]) return metricCache[kind];
+    if (!hakimSbReady()) return null;
+    const rows = await hakimSbRpc(kind === 'top_rated' ? 'get_top_rated_courses' : 'get_top_viewed_courses', { p_limit: 500 });
+    if (!rows) return null;
+    return metricCache[kind] = new Map(rows.map(r => [r.course_id, Number(kind === 'top_rated' ? r.avg_rating : r.views) || 0]));
+  }
+  function renderCategoryRows(items) {
+    const groups = new Map(); /* ترتيب الصفوف بيتبع ترتيب أول ظهور (يعني بيتبع الخوارزمية) */
+    items.forEach(it => { const c = it.data.category || 'أخرى'; if (!groups.has(c)) groups.set(c, []); groups.get(c).push(it); });
+    const rows = [...groups.entries()].filter(([, arr]) => arr.length);
+    if (rows.length < 2) return false;
+    grid.className = 'cat-rows';
+    grid.innerHTML = rows.map(([cat, arr]) => `
+      <section class="cat-row">
+        <div class="section-head">
+          <h3 class="section-title">${hakimEscapeHtml(cat)} <small>(${arr.length})</small></h3>
+          ${cat !== 'أخرى' ? `<button type="button" class="section-link" data-cat="${hakimEscapeHtml(cat)}">عرض الكل ‹</button>` : ''}
+        </div>
+        <div class="discovery-carousel">
+          <button type="button" class="rail-btn prev" aria-label="السابق">‹</button>
+          <div class="discovery-track">${arr.slice(0, 12).map(({ id, data }, i) => cardHtml(id, data, i)).join('')}</div>
+          <button type="button" class="rail-btn next" aria-label="التالي">›</button>
+        </div>
+      </section>`).join('');
+    return true;
+  }
+  grid.addEventListener('click', (e) => {
+    const all = e.target.closest('.section-link[data-cat]');
+    if (all) {
+      const b = tabRow.querySelector('.tab-btn[data-cat="' + (window.CSS && CSS.escape ? CSS.escape(all.dataset.cat) : all.dataset.cat) + '"]');
+      if (b) b.click(); else { activeCategory = all.dataset.cat; renderedCount = BATCH_SIZE; renderGrid(); }
+      document.getElementById('librarySection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
+    const rb = e.target.closest('.rail-btn');
+    if (rb) { const tr = rb.parentElement.querySelector('.discovery-track'); tr.scrollBy({ left: (rb.classList.contains('next') ? -1 : 1) * tr.clientWidth * 0.85, behavior: 'smooth' }); }
+  });
+  const sortSel = document.getElementById('sortSel'), statusSel = document.getElementById('statusSel'), viewSeg = document.getElementById('viewSeg');
+  function syncViewSeg() { viewSeg.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.view === viewMode)); }
+  syncViewSeg();
+  sortSel.addEventListener('change', () => { sortMode = sortSel.value; renderedCount = BATCH_SIZE; renderGrid(); });
+  statusSel.addEventListener('change', () => { statusFilter = statusSel.value; renderedCount = BATCH_SIZE; renderGrid(); });
+  viewSeg.addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; viewMode = b.dataset.view; try { localStorage.setItem('hakim_view', viewMode); } catch (err) {} syncViewSeg(); renderedCount = BATCH_SIZE; renderGrid(); });
+
+  /* ============================================================
+     كمّل المشاهدة (صف كامل بشريط تقدّم)
+     ============================================================ */
+  const HISTORY_KEY = 'hakim_watch_history';
+  function readHistory() {
+    try { const h = JSON.parse(localStorage.getItem(HISTORY_KEY)); if (Array.isArray(h)) return h; } catch (e) {}
+    try { const lw = JSON.parse(localStorage.getItem('hakim_last_watch')); if (lw && lw.id) return [{ id: lw.id, index: lw.index || 0, num: lw.num || (lw.index || 0) + 1, pct: 0, ts: lw.ts || 0 }]; } catch (e) {}
+    return [];
+  }
+  function writeHistory(list) { try { localStorage.setItem(HISTORY_KEY, JSON.stringify(list)); } catch (e) {} }
+  function renderContinueWatching() {
+    const host = document.getElementById('continueHost'); if (!host) return;
+    const idx = window.COURSES_INDEX || {}, pub = window.COURSES_LIST || [];
+    const list = readHistory().filter(h => idx[h.id] && pub.includes(h.id) && hakimVisibleNow(idx[h.id])).sort((a, b) => (b.ts || 0) - (a.ts || 0)).slice(0, 12);
+    if (!list.length) { host.innerHTML = ''; return; }
+    host.innerHTML = `<section class="block">
+      <div class="section-head"><h2 class="section-title">كمّل المشاهدة</h2><button type="button" class="section-link" id="cwClear">مسح الكل</button></div>
+      <div class="discovery-carousel">
+        <button type="button" class="rail-btn prev" aria-label="السابق">‹</button>
+        <div class="discovery-track">${list.map(h => { const d = Object.assign({}, idx[h.id], { videos: new Array(idx[h.id].videosCount || 0).fill({}) }); return courseCardHtml(h.id, d, { href: encodeURIComponent(h.id) + '.html?ep=' + ((h.index || 0) + 1), progress: h.pct || 0, epLabel: 'الحلقة ' + (h.num || (h.index || 0) + 1), removable: true }); }).join('')}</div>
+        <button type="button" class="rail-btn next" aria-label="التالي">›</button>
+      </div></section>`;
+    host.querySelectorAll('.card-x').forEach(b => b.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); writeHistory(readHistory().filter(h => h.id !== b.dataset.rm)); renderContinueWatching(); }));
+    document.getElementById('cwClear').addEventListener('click', () => { writeHistory([]); try { localStorage.removeItem('hakim_last_watch'); } catch (e) {} renderContinueWatching(); });
+    host.addEventListener('click', (e) => { const rb = e.target.closest('.rail-btn'); if (rb) { const tr = host.querySelector('.discovery-track'); tr.scrollBy({ left: (rb.classList.contains('next') ? -1 : 1) * tr.clientWidth * 0.85, behavior: 'smooth' }); } });
+  }
+
+  /* ============================================================
+     البانر المميز (من الأعمال المشهورة، وإلا أحدث الأعمال)
+     ============================================================ */
+  let heroTimer = null, heroIdx = 0, heroCount = 0;
+  async function renderHero() {
+    const host = document.getElementById('hero'); if (!host) return;
+    await hakimLoadScript('featured-works.js');
+    const idx = window.COURSES_INDEX || {}, pub = window.COURSES_LIST || [];
+    const ok = id => idx[id] && pub.includes(id) && !(idx[id].seasonNumber > 1) && hakimVisibleNow(idx[id]);
+    let ids = (window.FEATURED_WORKS || []).filter(ok).slice(0, 5);
+    if (!ids.length) ids = hakimNewestFirst(pub.filter(ok), idx).slice(0, 5);
+    if (!ids.length) { host.dataset.empty = '1'; host.hidden = true; return; }
+    const e = hakimEscapeHtml;
+    host.innerHTML = ids.map((id, i) => {
+      const c = idx[id], img = c.img ? e(c.img) : HAKIM_PLACEHOLDER_IMG, st = c.info && c.info.status;
+      const stTxt = st === 'ongoing' ? 'مستمر' : (st === 'complete' ? 'مكتمل' : '');
+      return `<div class="hero-slide${i === 0 ? ' active' : ''}">
+        <div class="hero-bg" style="background-image:url('${img}')"></div>
+        <a class="hero-poster" href="${encodeURIComponent(id)}.html"><img src="${img}" alt="${e(c.name || '')}" onerror="this.onerror=null;this.src='${HAKIM_PLACEHOLDER_IMG}'"></a>
+        <div class="hero-info">
+          <div class="hero-badges">${c.category ? `<span class="b-cat">${e(c.category)}</span>` : ''}${stTxt ? `<span>${stTxt}</span>` : ''}</div>
+          <h2>${e(c.name || '')}</h2>
+          <p class="hero-meta">${c.videosCount ? c.videosCount + ' حلقة' : ''}</p>
+          ${c.description ? `<p class="hero-desc">${e(c.description)}</p>` : ''}
+          <a class="hero-btn" href="${encodeURIComponent(id)}.html">▶ شاهد الآن</a>
+        </div></div>`;
+    }).join('') + (ids.length > 1 ? `<button type="button" class="hero-nav prev" aria-label="السابق">‹</button><button type="button" class="hero-nav next" aria-label="التالي">›</button><div class="hero-dots">${ids.map((_, i) => `<button type="button" data-i="${i}" class="${i === 0 ? 'on' : ''}" aria-label="شريحة ${i + 1}"></button>`).join('')}</div>` : '');
+    heroCount = ids.length; heroIdx = 0; host.dataset.empty = ''; host.hidden = !!searchInput.value.trim();
+    const show = (n) => {
+      heroIdx = (n + heroCount) % heroCount;
+      host.querySelectorAll('.hero-slide').forEach((el, i) => el.classList.toggle('active', i === heroIdx));
+      host.querySelectorAll('.hero-dots button').forEach((el, i) => el.classList.toggle('on', i === heroIdx));
+    };
+    const play = () => { clearInterval(heroTimer); if (heroCount > 1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) heroTimer = setInterval(() => { if (!document.hidden) show(heroIdx + 1); }, 6000); };
+    host.addEventListener('click', (ev) => {
+      const b = ev.target.closest('.hero-nav, .hero-dots button'); if (!b) return;
+      if (b.classList.contains('next')) show(heroIdx - 1); else if (b.classList.contains('prev')) show(heroIdx + 1); else show(parseInt(b.dataset.i, 10));
+      play();
+    });
+    host.addEventListener('pointerenter', () => clearInterval(heroTimer)); host.addEventListener('pointerleave', play); host.addEventListener('focusin', () => clearInterval(heroTimer)); host.addEventListener('focusout', play);
+    let sx = null;
+    host.addEventListener('pointerdown', (ev) => { sx = ev.clientX; });
+    host.addEventListener('pointerup', (ev) => { if (sx == null) return; const dx = ev.clientX - sx; sx = null; if (Math.abs(dx) > 50 && heroCount > 1) { show(heroIdx + (dx < 0 ? 1 : -1)); play(); } });
+    play();
+  }
+
+  /* ============================================================
+     اقتراحات البحث + عمليات البحث السابقة
+     ============================================================ */
+  const RECENT_KEY = 'hakim_recent_searches';
+  const searchPop = document.getElementById('searchPop');
+  const readRecent = () => { try { const r = JSON.parse(localStorage.getItem(RECENT_KEY)); return Array.isArray(r) ? r : []; } catch (e) { return []; } };
+  const writeRecent = (r) => { try { localStorage.setItem(RECENT_KEY, JSON.stringify(r.slice(0, 8))); } catch (e) {} };
+  const addRecent = (q) => { q = String(q || '').trim(); if (q.length < 2) return; writeRecent([q, ...readRecent().filter(x => x !== q)]); };
+  let spActive = -1, spTimer = null;
+  async function updateSearchPop() {
+    const q = searchInput.value.trim(), e = hakimEscapeHtml;
+    await hakimLoadScript('courses-index.js');
+    const idx = window.COURSES_INDEX || {}, pub = new Set(window.COURSES_LIST || []);
+    spActive = -1;
+    if (!q) {
+      const rec = readRecent();
+      if (!rec.length) { searchPop.hidden = true; return; }
+      searchPop.innerHTML = '<div class="sp-head"><span>عمليات بحث سابقة</span><button type="button" data-clear="1">مسح الكل</button></div>' + rec.map(r => `<div class="sp-item sp-recent" data-q="${e(r)}"><span>🕘</span><span class="sp-t"><b>${e(r)}</b></span><button type="button" class="sp-x" data-rm="${e(r)}" aria-label="حذف">✕</button></div>`).join('');
+      searchPop.hidden = false; return;
+    }
+    const nq = hakimNormalizeAr(q), tokens = nq.split(' ');
+    const hits = Object.keys(idx).filter(id => pub.has(id) && !(idx[id].seasonNumber > 1) && hakimVisibleNow(idx[id])).map(id => {
+      const c = idx[id], nm = hakimNormalizeAr(c.name || '');
+      const hay = hakimNormalizeAr([c.name, c.description, c.category, (c.categories || []).join(' ')].join(' '));
+      if (!tokens.every(t => hay.includes(t))) return null;
+      return { id, c, score: nm.startsWith(nq) ? 0 : (nm.includes(nq) ? 1 : 2) };
+    }).filter(Boolean).sort((a, b) => a.score - b.score || String(a.c.name).localeCompare(String(b.c.name), 'ar')).slice(0, 6);
+    searchPop.innerHTML = (hits.length ? hits.map(h => `<a class="sp-item" href="${encodeURIComponent(h.id)}.html" data-title="${e(h.c.name || '')}"><img src="${h.c.img ? e(h.c.img) : HAKIM_PLACEHOLDER_IMG}" alt="" loading="lazy" onerror="this.onerror=null;this.src='${HAKIM_PLACEHOLDER_IMG}'"><span class="sp-t"><b>${e(h.c.name || '')}</b><small>${e(h.c.category || '')}${h.c.videosCount ? ' · ' + h.c.videosCount + ' حلقة' : ''}</small></span></a>`).join('') : '<div class="sp-empty">مفيش اقتراحات مطابقة</div>')
+      + `<button type="button" class="sp-all" data-all="1">🔎 عرض كل النتائج عن «${e(q)}»</button>`;
+    searchPop.hidden = false;
+  }
+  const spItems = () => [...searchPop.querySelectorAll('.sp-item, .sp-all')];
+  function spMove(d) { const it = spItems(); if (!it.length) return; it.forEach(x => x.classList.remove('act')); spActive = (spActive + d + it.length) % it.length; it[spActive].classList.add('act'); it[spActive].scrollIntoView({ block: 'nearest' }); }
+  function spSubmit() { const q = searchInput.value.trim(); if (q) addRecent(q); searchPop.hidden = true; searchInput.blur(); document.getElementById('librarySection').scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  searchInput.addEventListener('input', () => { clearTimeout(spTimer); spTimer = setTimeout(updateSearchPop, 90); });
+  searchInput.addEventListener('focus', updateSearchPop);
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); if (searchPop.hidden) updateSearchPop(); else spMove(1); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); spMove(-1); }
+    else if (e.key === 'Escape') { searchPop.hidden = true; }
+    else if (e.key === 'Enter') {
+      const it = spItems()[spActive];
+      if (it && !searchPop.hidden) { e.preventDefault(); if (it.classList.contains('sp-all')) spSubmit(); else if (it.dataset.q) { searchInput.value = it.dataset.q; searchInput.dispatchEvent(new Event('input')); spSubmit(); } else { addRecent(it.dataset.title); location.href = it.getAttribute('href'); } }
+      else spSubmit();
+    }
+  });
+  searchPop.addEventListener('mousedown', (e) => e.preventDefault());
+  searchPop.addEventListener('click', (e) => {
+    const rm = e.target.closest('[data-rm]'); if (rm) { e.stopPropagation(); writeRecent(readRecent().filter(x => x !== rm.dataset.rm)); updateSearchPop(); return; }
+    if (e.target.closest('[data-clear]')) { writeRecent([]); searchPop.hidden = true; return; }
+    const rec = e.target.closest('.sp-recent'); if (rec) { searchInput.value = rec.dataset.q; searchInput.dispatchEvent(new Event('input')); spSubmit(); return; }
+    if (e.target.closest('.sp-all')) { spSubmit(); return; }
+    const a = e.target.closest('a.sp-item'); if (a) addRecent(a.dataset.title);
+  });
+  document.addEventListener('click', (e) => { if (!headerSearch.contains(e.target)) searchPop.hidden = true; });
+  if (new URLSearchParams(location.search).get('focus') === 'search') setTimeout(() => searchInput.focus(), 500);
+
+  init();
+  initDiscovery();
+  hakimInitTheme();
+  hakimInitMenu();
+  hakimInitMyListsMenu();
+  hakimInitSectionsMenu();
+})();
+
+</script>
+</body>
+</html>

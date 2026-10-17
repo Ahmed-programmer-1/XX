@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="42%" r="65%">
+      <stop offset="0%" stop-color="#1a1a1c"/>
+      <stop offset="100%" stop-color="#0c0c0d"/>
+    </radialGradient>
+    <linearGradient id="blade" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ff5a63"/>
+      <stop offset="55%" stop-color="#e5202c"/>
+      <stop offset="100%" stop-color="#8c0f18"/>
+    </linearGradient>
+    <linearGradient id="flame" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#ff2e3b" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#ff6a52"/>
+    </linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <circle cx="100" cy="100" r="98" fill="url(#bg)" stroke="#e5202c" stroke-width="2.5"/>
+
+  <g filter="url(#glow)">
+    <!-- شفرة مركزية مائلة (رمز الحسم) -->
+    <path d="M100 34 L112 92 L100 168 L88 92 Z" fill="url(#blade)"/>
+    <!-- ألسنة لهب جانبية ترمز للطاقة/الحيوية -->
+    <path d="M100 96 C70 86 58 60 66 30 C74 56 84 70 100 78 Z" fill="url(#flame)"/>
+    <path d="M100 96 C130 86 142 60 134 30 C126 56 116 70 100 78 Z" fill="url(#flame)"/>
+    <!-- بريق أعلى الشفرة -->
+    <circle cx="100" cy="46" r="5" fill="#fff" opacity="0.9"/>
+  </g>
+</svg>

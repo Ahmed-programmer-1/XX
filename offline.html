@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0b0b0c">
+<title>مفيش اتصال — منصة حكيم التعليمية</title>
+<style>
+  :root { --bg: #0b0b0c; --surface: #151517; --line: #2a2a2c; --text: #f2f2f2; --muted: #9a9a9d; --red: #e5202c; }
+  :root[data-theme="light"] { --bg: #f6f6f7; --surface: #ffffff; --line: #e1e1e4; --text: #18181a; --muted: #6a6a70; }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, "Segoe UI", Tahoma, Arial, sans-serif; }
+  .card { width: 100%; max-width: 440px; text-align: center; background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 34px 24px; }
+  .ico { font-size: 3.2rem; line-height: 1; margin-bottom: 10px; }
+  h1 { margin: 0 0 8px; font-size: 1.35rem; }
+  p { margin: 0 0 18px; color: var(--muted); font-size: 0.92rem; line-height: 1.8; }
+  .row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  button, a.btn { font: inherit; font-weight: 700; font-size: 0.92rem; padding: 11px 20px; border-radius: 12px; cursor: pointer; text-decoration: none; border: 1px solid var(--line); background: none; color: inherit; }
+  button.primary { background: var(--red); border-color: var(--red); color: #fff; }
+  .status { margin-top: 16px; font-size: 0.8rem; color: var(--muted); min-height: 1.2em; }
+  .status.ok { color: #2ecc71; }
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="ico">📡</div>
+  <h1>مفيش اتصال بالإنترنت</h1>
+  <p>الصفحة دي لسه ما اتحمّلتش على جهازك. اتأكد من النت وجرّب تاني — وهنرجّعك لحد ما تكون جاهز أول ما الاتصال يرجع.</p>
+  <div class="row">
+    <button class="primary" id="retry" type="button">🔄 حاول تاني</button>
+    <a class="btn" href="index.html">🏠 الرئيسية</a>
+  </div>
+  <div class="status" id="status" aria-live="polite"></div>
+</main>
+<script>
+(function () {
+  try { var t = localStorage.getItem('hakim_theme'); if (t === 'light') document.documentElement.setAttribute('data-theme', 'light'); } catch (e) {}
+  var st = document.getElementById('status');
+  function go() { st.className = 'status ok'; st.textContent = 'الاتصال رجع ✅ جارٍ التحميل...'; setTimeout(function () { location.reload(); }, 400); }
+  document.getElementById('retry').addEventListener('click', function () {
+    if (navigator.onLine) go(); else { st.className = 'status'; st.textContent = 'لسه مفيش اتصال... جرّب بعد شوية.'; }
+  });
+  window.addEventListener('online', go);
+  if (!navigator.onLine) st.textContent = 'بنراقب الاتصال وهنحمّل الصفحة لوحدنا أول ما يرجع.';
+})();
+</script>
+</body>
+</html>

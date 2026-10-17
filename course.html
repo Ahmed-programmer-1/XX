@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<script>window.__hakimBIP=null;window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();window.__hakimBIP=e;window.dispatchEvent(new Event('hakim-bip'));});</script>
+<script src="anti-popup.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>كورس — منصة حكيم التعليمية</title>
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="icon-32.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#e5202c">
+<script>(function(){try{if(localStorage.getItem('hakim_theme')==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
+<link rel="stylesheet" href="course.css">
+<script src="nav.js" defer></script>
+<link rel="stylesheet" href="ui.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap site-header-inner">
+      <a href="index.html" class="brand">
+        <svg class="brand-mark" viewBox="0 0 200 200">
+          <defs>
+            <radialGradient id="bggm" cx="50%" cy="42%" r="65%"><stop offset="0%" stop-color="#1a1a1c"/><stop offset="100%" stop-color="#0c0c0d"/></radialGradient>
+            <linearGradient id="bladegm" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#ff5a63"/><stop offset="55%" stop-color="#e5202c"/><stop offset="100%" stop-color="#8c0f18"/></linearGradient>
+            <linearGradient id="flamegm" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#ff2e3b" stop-opacity="0"/><stop offset="100%" stop-color="#ff6a52"/></linearGradient>
+          </defs>
+          <circle cx="100" cy="100" r="98" fill="url(#bggm)" stroke="#e5202c" stroke-width="3"/>
+          <path d="M100 34 L112 92 L100 168 L88 92 Z" fill="url(#bladegm)"/>
+          <path d="M100 96 C70 86 58 60 66 30 C74 56 84 70 100 78 Z" fill="url(#flamegm)"/>
+          <path d="M100 96 C130 86 142 60 134 30 C126 56 116 70 100 78 Z" fill="url(#flamegm)"/>
+          <circle cx="100" cy="46" r="5" fill="#fff" opacity="0.9"/>
+        </svg>
+        <div class="brand-text">
+          <h1 class="js-site-name">منصة حكيم التعليمية</h1>
+          <p class="js-tagline">تعلّم بالترتيب الذي تريده أنت</p>
+        </div>
+      </a>
+      <div class="header-actions">
+        <div class="mylists-wrap">
+          <button class="nav-pill" id="sectionsBtn" title="الأقسام" aria-label="الأقسام" aria-haspopup="true" aria-expanded="false"><span class="nav-pill-label" id="sectionsBtnLabel">الصفحة الرئيسية</span><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button>
+          <div class="mylists-dropdown" id="sectionsDropdown"></div>
+        </div>
+        <div class="mylists-wrap">
+          <button class="nav-pill" id="myListsBtn" title="قوائمي" aria-label="قوائمي" aria-haspopup="true" aria-expanded="false"><span class="nav-pill-label">قوائمي</span><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></button>
+          <div class="mylists-dropdown" id="myListsDropdown"></div>
+        </div>
+        <button class="icon-btn" id="themeToggle" title="تبديل الوضع: ليلي / فاتح" aria-label="تبديل الوضع">
+          <svg class="moon" viewBox="0 0 24 24"><path d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>
+          <svg class="sun" viewBox="0 0 24 24"><path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0-5a1 1 0 011 1v2a1 1 0 11-2 0V3a1 1 0 011-1zm0 18a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1zM4.22 4.22a1 1 0 011.42 0l1.41 1.41a1 1 0 11-1.41 1.41L4.22 5.64a1 1 0 010-1.42zm12.73 12.73a1 1 0 011.41 0l1.41 1.41a1 1 0 01-1.41 1.41l-1.41-1.41a1 1 0 010-1.41zM1 12a1 1 0 011-1h2a1 1 0 110 2H2a1 1 0 01-1-1zm18 0a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1zM4.22 19.78a1 1 0 010-1.41l1.41-1.41a1 1 0 111.41 1.41l-1.41 1.41a1 1 0 01-1.41 0zM16.95 4.22a1 1 0 010 1.41l-1.41 1.41a1 1 0 11-1.41-1.41l1.41-1.41a1 1 0 011.41 0z"/></svg>
+        </button>
+        <button class="install-btn" id="installAppBtn" type="button" title="تثبيت التطبيق" aria-label="تثبيت التطبيق"><svg viewBox="0 0 24 24"><path d="M12 3a1 1 0 011 1v9.59l3.3-3.3a1 1 0 111.4 1.42l-5 5a1 1 0 01-1.4 0l-5-5a1 1 0 111.4-1.42l3.3 3.3V4a1 1 0 011-1zM5 19a1 1 0 011-1h12a1 1 0 110 2H6a1 1 0 01-1-1z"/></svg><span class="install-label">تثبيت التطبيق</span></button>
+        <button class="icon-btn hamburger-btn" id="menuBtn" title="القائمة" aria-label="القائمة">
+          <svg viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="menu-overlay" id="menuOverlay"></div>
+  <nav class="side-menu" id="sideMenu">
+    <button class="icon-btn menu-close" id="menuCloseBtn" aria-label="إغلاق"><svg viewBox="0 0 24 24"><path d="M6.4 4.98L4.98 6.4 10.59 12l-5.61 5.6 1.42 1.42L12 13.41l5.6 5.61 1.42-1.42L13.41 12l5.61-5.6-1.42-1.42L12 10.59z"/></svg></button>
+    <div id="sideMenuItems"></div>
+  </nav>
+
+  <main class="wrap">
+    <a href="index.html" class="back-link">
+      <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20z"/></svg>
+      العودة لكل الكورسات
+    </a>
+
+    <div id="courseError" class="course-error" style="display:none"></div>
+
+    <div id="pageBody">
+      <div class="course-banner" id="banner"></div>
+      <div class="info-section" id="infoSection"></div>
+      <div class="course-rating-host" id="courseRatingHost"></div>
+
+      <div class="player-shell" id="playerShell">
+        <div id="playerHost"></div>
+        <div class="video-stats-row" id="videoStatsRow"></div>
+        <div class="now-playing-title" id="nowPlaying"></div>
+      </div>
+
+      <div class="player-nav" id="playerNav"></div>
+      <div class="page-numbers" id="pageNumbers"></div>
+      <div class="lesson-list" id="lessonList"></div>
+      <section class="related-seasons" id="relatedSeasons"></section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="js-footer-rights">© 2026 منصة حكيم التعليمية — جميع الحقوق محفوظة</p>
+      <p class="rights-note js-footer-note">
+        المحتوى التعليمي المعروض على المنصة ملك لأصحابه ومقدّمي الكورسات الأصليين؛
+        هذه المنصة أداة عرض وتنظيم فقط ولا تدّعي ملكية أي مادة تعليمية بها.
+      </p>
+      <nav class="footer-links">
+        <a href="hub.html?tab=complaint" class="admin-link">قسم الشكوى وتقييم بلاغ</a>
+        <a href="hub.html?tab=contact" class="admin-link">اتصل بنا</a>
+        <a href="hub.html?tab=dmca" class="admin-link">DMCA</a>
+        <a href="hub.html?tab=join" class="admin-link">أريد العمل معكم</a>
+      </nav>
+      
+    </div>
+  </footer>
+
+<script src="course.js"></script>
+</body>
+</html>
