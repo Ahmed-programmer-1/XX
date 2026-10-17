@@ -1,3 +1,5 @@
 /* قائمة الفئات المتاحة للكورسات — تُدار من admin.html */
 
-window.CATEGORIES = [];
+window.CATEGORIES = [
+  "شونين"
+];
