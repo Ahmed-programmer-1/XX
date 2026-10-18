@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <script>window.__hakimBIP=null;window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();window.__hakimBIP=e;window.dispatchEvent(new Event('hakim-bip'));});</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ملفي الشخصي — منصة حكيم التعليمية</title>
+<title>ملفي الشخصي — AnimeZone</title>
 <link rel="icon" type="image/svg+xml" href="logo.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="icon-32.png">
 <link rel="apple-touch-icon" href="icon-180.png">
@@ -13,7 +13,7 @@
 <script>(function(){try{if(localStorage.getItem('hakim_theme')==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
 <style>
 /* ============================================================
-   منصة حكيم التعليمية — نظام التصميم (نسخة موسّعة)
+   AnimeZone — نظام التصميم (نسخة موسّعة)
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap');
@@ -483,7 +483,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
           <circle cx="100" cy="46" r="5" fill="#fff" opacity="0.9"/>
         </svg>
         <div class="brand-text">
-          <h1 class="js-site-name">منصة حكيم التعليمية</h1>
+          <h1 class="js-site-name">AnimeZone</h1>
           <p class="js-tagline">تعلّم بالترتيب الذي تريده أنت</p>
         </div>
       </a>
@@ -526,7 +526,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
 
   <footer class="site-footer">
     <div class="wrap">
-      <p class="js-footer-rights">© 2026 منصة حكيم التعليمية — جميع الحقوق محفوظة</p>
+      <p class="js-footer-rights">© 2026 AnimeZone — جميع الحقوق محفوظة</p>
       <p class="rights-note js-footer-note">
         المحتوى التعليمي المعروض على المنصة ملك لأصحابه ومقدّمي الكورسات الأصليين؛
         هذه المنصة أداة عرض وتنظيم فقط ولا تدّعي ملكية أي مادة تعليمية بها.
@@ -652,7 +652,7 @@ const HAKIM_PLACEHOLDER_IMG =
 async function hakimApplySiteSettings() {
   await hakimLoadScript('site-settings.js');
   const s = window.SITE_SETTINGS || {};
-  if (s.siteName) { document.querySelectorAll('.js-site-name').forEach(el => { el.textContent = s.siteName; }); const baked = s.siteNameApplied || 'منصة حكيم التعليمية'; if (baked !== s.siteName) document.title = document.title.split(baked).join(s.siteName); }
+  if (s.siteName) { document.querySelectorAll('.js-site-name').forEach(el => { el.textContent = s.siteName; }); const baked = s.siteNameApplied || 'AnimeZone'; if (baked !== s.siteName) document.title = document.title.split(baked).join(s.siteName); }
   if (s.tagline) document.querySelectorAll('.js-tagline').forEach(el => { el.textContent = s.tagline; });
   if (s.footerRights) document.querySelectorAll('.js-footer-rights').forEach(el => { el.textContent = s.footerRights; });
   if (s.footerNote) document.querySelectorAll('.js-footer-note').forEach(el => { el.textContent = s.footerNote; });
@@ -1096,7 +1096,7 @@ async function hakimTrackPageView(page, courseId, episodeIndex) {
   function shareUrl(code) { return location.origin + location.pathname.replace(/[^/]*$/, '') + 'profile.html?u=' + encodeURIComponent(code); }
   async function copy(text) { try { await navigator.clipboard.writeText(text); return true; } catch (e) { const t = document.createElement('textarea'); t.value = text; document.body.appendChild(t); t.select(); let ok = false; try { ok = document.execCommand('copy'); } catch (e2) {} t.remove(); return ok; } }
   async function shareProfile(code, name) {
-    const url = shareUrl(code), text = 'شوف ملفي الشخصي على منصة حكيم التعليمية — ' + name;
+    const url = shareUrl(code), text = 'شوف ملفي الشخصي على AnimeZone — ' + name;
     if (navigator.share) { try { await navigator.share({ title: name, text, url }); return; } catch (e) { if (e && e.name === 'AbortError') return; } }
     hakimToast((await copy(url)) ? 'اتنسخ رابط ملفك الشخصي 🔗' : url, 'success');
   }
