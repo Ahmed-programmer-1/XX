@@ -1,9 +1,11 @@
 /* إعدادات الموقع العامة — تُدار من admin.html */
 
 window.SITE_SETTINGS = {
-  "siteName": "منصة حكيم التعليمية",
+  "siteName": "AnimeZone",
+  "siteShortName": "",
+  "siteNameApplied": "AnimeZone",
   "tagline": "تعلّم بالترتيب الذي تريده أنت",
-  "footerRights": "© 2026 منصة حكيم التعليمية — جميع الحقوق محفوظة",
+  "footerRights": "© 2026 AnimeZone — جميع الحقوق محفوظة",
   "footerNote": "المحتوى التعليمي المعروض على المنصة ملك لأصحابه ومقدّمي الكورسات الأصليين؛ هذه المنصة أداة عرض وتنظيم فقط ولا تدّعي ملكية أي مادة تعليمية بها.",
   "reportUrl": "",
   "telegramUrl": "https://t.me/+_UvwpoODEkkwZTg0",
