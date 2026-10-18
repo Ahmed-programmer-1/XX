@@ -1,4 +1,5 @@
 registerCourse("AAA4", {
+  "hostTag": "فيكيسو",
   "playback": {
     "antiPopupAll": true
   },
