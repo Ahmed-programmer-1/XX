@@ -10,7 +10,10 @@ registerCourse("AAA2", {
   "category": "أنمي",
   "level": "",
   "categories": [
-    "كورس مالي"
+    "شونين",
+    "مغامره",
+    "سينين",
+    "قوة خارقة"
   ],
   "firstPublishedAt": "2026-10-17T18:09:00.354Z",
   "menuSection": "",
