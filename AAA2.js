@@ -1,5 +1,5 @@
 registerCourse("AAA2", {
-  "hostTag": "VIDERO",
+  "hostTag": "فيكيسو",
   "playback": {
     "antiPopupAll": true
   },
