@@ -1,5 +1,5 @@
 registerCourse("AAA3", {
-  "hostTag": "Uqload",
+  "hostTag": "Uload",
   "playback": {
     "antiPopupAll": true
   },
