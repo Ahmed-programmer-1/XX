@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin.html
 
-Sitemap: https://Ahmed-programmer-1.github.io/XX/sitemap.xml
+Sitemap: https://ahmed-programmer-1.github.io/XX/sitemap.xml
