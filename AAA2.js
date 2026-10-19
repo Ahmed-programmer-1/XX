@@ -1,9 +1,9 @@
 registerCourse("AAA2", {
-  "hostTag": "فيكيسو",
+  "hostTag": "VIDERO",
   "playback": {
     "antiPopupAll": true
   },
-  "img": "https://raw.githubusercontent.com/Ahmed-programmer-1/XX/main/images/AAA2-1792260068181.webp",
+  "img": "https://raw.githubusercontent.com/Ahmed-programmer-1/XX/main/images/AAA2-1792444425135.webp",
   "name": "سيف النار",
   "description": "",
   "exclusive": false,
