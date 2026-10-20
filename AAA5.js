@@ -44,7 +44,7 @@ registerCourse("AAA5", {
     {
       "num": 1,
       "title": "الحلقة 1",
-      "link": "https://vixeo.io/e/ql8iBacOGc1G",
+      "link": "https://uqload.vc/embed-ijcfjilof1ps.html",
       "disabled": false,
       "disabledMessage": ""
     },
