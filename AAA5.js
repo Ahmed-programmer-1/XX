@@ -51,7 +51,7 @@ registerCourse("AAA5", {
     {
       "num": 2,
       "title": "الحلقة 2",
-      "link": "https://videro.my/e/sqm05fojfjp3nnz",
+      "link": "https://videro.my/e/ur6m1hucw6ar161",
       "disabled": false,
       "disabledMessage": ""
     },
