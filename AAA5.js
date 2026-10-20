@@ -51,7 +51,7 @@ registerCourse("AAA5", {
     {
       "num": 2,
       "title": "الحلقة 2",
-      "link": "https://vixeo.io/e/DogiYamJNYES",
+      "link": "https://videro.my/e/sqm05fojfjp3nnz",
       "disabled": false,
       "disabledMessage": ""
     },
