@@ -12,6 +12,6 @@ window.SITE_SETTINGS = {
   "supabaseUrl": "",
   "supabaseAnonKey": "",
   "customCode": "",
-  "maintenanceMode": false,
+  "maintenanceMode": true,
   "maintenanceMessage": "الموقع تحت الصيانة حاليًا، هنرجع قريبًا 🛠️"
 };
